@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #b0e0b0; /* Fondo verde claro */
+        }
+
+        .login-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px; /* Adjust as needed */
+            background-color: #e0f0e0;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* To prevent overlay overflow */
+        }
+
+        .left-section, .right-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left-section {
+            background-color: #90d090; /* Fondo verde más oscuro */
+        }
+
+        .right-section {
+            background-color: #b0e0b0; /* Fondo verde claro */
+            position: relative;
+        }
+
+        .building-image {
+            width: 80%; /* Ajustar tamaño */
+            height: auto; /* Mantener proporción */
+            opacity: 0.7; /* Ajusta la opacidad según sea necesario */
+            color: #fff;
+            text-align: center;
+        }
+
+        .login-form {
+            background-color: #4caf50; /* Fondo verde */
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .login-form h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff; /* Texto blanco */
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #fff; /* Fondo blanco */
+            color: #4caf50; /* Texto verde */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-buttons {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .login-buttons button {
+            background-color: #4caf50; /* Fondo verde */
+            color: #fff; /* Texto blanco */
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="left-section">
+            <div class="login-form">
+                <h1>INICIO DE SESIÓN</h1>
+                <input id="nameInput" type="text" placeholder="Usuario">
+                <input id= "passwordInput" type="password" placeholder="Contraseña">
+                <button id="login_admin">Log in</button>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="building-image">
+                <img src="logo-valle-del-lili.png" alt="Logo Valle del Lili">
+                <div class="login-buttons">
+                    <button id="login_doctor">Log in as Doctor</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./index.js"></script>
+</html>
