@@ -6,9 +6,10 @@
     <title>Iniciar Sesión</title>
     <style>
         html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
+          position: absolute;
+          background: #C5E7B6;
+          width: 1440px;
+            height: 1024px;
         }
 
         body {
@@ -16,18 +17,24 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #b0e0b0; /* Fondo verde claro */
+            background-color: #C5E7B6; /* Fondo verde claro */
+
         }
 
         .login-container {
+            box-sizing: border-box;
+            position: absolute;
+            height: 725px;
+            left: 102px;
+            right: 103px;
+            top: 150px;
+            background: rgba(221, 245, 210, 0.5);
+            border: 1px solid #C6F0B2;
+            border-radius: 30px;
             display: flex;
-            width: 100%;
-            max-width: 1200px; /* Adjust as needed */
-            background-color: #e0f0e0;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden; /* To prevent overlay overflow */
-            position: relative; /* Add position relative to set position absolute */
+            width: 1235px;
+            height: 725px;
+
         }
 
         .left-section, .right-section {
@@ -39,26 +46,42 @@
         }
 
         .left-section {
-            background-color: #90d090; /* Fondo verde más oscuro */
+            
+            background-color: #DDF5D2; /* Fondo verde más oscuro */
         }
 
         .right-section {
-            background-color: #b0e0b0; /* Fondo verde claro */
+            background-color: #DDF5D2; /* Fondo verde claro */
         }
 
         .building-image {
-            width: 80%; /* Ajustar tamaño */
-            height: auto; /* Mantener proporción */
-            opacity: 0.7; /* Ajusta la opacidad según sea necesario */
+            width: 100%; /* Ajustar tamaño */
+            height: 100%; /* Mantener proporción */
+            opacity:1; /* Ajusta la opacidad según sea necesario */
             color: #fff;
             text-align: center;
+            
         }
 
         .login-form {
-            background-color: #4caf50; /* Fondo verde */
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
+
+         position: absolute;
+         width: 426px;
+         height: 540px; 
+         background: #D9D9D9;
+         mix-blend-mode: multiply;
+         border-radius: 10px;
+         
+
+        }
+        .avatar1{
+
+         position: absolute;
+         left: 30%;
+         right: 65.14%;
+         background: url(avatar1.png);
+
+
         }
 
         .login-form h1 {
@@ -71,56 +94,120 @@
         .login-form input[type="password"] {
             width: 100%;
             padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
+            box-sizing: border-box;
+            background: #91BB7D;
+            border: 1px solid #000000;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             border-radius: 5px;
-        }
+            margin-bottom: 30px;
+            font-family: 'Inter';
+            font-style: italic;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            color: #000000;
 
-        .login-form button {
-            width: 100%;
-            padding: 10px;
-            background-color: #fff; /* Fondo blanco */
-            color: #4caf50; /* Texto verde */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+            opacity: 0.5;
 
+    
+            
+        }
         .login-buttons {
             position: absolute;
             bottom: 20px;
             left: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 40px;
+            box-sizing: border-box;
         }
 
         .login-buttons button {
-            background-color: #4caf50; /* Fondo verde */
-            color: #fff; /* Texto blanco */
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
+            
+            background-color: #67B443; /* Fondo verde */
+            opacity: 50%;
+            color: #7B6E6E; /* Texto blanco */
+            font-family: 'Inter';
+            font-style: italic;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 22px;
+     
+            border-radius: 50px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
             cursor: pointer;
         }
+        
+         .square-login{
+          position: absolute;
+          width: 351px;
+          height: 258px;
+          justify-content: center;
+          align-items: center;
+          top: 300px; /* Ajusta la posición verticalmente */
+          left: 50%;
+          transform: translate(-50%, -50%);
+         }
+
+         .button-login-admin{
+           position: absolute;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           top: 65%;
+
+         }
+
+         .button-login-admin button{
+            width: 180px;
+            height: 66px;
+            padding: 10px;
+            box-sizing: border-box;
+            background: #67B443;
+            border: 1px solid #000000;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 100px;
+            font-family: 'Inter';
+            font-style: italic;
+            font-weight: 700;
+            font-size: 25px;
+            line-height: 30px;
+            color: #FFFFFF;
+         }
+
+
+         
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <div class="left-section">
-            <div class="login-form">
-                <h1>INICIO DE SESIÓN</h1>
-                <input id="nameInput" type="text" placeholder="Usuario">
-                <input id= "passwordInput" type="password" placeholder="Contraseña">
-                <button id="login_admin">Log in</button>
+        <div class="login-container">
+            <div class="left-section">
+                <div class="login-form">
+                  <div class="avatar1">
+                    <img src="avatar1.png" alt="avatar1">
+                  </div>
+                   <div class="square-login">
+                    <input id="nameInput" type="text" placeholder="Usuario">
+                    <input id= "passwordInput" type="password" placeholder="Contraseña">
+                    <div class="button-login-admin">
+                        <button id="login_admin">Log in</button>
+                    </div>
+                   </div>
+                 </div>
+                 <div class="login-buttons"> 
+                    <button id="login_doctor">    Log in as Doctor    </button>
+                </div>
             </div>
-            <div class="login-buttons"> <!-- Wrap the button in a div for positioning -->
-                <button id="login_doctor">Log in as Doctor</button>
+            <div class="right-section">
+                <div class="building-image">
+                    <img src="logo-valle-del-lili.png" alt="Logo Valle del Lili">
+                </div>
             </div>
         </div>
-        <div class="right-section">
-            <div class="building-image">
-                <img src="logo-valle-del-lili.png" alt="Logo Valle del Lili">
-            </div>
-        </div>
-    </div>
 </body>
 <script src="./index.js"></script>
 </html>
+
+
