@@ -1,16 +1,50 @@
-// Variables para los elementos del sidebar
-const logo = document.querySelector('.logo');
-const homeButton = document.querySelector('.button:nth-child(1)');
-const doctorsButton = document.querySelector('.button:nth-child(2)');
-const exitButton = document.querySelector('.button:nth-child(3)');
-const logoIcesi = document.querySelector('.logoIcesi');
-
-// Variables para los elementos del container
-const container = document.querySelector('.container');
-const doctorImage = document.querySelector('.fundacion-image');
+const homeButton = document.getElementById('homeButton');
+const doctorsButton = document.getElementById('doctorsButton');
+const exitButton = document.getElementById('exitButton');
 const doctorInput = document.getElementById('doctorInput');
-const eliminarButton = document.querySelector('.buttons button');
+const deleteButton = document.getElementById('deleteButton');
 
-function eliminarDoctor() {
-    
+
+//Eventos
+
+homeButton.addEventListener('click',goHome);
+doctorsButton.addEventListener('click',goDoctorsSeccion());
+exitButton.addEventListener('click', goBack());
+deleteButton.addEventListener('click',deleteDoctor);
+
+
+
+function goBack(){
+    window.location.href = "../AgregarEliminarBuscarDoctores/pagina.html";
+
+}
+function goDoctorsSeccion(){
+    window.location.href = "../AgregarEliminarBuscarDoctores/pagina.html";
+
+
+}
+
+
+function goHome(){
+
+}
+
+
+function deleteDoctor() {
+    let doctorDelete = doctorInput.value;
+
+
+    postDoctorDelete(doctorDelete);
+}
+
+async function postDoctorDelete(doctorDelete){
+    let json = JSON.stringify(doctorDelete);
+
+    let response = await fetch('https://46ad-200-3-193-78.ngrok-free.app/doctor/delete',{
+        method: 'DELETE',
+        headers:{
+            'Content-Type': 'application/json'
+        }, 
+        body: json
+    });
 }

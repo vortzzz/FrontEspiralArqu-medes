@@ -52,9 +52,9 @@
       filter: brightness(0.4);
     }
 
-    .button:nth-child(2),
-    .button:nth-child(3),
-    .button:nth-child(4) {
+    .button:nth-child(2), /*Home*/
+    .button:nth-child(3),/*Doctos*/
+    .button:nth-child(4) /*Exit*/{
       margin-top: auto;
     }
 
@@ -94,9 +94,9 @@
 <body>
   <div class="sidebar">
     <img src="logofundacion.png" alt="Logofundacion" class="logo">
-    <button class="button">Home</button>
-    <button class="button">Doctors</button>
-    <button class="button">Exit</button>
+    <button id="homeButton" class="button">Home</button>
+    <button id="doctorsButton" class="button">Doctors</button>
+    <button id="exitButton" class="button">Exit</button>
     <img src="logoIcesi.png" alt="LogoIcesi" class="logoIcesi">
   </div>
 
@@ -105,9 +105,8 @@
     <img src="Doctor.jpg" alt="Doctor" class="fundacion-image">&nbsp;
     <div class="buttons" style="text-align: center;">&nbsp;
       <div style="margin-bottom: 10px; display: flex; align-items: center;">
-        <label for="doctorInput" style="margin-right: 10px;">Escriba el doctor que quiera eliminar:</label>
-        <input type="text" id="doctorInput" name="doctorInput">
-        <button onclick="eliminarDoctor()" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Eliminar</button>
+        <input type="text" id="doctorInput" name="doctorInput" placeholder="digite la cedula del doctor"><br><br>
+        <button id="deleteButton" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Eliminar</button>
       </div>
       
     </div>
