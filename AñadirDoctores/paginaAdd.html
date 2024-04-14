@@ -6,7 +6,7 @@
   <title>Página del Administrador</title>
   <style>
     body {
-      background-color: white;
+      background-color: #BDDFFF;
       font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
@@ -15,12 +15,13 @@
       margin: 0;
     }
 
+
     .sidebar {
       background-color: #aed581;
-      padding: 20px;
+      padding: 30px;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items:center;
       height: 100vh;
     }
 
@@ -28,6 +29,7 @@
       width: 180px;
       margin-bottom: 20px;
     }
+
 
     .button {
       background-color: #7cb342;
@@ -52,9 +54,9 @@
       filter: brightness(0.4);
     }
 
-    .button:nth-child(2), /*Home*/
-    .button:nth-child(3),/*Doctos*/
-    .button:nth-child(4) /*Exit*/{
+    .button:nth-child(2),
+    .button:nth-child(3),
+    .button:nth-child(4) {
       margin-top: auto;
     }
 
@@ -92,26 +94,34 @@
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <img src="logofundacion.png" alt="Logofundacion" class="logo">
-    <button id="homeButton" class="button">Home</button>
-    <button id="doctorsButton" class="button">Doctors</button>
-    <button id="exitButton" class="button">Exit</button>
-    <img src="logoIcesi.png" alt="LogoIcesi" class="logoIcesi">
+  <div class="container1" style="display: flex;">
+    <div class="sidebar">
+      <img src="logofundacion.png" alt="Logofundacion" class="logo">
+      <button id="homeButton" class="button">Home</button>
+      <button id="doctorsButton" class="button">Doctors</button>
+      <button id="exitButton" class="button">Exit</button>
+      <img src="logoIcesi.png" alt="LogoIcesi" class="logoIcesi">
+    </div>
+    <div class="main-content">
+      </div>
   </div>
+</body>
 
   <div class="container" style="padding: 20px;">
-    <h1 style="color: #004d40;">Zona de eliminación de doctores: </h1>
-    <img src="Doctor.jpg" alt="Doctor" class="fundacion-image">&nbsp;
+    <h1 style="color: #004d40;">Zona de adición de doctores: </h1>
+    <img src="Doctor añadir.png" alt="Doctor" class="fundacion-image">&nbsp;
     <div class="buttons" style="text-align: center;">&nbsp;
       <div style="margin-bottom: 10px; display: flex; align-items: center;">
-        <input type="text" id="doctorInput" name="doctorInput" placeholder="digite la cedula del doctor"><br><br>
-        <button id="deleteButton" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Eliminar</button>
+        <input type="text" id="doctorName" placeholder="Nombre" name="doctorName" style=" height: 20px" >
+        <input type="text" id="doctorEmail" placeholder="Email" name="doctorEmail" style=" height: 20px">
+        <input type="text" id="doctorCC" placeholder="CC"name="doctorCC" style="height: 20px;">
+        <input type="text" id="doctorPhone"placeholder="Phone" name="doctorPhone" style="height: 20px">
+        <button id="addButton" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Añadir</button>
       </div>
       
     </div>
   </div>
 
-  <script src="./indexDelete.js"></script>
+  <script src="./indexAdd.js"></script>
 </body>
 </html>
