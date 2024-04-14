@@ -49,6 +49,7 @@ function addDoctor() {
 
     postDoctorAdd(doctor);
     alert("Doctor añadido correctamente")
+    console.log(doctor);
     }
 }
 
