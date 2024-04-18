@@ -38,7 +38,7 @@ async function  postLogin(LoginRequest){
    });
 
    if(response.ok) {
-    window.location.href = 'http://127.0.0.1:5500/PrincipalPageAdmin/Untitled-1.html';
+    window.location.href = 'http://127.0.0.1:5500/AgregarEliminarBuscarDoctores/pagina.html';
     } else {
     if(response.status === 401) {
         alert('Nombre de usuario o contraseña incorrectos');

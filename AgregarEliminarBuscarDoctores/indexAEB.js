@@ -11,7 +11,7 @@ function agregarDoctor() {
   }
 
 function exit(){
-    //Volver a sign up
+    window.location.href = "../LoginAdmin/Untitled-1.html"
 
 }
 function goDoctorsSeccion(){

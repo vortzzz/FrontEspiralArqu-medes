@@ -16,7 +16,7 @@ exitButton.addEventListener('click', exit);
 
 
 function exit(){
-    //Volver a sign up
+    window.location.href = "../LoginAdmin/Untitled-1.html"
 
 }
 function goDoctorsSeccion(){
@@ -48,8 +48,6 @@ function addDoctor() {
        }
 
     postDoctorAdd(doctor);
-    alert("Doctor añadido correctamente")
-    console.log(doctor);
     }
 }
 
@@ -64,7 +62,10 @@ async function postDoctorAdd(doctorAdd){
         body: json
     });
     let doctor = await response.json();
-    console.log(doctor);
+    let msg=JSON.stringify(doctor);
+    msg=msg.replace("description","").replace("{","").replace("}","").replace(":","").replace(/"/g,"");
+    alert(msg);
+    window.location.href = "paginaAdd.html";
 }
 
 
