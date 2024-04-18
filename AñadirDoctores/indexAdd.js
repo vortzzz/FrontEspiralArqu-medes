@@ -17,13 +17,11 @@ exitButton.addEventListener('click', exit);
 
 function exit(){
     window.location.href = "../LoginAdmin/Untitled-1.html"
-
 }
 function goDoctorsSeccion(){
     window.location.href = "../AgregarEliminarBuscarDoctores/pagina.html"
 
 }
-
 
 function goHome(){
     window.location.href = "../AgregarEliminarBuscarDoctores/pagina.html";
