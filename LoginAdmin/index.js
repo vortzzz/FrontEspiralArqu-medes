@@ -37,7 +37,11 @@ async function  postLogin(LoginRequest){
       body: json
    });
 
+   let data= await response.json()
+   console.log(data);
    if(response.ok) {
+    let user= JSON.stringify(data);
+    window.localStorage.setItem('user',user);
     window.location.href = 'http://127.0.0.1:5500/AgregarEliminarBuscarDoctores/pagina.html';
     } else {
     if(response.status === 401) {
