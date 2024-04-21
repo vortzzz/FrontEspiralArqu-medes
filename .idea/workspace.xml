@@ -5,32 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9de10c4f-fd21-4268-a5f6-f1805363538d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/FrontEspiralArqu-medes.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgregarEliminarBuscarDoctores/fundacion.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgregarEliminarBuscarDoctores/logoFundacion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgregarEliminarBuscarDoctores/logoIcesi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgregarEliminarBuscarDoctores/pagina.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AñadirDoctores/Doctor añadir.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AñadirDoctores/indexAdd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AñadirDoctores/logoFundacion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AñadirDoctores/logoIcesi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AñadirDoctores/paginaAdd.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EliminarDoctores/Doctor.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EliminarDoctores/indexDelete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EliminarDoctores/logoFundacion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EliminarDoctores/logoIcesi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EliminarDoctores/paginadelete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoginAdmin/Untitled-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoginAdmin/avatar1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoginAdmin/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoginAdmin/logo-icesi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoginAdmin/logo-valle-del-lili.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AgregarEliminarBuscarDoctores/indexAEB.js" beforeDir="false" afterPath="$PROJECT_DIR$/AgregarEliminarBuscarDoctores/indexAEB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BuscarDoctores/indexSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/BuscarDoctores/indexSearch.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,21 +33,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Asus Rog Strix/Documents/FrontEnd/FrontEspiralArqu-medes",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus Rog Strix/Documents/FrontEnd/FrontEspiralArqu-medes&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Asus Rog Strix\Documents\FrontEnd\FrontEspiralArqu-medes\BuscarDoctores" />
@@ -85,6 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713657624668</updated>
       <workItem from="1713657626415" duration="2121000" />
+      <workItem from="1713666368718" duration="4734000" />
     </task>
     <servers />
   </component>
