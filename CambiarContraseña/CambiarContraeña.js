@@ -5,14 +5,14 @@ const changePasswordForm = document.getElementById('changePasswordButton');
 const usernameInput= document.getElementById('usernameInput');
 const goBackButton = document.getElementById('goBackButton');
 
-changePasswordForm.addEventListener('click', change);
+changePasswordForm.addEventListener('click', changeP);
 goBackButton.addEventListener('click', goBack);
 
 function goBack() {
-    window.location.href = 'http://127.0.0.1:5500/LoginDoctor/LogIn.html';
+    window.location.href = '../LoginDoctor/LogIn.html';
 }
 
-async function change() {
+async function changeP() {
   
     let username= usernameInput.value;
     let password = currentPasswordInput.value;

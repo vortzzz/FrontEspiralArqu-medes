@@ -12,12 +12,12 @@ login_doctor.addEventListener('click',login);
 login_admin.addEventListener('click',back_page);
 
 function page_password(){
-    window.location.href = "http://127.0.0.1:5500/CambiarContrase%C3%B1a/CambiarContrase%C3%B1a.html";
+    window.location.href = "../CambiarContraseña/CambiarContraeña.html";
 }
 
 
 function back_page(){
-    window.location.href = "http://127.0.0.1:5500/LoginAdmin/Untitled-1.html";
+    window.location.href = "../LoginAdmin/Untitled-1.html";
 }
 
 function login(){
@@ -50,7 +50,7 @@ async function  postLogin(LoginRequest){
    if(response.ok) {
     let user= JSON.stringify(data);
     window.localStorage.setItem('user', user);
-    window.location.href ='http://127.0.0.1:5500/PrincipalPageDOCTOR/DOCTORS.html'; 
+    window.location.href ='../PrincipalPageDOCTOR/DOCTORS.html'; 
     } else {
         if(response.status === 401) {
        alert(data.message);
