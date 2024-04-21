@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <style>
+        html, body {
+          position: absolute;
+          background: #C5E7B6;
+          width: 100%;
+          height: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #C5E7B6; /* Fondo verde claro */
+
+        }
+
+        .login-container {
+            box-sizing: border-box;
+            position: absolute;
+            left: 102px;
+            right: 103px;
+            background: rgba(221, 245, 210, 0.5);
+            border: 1px solid #C6F0B2;
+            border-radius: 30px;
+            display: flex;
+            width: 1235px;
+            height: 725px;
+
+        }
+
+        .left-section, .right-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Add position relative */
+        }
+
+        .left-section {
+            
+            background-color: #DDF5D2; /* Fondo verde más oscuro */
+        }
+
+        .right-section {
+            background-color: #DDF5D2; /* Fondo verde claro */
+        }
+
+        .building-image {
+            width: 100%; /* Ajustar tamaño */
+            height: 100%; /* Mantener proporción */
+            opacity:1; /* Ajusta la opacidad según sea necesario */
+            color: #fff;
+            text-align: center;
+            
+        }
+
+        .login-form {
+
+         position: absolute;
+         width: 426px;
+         height: 540px; 
+         background: #D9D9D9;
+         mix-blend-mode: multiply;
+         border-radius: 10px;
+         
+
+        }
+        .avatar1{
+
+         position: absolute;
+         left: 30%;
+         right: 65.14%;
+         background: url(avatar1.png);
+
+
+        }
+
+        .login-form h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff; /* Texto blanco */
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background: #91BB7D;
+            border: 1px solid #000000;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 5px;
+            margin-bottom: 30px;
+            font-family: 'Inter';
+            font-style: italic;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            color: #000000;
+
+            opacity: 0.5;
+
+    
+            
+        }
+        .login-buttons {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 40px;
+            box-sizing: border-box;
+        }
+
+        .login-buttons button {
+            
+            background-color: #67B443; /* Fondo verde */
+            opacity: 50%;
+            color: #7B6E6E; /* Texto blanco */
+            font-family: 'Inter';
+            font-style: italic;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 22px;
+     
+            border-radius: 50px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            cursor: pointer;
+        }
+        
+         .square-login{
+          position: absolute;
+          width: 351px;
+          height: 258px;
+          justify-content: center;
+          align-items: center;
+          top: 300px; /* Ajusta la posición verticalmente */
+          left: 50%;
+          transform: translate(-50%, -50%);
+         }
+
+         .button-login-admin{
+           position: absolute;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           top: 65%;
+
+         }
+
+         .button-login-admin button{
+            width: 180px;
+            height: 66px;
+            padding: 10px;
+            box-sizing: border-box;
+            background: #67B443;
+            border: 1px solid #000000;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 100px;
+            font-family: 'Inter';
+            font-style: italic;
+            font-weight: 700;
+            font-size: 25px;
+            line-height: 30px;
+            color: #FFFFFF;
+            cursor: pointer;
+         }
+
+
+         
+    </style>
+</head>
+<body>
+        <div class="login-container">
+            <div class="left-section">
+                <div class="login-form">
+                  <div class="avatar1">
+                    <img src="avatar1.png" alt="avatar1">
+                  </div>
+                   <div class="square-login">
+                    <input id="nameInput" type="text" placeholder="Usuario">
+                    <input id= "passwordInput" type="password" placeholder="Contraseña">
+                    <div class="button-login-admin">
+                        <button id="login_admin">Log in</button>
+                    </div>
+                   </div>
+                 </div>
+                 <div class="login-buttons"> 
+                    <button id="login_doctor">    Log in as Doctor    </button>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="building-image">
+                    <img src="logo-valle-del-lili.png" alt="Logo Valle del Lili">
+                </div>
+            </div>
+        </div>
+</body>
+<script src="./index.js"></script>
+</html>
+
+

@@ -5,11 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9de10c4f-fd21-4268-a5f6-f1805363538d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BuscarDoctores/Doc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BuscarDoctores/indexSearch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BuscarDoctores/logoFundacion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BuscarDoctores/logoIcesi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BuscarDoctores/paginaSearch.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/FrontEspiralArqu-medes.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AgregarEliminarBuscarDoctores/fundacion.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AgregarEliminarBuscarDoctores/logoFundacion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AgregarEliminarBuscarDoctores/logoIcesi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AgregarEliminarBuscarDoctores/pagina.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AñadirDoctores/Doctor añadir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AñadirDoctores/indexAdd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AñadirDoctores/logoFundacion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AñadirDoctores/logoIcesi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AñadirDoctores/paginaAdd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EliminarDoctores/Doctor.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EliminarDoctores/indexDelete.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EliminarDoctores/logoFundacion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EliminarDoctores/logoIcesi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EliminarDoctores/paginadelete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoginAdmin/Untitled-1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoginAdmin/avatar1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoginAdmin/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoginAdmin/logo-icesi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoginAdmin/logo-valle-del-lili.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AgregarEliminarBuscarDoctores/indexAEB.js" beforeDir="false" afterPath="$PROJECT_DIR$/AgregarEliminarBuscarDoctores/indexAEB.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +62,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Asus Rog Strix/Documents/FrontEnd/FrontEspiralArqu-medes/BuscarDoctores",
+    "last_opened_file_path": "C:/Users/Asus Rog Strix/Documents/FrontEnd/FrontEspiralArqu-medes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
