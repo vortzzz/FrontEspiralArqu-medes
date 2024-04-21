@@ -12,7 +12,7 @@ login_doctor.addEventListener('click',login);
 login_admin.addEventListener('click',back_page);
 
 function page_password(){
-    window.location.href = "../CambiarContraseña/CambiarContraeña.html";
+    window.location.href = "../CambiarContraseña/CambiarContraseña.html";
 }
 
 
