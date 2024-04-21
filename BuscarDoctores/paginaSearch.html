@@ -52,9 +52,9 @@
             filter: brightness(0.4);
         }
 
-        .button:nth-child(2), /Home/
-        .button:nth-child(3),/Doctos/
-        .button:nth-child(4) /Exit/{
+        .button:nth-child(2), /* Home */
+        .button:nth-child(3), /* Doctors */
+        .button:nth-child(4)  /* Exit */ {
             margin-top: auto;
         }
 
@@ -89,6 +89,14 @@
         .buttons button {
             margin-left: 5px;
         }
+
+        /* Estilos para el contenedor de resultados de búsqueda */
+        #searchResultsContainer {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -105,11 +113,13 @@
     <img src="Doc.jpg" alt="Doctor" class="fundacion-image">&nbsp;
     <div class="buttons" style="text-align: center;">&nbsp;
         <div style="margin-bottom: 10px; display: flex; align-items: center;">
-            <input type="text" id="doctorInput" name="doctorInput" placeholder="digite la cedula del doctor"><br><br>
-            <button id="SearchButton" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Buscar</button>
+            <input type="text" id="doctorInput" name="doctorInput" placeholder="digite la cedúla del doctor"><br><br>
+            <button id="searchButton" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Buscar</button>
         </div>
-
     </div>
+
+    <!-- Contenedor para mostrar los resultados de la búsqueda -->
+    <div id="searchResultsContainer"></div>
 </div>
 
 <script src="./indexSearch.js"></script>
