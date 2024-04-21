@@ -1,7 +1,7 @@
 const nameInput = document.getElementById('nameInput');
 const passwordInput = document.getElementById('passwordInput');
 const login_admin= document.getElementById('login_admin');
-const login_doctor = document.getElementById('login_doctor')
+const login_doctor = document.getElementById('login_doctor');
 
 
 //Eventos
@@ -10,7 +10,9 @@ login_admin.addEventListener('click',login);
 login_doctor.addEventListener('click',back_page);
 
 
-
+function back_page(){
+  window.location.href ='../LoginDoctor/LogIn.html';
+}
 
 
 function login(){
