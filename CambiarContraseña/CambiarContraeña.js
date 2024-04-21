@@ -1,31 +1,35 @@
-const currentPasswordInput = document.getElementById('currentPassword');
-const newPasswordInput = document.getElementById('newPassword');
-const confirmPasswordInput = document.getElementById('confirmPassword');
-const changePasswordForm = document.getElementById('changePasswordForm');
-const redirectButton = document.createElement('Volver a inicio');
+const currentPasswordInput = document.getElementById('currentPasswordInput');
+const newPasswordInput = document.getElementById('newPasswordInput');
+const confirmPasswordInput = document.getElementById('confirmPasswordInput');
+const changePasswordForm = document.getElementById('changePasswordFButton');
+const usernameInput= document.getElementById('usernameInput');
+const goBackButton = document.getElementById('goBackButton');
 
 changePasswordForm.addEventListener('submit', changePassword);
-redirectButton.addEventListener('click', redirectToLogin);
+goBackButton.addEventListener('click', goBackButton);
 
-function redirectToLogin() {
+function goBackButton() {
     window.location.href = 'http://127.0.0.1:5500/login.html';
 }
 
-async function changePassword(event) {
-  event.preventDefault();
+async function changePassword(changePasswordRequest) {
+  
+    let username= usernameInput.value;
+    let password = currentPasswordInput.value;
+    let passwordNEW1 = newPasswordInput.value;
+    let passwordNEW2 = confirmPasswordInput.value;
 
-    let currentPassword = currentPasswordInput.value;
-    let newPassword = newPasswordInput.value;
-    let confirmPassword = confirmPasswordInput.value;
-
-    if (newPassword !== confirmPassword) {
+    if (passwordNEW1 !== passwordNEW2) {
         alert('Las contraseñas no son las mismas.');
         return;
     }
 
     let changePasswordRequest = {
-    currentPassword: currentPassword,
-    newPassword: newPassword
+        username: usernameInput.value,
+        password: password,
+        passwordNEW1: passwordNEW1,
+        passwordNEW2: passwordNEW2
+    
     }
 
      await changePasswordRequest(changePasswordRequest);
@@ -45,8 +49,8 @@ async function changePasswordRequest(changePasswordRequest) {
             console.log(data);
             if (response.ok) {
                 alert('Password changed successfully.');
-                redirectButton.style.display ='block';
-                document.body.appendChild(redirectButton);
+                goBackButton.style.display ='block';
+                document.body.appendChild(goBackButton);
             } else {
                 if (response.status === 401) {
                     alert('Current password is incorrect.');
