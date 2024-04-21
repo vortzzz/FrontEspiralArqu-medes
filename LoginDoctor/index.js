@@ -1,4 +1,4 @@
-const nameInput = document.getElementById('nameInput');
+const ccInput = document.getElementById('ccInput');
 const passwordInput = document.getElementById('passwordInput');
 const login_admin= document.getElementById('login_admin');
 const login_doctor = document.getElementById('login_doctor');
@@ -21,11 +21,11 @@ function back_page(){
 }
 
 function login(){
-    let username= nameInput.value;
+    let cc= ccInput.value;
     let password= passwordInput.value;
 
     let LoginRequest ={
-        username: username,
+        cc: cc,
         password: password,
     }
 
@@ -46,7 +46,6 @@ async function  postLogin(LoginRequest){
    });
 
    let data= await response.json()
-   console.log (data);
    if(response.ok) {
     let user= JSON.stringify(data);
     window.localStorage.setItem('user', user);
@@ -55,8 +54,8 @@ async function  postLogin(LoginRequest){
         if(response.status === 401) {
        alert(data.message);
     } else {
-        console.error('Error en la solicitud:', response.status);
-        alert('Ocurrió un error en la solicitud. Por favor, inténtalo de nuevo más tarde.');
+        console.error('Request error: ', response.status);
+        alert('An error occurred in the request. Please try again later.');
     }
  }
 }
