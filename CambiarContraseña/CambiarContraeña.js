@@ -1,18 +1,18 @@
 const currentPasswordInput = document.getElementById('currentPasswordInput');
 const newPasswordInput = document.getElementById('newPasswordInput');
 const confirmPasswordInput = document.getElementById('confirmPasswordInput');
-const changePasswordForm = document.getElementById('changePasswordFButton');
+const changePasswordForm = document.getElementById('changePasswordButton');
 const usernameInput= document.getElementById('usernameInput');
 const goBackButton = document.getElementById('goBackButton');
 
-changePasswordForm.addEventListener('submit', changePassword);
-goBackButton.addEventListener('click', goBackButton);
+changePasswordForm.addEventListener('click', change);
+goBackButton.addEventListener('click', goBack);
 
-function goBackButton() {
-    window.location.href = 'http://127.0.0.1:5500/login.html';
+function goBack() {
+    window.location.href = 'http://127.0.0.1:5500/LoginDoctor/LogIn.html';
 }
 
-async function changePassword(changePasswordRequest) {
+async function change() {
   
     let username= usernameInput.value;
     let password = currentPasswordInput.value;
@@ -25,38 +25,37 @@ async function changePassword(changePasswordRequest) {
     }
 
     let changePasswordRequest = {
-        username: usernameInput.value,
+        username: username,
         password: password,
         passwordNEW1: passwordNEW1,
         passwordNEW2: passwordNEW2
     
     }
 
-     await changePasswordRequest(changePasswordRequest);
+     fchangePasswordRequest(changePasswordRequest);
     }
 
-async function changePasswordRequest(changePasswordRequest) {
-    let json = JSON.stringify(changePasswordRequest);
-    let response = await fetch('http://localhost:8080/doctor/change-password', {
-        method: 'POST',
-        headers: {
-         'Content-Type': 'application/json'
-        },
-         body: json
+    async function fchangePasswordRequest(changePasswordRequest) {
+        let json = JSON.stringify(changePasswordRequest);
+        let response = await fetch('http://localhost:8080/doctor/changePassword', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: json
         });
-
-            let data = await response.json();
-            console.log(data);
-            if (response.ok) {
-                alert('Password changed successfully.');
-                goBackButton.style.display ='block';
-                document.body.appendChild(goBackButton);
+    
+        let data = await response.text();
+        console.log(data);
+        if (response.ok) {
+            alert('Password changed successfully.');
+            goBackButton.style.display = 'block';
+        } else {
+            if (response.status === 401) {
+                alert('Current password is incorrect.');
             } else {
-                if (response.status === 401) {
-                    alert('Current password is incorrect.');
-                } else {
-                    console.error('Error in request:', response.status);
-                    alert('An error occurred in the request. Please try again later.');
-                }
-              }
+                console.error('Error in request:', response.status);
+                alert('An error occurred in the request. Please try again later.');
             }
+        }
+    }

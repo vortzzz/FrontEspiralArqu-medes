@@ -45,7 +45,7 @@ async function  postLogin(LoginRequest){
    if(response.ok) {
     let user= JSON.stringify(data);
     window.localStorage.setItem('user', user);
-    window.location.href ='hhtp//127.0.0.1:5500/PrincipalPageDOCTOR/DOCTOR.html'; 
+    window.location.href ='http://127.0.0.1:5500/PrincipalPageDOCTOR/DOCTORS.html'; 
     } else {
         if(response.status === 401) {
        alert('Nombre de usuario o contraseña incorrectos');
@@ -54,12 +54,3 @@ async function  postLogin(LoginRequest){
         alert('Ocurrió un error en la solicitud. Por favor, inténtalo de nuevo más tarde.');
     }
  }
-
- 
-
-
-}
-
-
-
-
