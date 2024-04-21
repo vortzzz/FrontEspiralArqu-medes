@@ -1,3 +1,11 @@
+
+//Validación de autenticación
+let userJSON= window.localStorage.getItem('user');
+
+if(userJSON===null){
+    location.href = "../LoginAdmin/Untitled-1.html";
+  }
+
 const homeButton = document.getElementById('homeButton');
 const doctorsButton = document.getElementById('doctorsButton');
 const exitButton = document.getElementById('exitButton');
@@ -14,9 +22,9 @@ homeButton.addEventListener('click',goHome);
 doctorsButton.addEventListener('click',goDoctorsSeccion);
 exitButton.addEventListener('click', exit);
 
-
 function exit(){
     window.location.href = "../LoginAdmin/Untitled-1.html"
+    window.localStorage.removeItem('user');
 }
 function goDoctorsSeccion(){
     window.location.href = "../AgregarEliminarBuscarDoctores/pagina.html"

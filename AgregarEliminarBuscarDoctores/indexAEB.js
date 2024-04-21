@@ -1,7 +1,9 @@
 let userJSON= window.localStorage.getItem('user');
 
+
+
 if(userJSON===null){
-  window.location.href = "http://127.0.0.1:5500/LoginAdmin/Untitled-1.html";
+  window.location.href = "../LoginAdmin/Untitled-1.html";
 }
 function agregarDoctor() {
     window.location.href = "../AñadirDoctores/paginaAdd.html";

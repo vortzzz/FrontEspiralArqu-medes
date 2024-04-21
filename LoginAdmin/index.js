@@ -4,7 +4,6 @@ const login_admin= document.getElementById('login_admin');
 const login_doctor = document.getElementById('login_doctor')
 
 
-
 //Eventos
 
 login_admin.addEventListener('click',login);
@@ -44,7 +43,7 @@ async function  postLogin(LoginRequest){
    if(response.ok) {
     let user= JSON.stringify(data);
     window.localStorage.setItem('user',user);
-    window.location.href = 'http://127.0.0.1:5500/AgregarEliminarBuscarDoctores/pagina.html';
+    window.location.href = '../AgregarEliminarBuscarDoctores/pagina.html';
     } else {
     if(response.status === 401) {
         alert(data.message);
