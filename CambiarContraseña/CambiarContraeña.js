@@ -17,12 +17,7 @@ async function change() {
     let username= usernameInput.value;
     let password = currentPasswordInput.value;
     let passwordNEW1 = newPasswordInput.value;
-    let passwordNEW2 = confirmPasswordInput.value;
-
-    if (passwordNEW1 !== passwordNEW2) {
-        alert('Las contraseñas no son las mismas.');
-        return;
-    }
+    let passwordNEW2 = confirmPasswordInput.value
 
     let changePasswordRequest = {
         username: username,
@@ -48,14 +43,13 @@ async function change() {
         let data = await response.text();
         console.log(data);
         if (response.ok) {
-            alert('Password changed successfully.');
+            alert(data);
             goBackButton.style.display = 'block';
         } else {
             if (response.status === 401) {
-                alert('Current password is incorrect.');
+                alert(data);
             } else {
-                console.error('Error in request:', response.status);
-                alert('An error occurred in the request. Please try again later.');
+                alert(data);
             }
         }
     }

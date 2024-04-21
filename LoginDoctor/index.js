@@ -1,14 +1,19 @@
 const nameInput = document.getElementById('nameInput');
 const passwordInput = document.getElementById('passwordInput');
 const login_admin= document.getElementById('login_admin');
-const login_doctor = document.getElementById('login_doctor')
+const login_doctor = document.getElementById('login_doctor');
+const changePassword = document.getElementById('ChangePassword');
 
 
 
 //Eventos
-
+changePassword.addEventListener('click',page_password);
 login_doctor.addEventListener('click',login);
 login_admin.addEventListener('click',back_page);
+
+function page_password(){
+    window.location.href = "http://127.0.0.1:5500/CambiarContrase%C3%B1a/CambiarContrase%C3%B1a.html";
+}
 
 
 function back_page(){
@@ -48,9 +53,10 @@ async function  postLogin(LoginRequest){
     window.location.href ='http://127.0.0.1:5500/PrincipalPageDOCTOR/DOCTORS.html'; 
     } else {
         if(response.status === 401) {
-       alert('Nombre de usuario o contraseña incorrectos');
+       alert(data.message);
     } else {
         console.error('Error en la solicitud:', response.status);
         alert('Ocurrió un error en la solicitud. Por favor, inténtalo de nuevo más tarde.');
     }
  }
+}
