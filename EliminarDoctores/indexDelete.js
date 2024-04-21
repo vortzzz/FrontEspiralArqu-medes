@@ -1,3 +1,11 @@
+//Validación de autenticación
+let userJSON= window.localStorage.getItem('user');
+
+if(userJSON===null){
+    location.href = "../LoginAdmin/Untitled-1.html";
+  }
+
+
 const homeButton = document.getElementById('homeButton');
 const doctorsButton = document.getElementById('doctorsButton');
 const exitButton = document.getElementById('exitButton');
@@ -16,6 +24,12 @@ deleteButton.addEventListener('click',deleteDoctor);
 //Acciones iniciales:
 
 getListDoctors();
+
+function exit(){
+    window.location.href = "../LoginAdmin/Untitled-1.html"
+    window.localStorage.removeItem('user');
+}
+
 
 async function getListDoctors(){
     let response = await fetch('http://localhost:8080/doctor/listDoctors')
@@ -65,7 +79,6 @@ function goHome(){
 async function deleteDoctor() {
     let doctorDelete = doctorInput.value;
     await postDoctorDelete(doctorDelete);
-    alert("Doctor eliminado correctamente")
     window.location.href = "paginadelete.html";
 }
 
@@ -80,4 +93,15 @@ async function postDoctorDelete(doctorDelete){
     });
     let doctor = await response.json();
     console.log(doctor);
+   if(response.ok) {
+    let user= JSON.stringify(doctor);
+    alert("doctor eliminado correctamente"); 
+    } else {
+    if(response.status === 400) {
+        alert(doctor.doctorCc);
+    } else {
+        console.error('Error en la solicitud:', response.status);
+        alert('Ocurrió un error en la solicitud. Por favor, inténtalo de nuevo más tarde.');
+    }
+    }
 }

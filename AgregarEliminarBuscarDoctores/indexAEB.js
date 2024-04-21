@@ -5,6 +5,13 @@ let userJSON= window.localStorage.getItem('user');
 if(userJSON===null){
   window.location.href = "../LoginAdmin/Untitled-1.html";
 }
+
+function exit(){
+  window.location.href = "../LoginAdmin/Untitled-1.html"
+  window.localStorage.removeItem('user');
+}
+
+
 function agregarDoctor() {
     window.location.href = "../AñadirDoctores/paginaAdd.html";
   }
@@ -17,10 +24,6 @@ function agregarDoctor() {
     window.location.href = "../EliminarDoctores/paginadelete.html";
   }
 
-function exit(){
-    window.location.href = "../LoginAdmin/Untitled-1.html"
-
-}
 function goDoctorsSeccion(){
     window.location.href = "../AgregarEliminarBuscarDoctores/pagina.html"
 
