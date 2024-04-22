@@ -1,4 +1,4 @@
-const CCInput = document.getElementById('CCInput');
+const usernameInput = document.getElementById('usernameInput');
 const passwordInput = document.getElementById('passwordInput');
 const login_admin= document.getElementById('login_admin');
 const login_doctor = document.getElementById('login_doctor');
@@ -16,11 +16,11 @@ function back_page(){
 
 
 function login(){
-    let CC= CCInput.value;
+    let username= usernameInput.value;
     let password= passwordInput.value;
 
     let LoginRequest ={
-        CC: CC,
+        username: username,
         password: password,
     }
 
