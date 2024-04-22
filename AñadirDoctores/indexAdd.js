@@ -68,9 +68,8 @@ async function postDoctorAdd(doctorAdd){
         body: json
     });
     let doctor = await response.json();
-    let msg=JSON.stringify(doctor);
-    msg=msg.replace("description","").replace("{","").replace("}","").replace(":","").replace(/"/g,"");
-    alert(msg);
+    alert(doctor.description);
+    //Actualizo
     window.location.href = "paginaAdd.html";
 }
 
