@@ -23,7 +23,7 @@ doctorsButton.addEventListener('click',goDoctorsSeccion);
 exitButton.addEventListener('click', exit);
 
 function exit(){
-    window.location.href = "../LoginAdmin/Untitled-1.html"
+    window.location.href = "../LoginAdmin/Untitled-1.html";
     window.localStorage.removeItem('user');
 }
 function goDoctorsSeccion(){
