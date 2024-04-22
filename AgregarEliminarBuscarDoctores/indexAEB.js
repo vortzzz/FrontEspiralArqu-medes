@@ -17,7 +17,8 @@ function agregarDoctor() {
   }
   
   function buscarDoctor() {
-    alert("Funcionalidad para buscar doctor aún no implementada.");
+      window.location.href = "../BuscarDoctores/paginaSearch.html";
+
   }
   
   function eliminarDoctor() {
