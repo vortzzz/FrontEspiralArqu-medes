@@ -14,13 +14,13 @@ function goBack() {
 
 async function changeP() {
   
-    let username= usernameInput.value;
+    let cc= usernameInput.value;
     let password = currentPasswordInput.value;
     let passwordNEW1 = newPasswordInput.value;
     let passwordNEW2 = confirmPasswordInput.value
 
     let changePasswordRequest = {
-        username: username,
+        cc: cc,
         password: password,
         passwordNEW1: passwordNEW1,
         passwordNEW2: passwordNEW2
