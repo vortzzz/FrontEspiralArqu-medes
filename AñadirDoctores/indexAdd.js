@@ -1,4 +1,3 @@
-
 //Validación de autenticación
 let userJSON= window.localStorage.getItem('user');
 
@@ -7,7 +6,6 @@ if(userJSON===null){
   }
 
 const homeButton = document.getElementById('homeButton');
-const doctorsButton = document.getElementById('doctorsButton');
 const exitButton = document.getElementById('exitButton');
 const doctorName = document.getElementById('doctorName');
 const doctorEmail = document.getElementById('doctorEmail');
@@ -19,16 +17,11 @@ const addButton = document.getElementById('addButton');
 //Eventos
 addButton.addEventListener('click',addDoctor);
 homeButton.addEventListener('click',goHome);
-doctorsButton.addEventListener('click',goDoctorsSeccion);
 exitButton.addEventListener('click', exit);
 
 function exit(){
     window.location.href = "../LoginAdmin/Untitled-1.html";
     window.localStorage.removeItem('user');
-}
-function goDoctorsSeccion(){
-    window.location.href = "../AgregarEliminarBuscarDoctores/pagina.html"
-
 }
 
 function goHome(){
