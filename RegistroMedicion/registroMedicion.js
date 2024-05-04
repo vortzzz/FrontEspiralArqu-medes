@@ -1,9 +1,9 @@
 //Validación de autenticación
-let userJSON= window.localStorage.getItem('user');
+//let userJSON= window.localStorage.getItem('user');
 
-if(userJSON===null){
-    location.href = "../LoginDoctor/logIn.html"; 
-  }
+//if(userJSON===null){
+  //  location.href = "../LoginDoctor/logIn.html"; 
+  //}
 
 
 const homeButton = document.getElementById('homeButton');

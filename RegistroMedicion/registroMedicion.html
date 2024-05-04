@@ -1,84 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página del Administrador</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+  <title>Principal Page</title>
+  <link href="./css/main.css" rel="stylesheet" />
+
+
   <style>
-    body {
-      background-color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+body {
+  margin: 0;
+  padding: 0;
+}
 
-    .sidebar {
-      background-color: #aed581;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100vh;
-    }
+.container {
+  width: 1440px;
+  height: 1024px;
+  position: relative;
+  background: white;
+}
 
-    .logo {
-      width: 180px;
-      margin-bottom: 20px;
-    }
+.background-rect {
+  width: 377px;
+  height: 1155px;
+  left: 3px;
+  top: -5px;
+  position: absolute;
+  background: rgba(221, 245, 209, 0.5);
+  border-radius: 30px;
+  border: 1px solid #C6F0B2;
+}
 
-    .button {
-      background-color: #7cb342;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      margin: 10px;
-      cursor: pointer;
-      width: 120px;
-      text-align: center;
-    }
+.rotated-rect {
+  width: 680.92px;
+  height: 864.79px;
+  left: 1335.77px;
+  top: 238px;
+  position: absolute;
+  transform: rotate(89.73deg);
+  transform-origin: 0 0;
+  background: rgba(184, 235, 161, 0.8);
+  border-radius: 30px;
+  border: 1px solid #C6F0B2;
+}
 
-    .button:last-child {
-      background-color: #689f38;
-    }
+.title {
+  width: 954px;
+  left: 428px;
+  top: 93px;
+  position: absolute;
+  text-align: center;
+  color: black;
+  font-size: 40px;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 700;
+  word-wrap: break-word;
+}
 
-    .logoIcesi {
-      width: 200px;
-      margin-top: auto;
-      margin-right: 200x;
-      filter: brightness(0.4);
-    }
+.image-1 {
+  width: 212px;
+  height: 195px;
+  left: 77px;
+  top: 66px;
+  position: absolute;
+  mix-blend-mode: multiply;
+}
 
-    .button:nth-child(2),
-    .button:nth-child(3),
-    .button:nth-child(4) {
-      margin-top: auto;
-    }
+.image-2 {
+  width: 354px;
+  height: 151px;
+  left: 32px;
+  top: 823px;
+  position: absolute;
+}
 
-    .button:nth-child(3) {
-      background-color: #2d572c;
-    }
+.image-3 {
+  width: 636px;
+  height: 636px;
+  left: 593px;
+  top: 261px;
+  position: absolute;
+  border-radius: 400px;
+}
 
-    .fundacion-image {
-      width: 50%;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      margin-top: 20px;
-    }
+.button {
+  position: absolute;
+  width: 245px;
+  height: 63px;
+  background: #67B443;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s; 
+}
+.button:active {
+  background-color: rgba(0, 0, 0, 0.5); /* Cambiamos el color de fondo cuando el botón está siendo presionado */
+}
 
-    .logo {
-      margin-top: 10px;
-    }
+.button-text {
+  position: absolute;
+  color: black;
+  font-size: 30px;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 700;
+  word-wrap: break-word;
+  margin: 0;
+  align-self: center;
+}
 
-    .title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+.patients {
+  left: 62px;
+  top: 449px;
+}
 
+.home {
+  left: 62px;
+  top: 322px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.measurements {
+  left: 62px;
+  top: 573px;
+}
+
+.exit {
+  left: 60px;
+  top: 699px;
+}
     .buttons {
       text-align: center;
       margin-top: 20px;
@@ -89,12 +143,16 @@
     }
 
     .buttons button {
-      background-color: #689f38;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
+      background: #67B443;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      border: 1px solid black;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s; 
+      font-size: 20px; 
     }
 
     .input-button-container {
@@ -105,37 +163,85 @@
 
     .input-button-container input[type="text"] {
       margin-right: 10px;
+      font-size: 18px; 
     }
+
+
+    .containerMedition {
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      transform: translateY(-40%);
+      width: 50%;
+      text-align: center;
+    }
+
+    .fundacion-image {
+      display: block;
+      margin: 20px auto;
+      width: 40%;
+    }
+
+    .titleMedition{
+      width: 500px;
+      left: 20%;
+      position: relative;
+      font-size: 40px;
+      font-family: 'Inter';
+      font-style: italic;
+      font-weight: 700;
+      word-wrap: break-word;
+    }
+    .buttonMedition{
+      background: #67B443;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      border: 1px solid black;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s; 
+      font-size: 20px; 
+
+    }
+
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="background-rect"></div>
+    <div class="rotated-rect"></div>
+    <h1 class="title">HAND TREMOR MEASUREMENT SYSTEM FOR THE ARCHIMEDES SPIRAL TEST</h1>
+    <img class="image-1" src="images/v36_40.png" />
+    <img class="image-2" src="images/v36_53.png" />
 
-  <div class="sidebar" style="padding: 5%;">
-    <img src="logofundacion.png" alt="Logofundacion" class="logo">
-    <button id="homeButton" class="button">Home</button>
-    <button id="doctorsButton" class="button">Doctors</button>
-    <button id="exitButton" class="button">Exit</button>
-    <img src="logoIcesi.png" alt="LogoIcesi" class="logoIcesi">
-  </div>
-
- 
-  <div class="container" style="padding: 13%;">
-    <h1 class="title" style="color: #004d40;">Zona de pruebas por paciente:</h1>
-    <div class="buttons">
-      <div class="input-button-container">
-        <input type="text" id="pacienteInput" name="pacienteInput" placeholder="CC del paciente">
-        <button id="searchButton">Buscar</button>
-        
+    <div class="containerMedition">
+      <h1 class="titleMedition" style="color: #004d40;">Zona de pruebas por paciente:</h1>
+      <div class="buttons">
+        <div class="input-button-container">
+          <input type="text" id="pacienteInput" name="pacienteInput" placeholder="CC del paciente">
+          <button id="searchButton">Buscar</button>
+        </div>
       </div>
+      <div>
+        <button class="buttonMedition" id="nuevaMedicion">Nueva Medición</button>
+      </div>
+      <div id="MedicionContainer"></div>
+      <img src="logoZonaMedicion.png" alt="Doctor" class="fundacion-image">
     </div>
-   <div>
-    </div>
-    <img src="logoZonaMedicion.png" alt="Doctor" class="fundacion-image">
-    <div id="MedicionContainer"></div>
-    <div class="buttons">  
-        <button id="nuevaMedicion">nueva Medicion</button>  
-    </div>
-    
+
+    <button id= "button_patients" class="button patients">
+        <span class="button-text">PATIENTS</span>
+    </button>
+    <button  id= "button_home" class="button home">
+        <span class="button-text">HOME</span>
+    </button>
+    <button id= "button_measurements" class="button measurements">
+        <span class="button-text">MEASUREMENTS</span>
+    </button>
+    <button id= "button_exit" class="button exit">
+        <span class="button-text">EXIT</span>
+    </button>
   </div>
 
   <script src="./registroMedicion.js"></script>
