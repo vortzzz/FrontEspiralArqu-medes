@@ -42,8 +42,10 @@ function goHome(){
 async function searchPaciente(){
     let pacienteInput = pacienteInput.value;
     getPacientSearch(pacienteInput);
+    window.location.href = "registroMedicion.html"
 
 }
+
 async function getPacientSearch(pacienteInput) {
     let json = JSON.stringify(pacienteInput); 
     let response = await fetch('http://localhost:8080/paciente/mediciones/' + pacienteInput);
@@ -67,7 +69,7 @@ async function getPacientSearch(pacienteInput) {
             buttonView.innerHTML = "Ver"; 
 
             buttonView.addEventListener('click',function(){
-                viewMedition(medicion);
+                viewMedition(pacienteInput,medicion);
             })
         
 
@@ -78,12 +80,6 @@ async function getPacientSearch(pacienteInput) {
         );
     }
 
-    function viewMedition(medicion){
+    function viewMedition(pacienteInput,medicion){
         window.location.href = "../visualizacionMediciones/visualizacion.html";
     }
-
-        
-        
-
-
-
