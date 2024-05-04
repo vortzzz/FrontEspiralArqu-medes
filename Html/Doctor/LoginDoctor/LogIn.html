@@ -8,8 +8,8 @@
         html, body {
           position: absolute;
           background: #C5E7B6;
-          width: 100%;
-          height: 100%;
+          width: 1440px;
+            height: 1024px;
         }
 
         body {
@@ -24,8 +24,10 @@
         .login-container {
             box-sizing: border-box;
             position: absolute;
+            height: 725px;
             left: 102px;
             right: 103px;
+            top: 150px;
             background: rgba(221, 245, 210, 0.5);
             border: 1px solid #C6F0B2;
             border-radius: 30px;
@@ -77,7 +79,7 @@
          position: absolute;
          left: 30%;
          right: 65.14%;
-         background: url(avatar1.png);
+         background: url(/Resource/avatar1.png);
 
 
         }
@@ -150,7 +152,7 @@
           transform: translate(-50%, -50%);
          }
 
-         .button-login-admin{
+         .button-login-doctor{
            position: absolute;
            left: 50%;
            transform: translate(-50%, -50%);
@@ -158,7 +160,7 @@
 
          }
 
-         .button-login-admin button{
+         .button-login-doctor button{
             width: 180px;
             height: 66px;
             padding: 10px;
@@ -173,8 +175,34 @@
             font-size: 25px;
             line-height: 30px;
             color: #FFFFFF;
-            cursor: pointer;
          }
+         .ChangePassword {
+            position: absolute;
+            bottom: 20px;
+            left: 400px;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 40px;
+            box-sizing: border-box;
+        }
+
+        .ChangePassword button {
+            background-color: #67B443; /* Fondo verde */
+            opacity: 50%;
+            color: #7B6E6E; /* Texto blanco */
+            font-family: 'Inter';
+            font-style: italic;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 22px;
+     
+            border-radius: 50px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            cursor: pointer;
+        }
 
 
          
@@ -185,28 +213,29 @@
             <div class="left-section">
                 <div class="login-form">
                   <div class="avatar1">
-                    <img src="avatar1.png" alt="avatar1">
+                    <img src="/Resource/avatar1.png" alt="avatar1">
                   </div>
                    <div class="square-login">
-                    <input id="usernameInput" type="text" placeholder="username">
+                    <input id="ccInput" type="text" placeholder="CC">
                     <input id= "passwordInput" type="password" placeholder="Password">
-                    <div class="button-login-admin">
-                        <button id="login_admin">Log in</button>
+                    <div class="button-login-doctor">
+                        <button id="login_doctor">Log in</button>
                     </div>
                    </div>
                  </div>
                  <div class="login-buttons"> 
-                    <button id="login_doctor">    Log in as Doctor    </button>
+                    <button id="login_admin">    Log in as Admin   </button>
+                </div>
+                <div class="ChangePassword"> 
+                    <button id="ChangePassword">    Change password  </button>
                 </div>
             </div>
             <div class="right-section">
                 <div class="building-image">
-                    <img src="logo-valle-del-lili.png" alt="Logo Valle del Lili">
+                    <img src="/Resource/logo-valle-del-lili.png" alt="Logo Valle del Lili">
                 </div>
             </div>
         </div>
 </body>
 <script src="./index.js"></script>
 </html>
-
-

@@ -93,28 +93,31 @@
 </head>
 <body>
   <div class="sidebar">
-    <img src="logofundacion.png" alt="Logofundacion" class="logo">
+    <img src="/Resource/logoFundacion.png" alt="Logofundacion" class="logo">
     <button id="homeButton" class="button">Home</button>
     <button id="doctorsButton" class="button">Doctors</button>
     <button id="exitButton" class="button">Exit</button>
-    <img src="logoIcesi.png" alt="LogoIcesi" class="logoIcesi">
+    <img src="/Resource/logoIcesi.png" alt="LogoIcesi" class="logoIcesi">
   </div>
 
   <div class="container" style="padding: 20px;">
-    <h1 style="color: #004d40;">Zona de eliminación de doctores: </h1>
-    <img src="Doctor.jpg" alt="Doctor" class="fundacion-image">&nbsp;
-    <div  id = "doctorsContainer">
+    <h1 style="color: #004d40;">Medición: </h1>
+    <h3 style="color: #004d40;">Paciente: </h3>
+    <h3 style="color: #004d40;">Fecha: </h3>
+    <img src="/Resource/Doctor.jpg" alt="Doctor" class="fundacion-image">&nbsp;  
+
+    <div  id = "CommentsContainer">
         
     </div>
     <div class="buttons" style="text-align: center;">&nbsp;
       <div style="margin-bottom: 10px; display: flex; align-items: center;">
-        <input type="text" id="doctorInput" name="doctorInput" placeholder="digite la cedula del doctor"><br><br>
-        <button id="deleteButton" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Eliminar</button>
+        <input type="text" id="doctorInput" name="doctorInput" placeholder="Agregue su comentario"><br><br>
+        <button id="addButton" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Agregar</button>
       </div>
       
     </div>
   </div>
 
-  <script src="./indexDelete.js"></script>
+  <script src="./visualizacion.js"></script>
 </body>
 </html>
