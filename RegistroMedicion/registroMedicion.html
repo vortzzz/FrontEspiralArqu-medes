@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página del Administrador</title>
+  <style>
+    body {
+      background-color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .sidebar {
+      background-color: #aed581;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .logo {
+      width: 180px;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      background-color: #7cb342;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin: 10px;
+      cursor: pointer;
+      width: 120px;
+      text-align: center;
+    }
+
+    .button:last-child {
+      background-color: #689f38;
+    }
+
+    .logoIcesi {
+      width: 200px;
+      margin-top: auto;
+      margin-right: 200x;
+      filter: brightness(0.4);
+    }
+
+    .button:nth-child(2),
+    .button:nth-child(3),
+    .button:nth-child(4) {
+      margin-top: auto;
+    }
+
+    .button:nth-child(3) {
+      background-color: #2d572c;
+    }
+
+    .fundacion-image {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      margin-top: 20px;
+    }
+
+    .logo {
+      margin-top: 10px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .buttons input[type="text"] {
+      margin-bottom: 10px;
+    }
+
+    .buttons button {
+      background-color: #689f38;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .input-button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .input-button-container input[type="text"] {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar" style="padding: 5%;">
+    <img src="logofundacion.png" alt="Logofundacion" class="logo">
+    <button id="homeButton" class="button">Home</button>
+    <button id="doctorsButton" class="button">Doctors</button>
+    <button id="exitButton" class="button">Exit</button>
+    <img src="logoIcesi.png" alt="LogoIcesi" class="logoIcesi">
+  </div>
+
+ 
+  <div class="container" style="padding: 13%;">
+    <h1 class="title" style="color: #004d40;">Zona de pruebas por paciente:</h1>
+    <div class="buttons">
+      <div class="input-button-container">
+        <input type="text" id="pacienteInput" name="pacienteInput" placeholder="CC del paciente">
+        <button id="searchButton">Buscar</button>
+        
+      </div>
+    </div>
+   <div>
+    </div>
+    <img src="logoZonaMedicion.png" alt="Doctor" class="fundacion-image">
+    <div id="MedicionContainer"></div>
+    <div class="buttons">  
+        <button id="nuevaMedicion">nueva Medicion</button>  
+    </div>
+    
+  </div>
+
+  <script src="./registroMedicion.js"></script>
+</body>
+</html>
