@@ -56,8 +56,7 @@ async function getListDoctors(){
 
         doctorsContainer.appendChild(userContainer);
 
-    }
-    ); 
+    }); 
 }
 
 

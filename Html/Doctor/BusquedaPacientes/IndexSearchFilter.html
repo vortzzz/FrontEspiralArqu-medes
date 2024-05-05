@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zona de busqueda doctores</title>
+    <link rel = "stylesheet" href="IndexSearchFilter.css"/>
+</head>
+    <body>
+        <div id="containerDiv">
+            <div id="sidebar">
+                <img id="logo-valle-del-lili" src="/Resource/logoFundacion.png">
+                <button id="home" class="buttons" >HOME</button>
+                <button id="patients" class="buttons">PATIENTS</button>
+                <button id="measurement" class="buttons">MEASUREMENTS</button> 
+                <button id="exit" class="buttons">EXIT</button>
+                <img id="logoIcesi" src="/Resource/logoIcesi.png">
+            </div>
+            <div id="secondContainer">
+                <p id="textTitle">HAND TREMOR MEASUREMENT SYSTEM FOR THE ARCHIMEDES SPIRAL TEST</p>
+                <div id="searchbar">
+                    <input type="text" class="input" id="inputSearchByID" placeholder="searchByCC">
+                    <button id="searchBTN" class="minibuttons" >SEARCH</button>  
+                    <input type="text" class="input" id="inputFilterByName"placeholder="filterByName">
+                    <button id="filterBTN" class="minibuttons"> FILTER</button>
+                </div>
+                <div id = "patientsContainer">
+                </div>
+            </div>
+        </div>
+        <script src="./IndexSearchFilter.js"></script>
+    </body>
+</html>
