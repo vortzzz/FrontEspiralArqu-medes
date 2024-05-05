@@ -1,24 +1,37 @@
 //Validación de autenticación
-//let userJSON= window.localStorage.getItem('user');
+let userJSON= window.localStorage.getItem('user');
 
-//if(userJSON===null){
+if(userJSON===null){
     //location.href = "../LoginDoctor/logIn.html"; 
-  //}
+  }
 
 
-const homeButton = document.getElementById('homeButton');
-const doctorsButton = document.getElementById('doctorsButton');
-const exitButton = document.getElementById('exitButton');
-const pacienteInput = document.getElementById('doctorInput');
-const searchButton = document.getElementById('searchButton');
+const homeButton = document.getElementById('button_home');
+const exitButton = document.getElementById('button_exit');
+
+const commentsInput = document.getElementById('commentsInput');
+const addButton = document.getElementById('addButton');
 const CommentsContainer = document.getElementById('CommentsContainer');
+
+const pacienteInput = localStorage.getItem('pacienteInput');
+const medicionString  = localStorage.getItem('medicion');
+const medicionid = localStorage.getItem('medicionid');
+
+// Convertir la cadena JSON a un objeto
+const medicion = JSON.parse(medicionString);
+
+
+
+document.getElementById('paciente').textContent = pacienteInput;
+document.getElementById('fecha').textContent = medicion.dateTaken;
+
 
 //Eventos
 
 homeButton.addEventListener('click',goHome);
 doctorsButton.addEventListener('click',goDoctorsSeccion);
 exitButton.addEventListener('click', exit);
-searchButton.addEventListener('click',searchPaciente);
+addButton.addEventListener('click',addComment);
 
 
 //Acciones iniciales:
@@ -42,7 +55,8 @@ function goHome(){
 }
 
 async function getCommets(){
-    let response = await fetch('http://localhost:8080/paciente/mediciones/comentarios'); //HTTP Requ
+    
+    let response = await fetch('http://localhost:8080/patient/medition/comments/'+ medicionid); //HTTP Requ
     let users = await response.json();
 
     users.forEach( user => {
@@ -63,6 +77,34 @@ async function getCommets(){
         CommentsContainer.appendChild(userContainer);
         
     }); 
+
+}
+
+ function addComment(){
+    let comment = commentsInput.value; 
+    if(comment===""){
+        alert("digite un comentario valido");
+    }else{
+        postCommentAdd(comment,pacienteInput);
+    }
+
+}
+
+async function postCommentAdd(comment,medicionid){
+    let json = JSON.stringify(comment);
+
+    let response = await fetch('http://localhost:8080/patient/addmedition/'+ medicionid + '/' + comment,{
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        }, 
+        body: json
+
+    })
+    let comment = await response.json();
+    alert( comment.description);
+    window.location.href = "visualizacion.html";
+
 }
 
         
