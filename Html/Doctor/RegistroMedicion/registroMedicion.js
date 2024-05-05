@@ -71,18 +71,27 @@ async function getPacientSearch(pacienteInput) {
         buttonView.innerHTML = "Ver"; 
 
         buttonView.addEventListener('click',function(){
-            viewMedition(pacienteInput,medicion.id);
+            viewMedition(pacienteInput,medicion,medicion.id);
         })
 
         searchResultsContainer.appendChild(MedicionFoundContainer);
     }); 
     } else{
-        alert(mediciones.filterMeditionsResponse); 
+        alert(mediciones.description); 
     }
     
     }
 
-function viewMedition(pacienteInput,medicion){
+function viewMedition(pacienteInput,medicion,medicionid){
+
+    // Convertir el objeto a una cadena JSON
+    const medicionString = JSON.stringify(medicion);
+
+
+    // Guardar los datos en el almacenamiento local
+    localStorage.setItem('pacienteInput', pacienteInput);
+    localStorage.setItem('medicion', medicionString);
+    localStorage.setItem('medicionid', medicionid);
     window.location.href = "../visualizacionMediciones/visualizacion.html";
 }
 
