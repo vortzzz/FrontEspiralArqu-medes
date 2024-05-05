@@ -1,22 +1,21 @@
 //Validación de autenticación
-//let userJSON= window.localStorage.getItem('user');
+let userJSON= window.localStorage.getItem('user');
 
-//if(userJSON===null){
-  //  location.href = "../LoginDoctor/logIn.html"; 
-  //}
+if(userJSON===null){
+//    location.href = "../LoginDoctor/logIn.html"; 
+  }
 
 
-const homeButton = document.getElementById('homeButton');
-const doctorsButton = document.getElementById('doctorsButton');
-const exitButton = document.getElementById('exitButton');
-const pacienteInput = document.getElementById('doctorInput');
+const homeButton = document.getElementById('button_home');
+const exitButton = document.getElementById('button_exit');
+const pacienteInput = document.getElementById('pacienteInput');
 const searchButton = document.getElementById('searchButton');
 const MedicionContainer = document.getElementById('MedicionContainer');
 
 //Eventos
 
 homeButton.addEventListener('click',goHome);
-doctorsButton.addEventListener('click',goDoctorsSeccion);
+
 exitButton.addEventListener('click', exit);
 searchButton.addEventListener('click',searchPaciente);
 
@@ -30,10 +29,7 @@ function exit(){
     window.localStorage.removeItem('user');
 
 }
-function goDoctorsSeccion(){
-    window.location.href = "../principalPageDoctor/index.html";
 
-}
 
 
 function goHome(){
@@ -83,3 +79,10 @@ async function getPacientSearch(pacienteInput) {
     function viewMedition(pacienteInput,medicion){
         window.location.href = "../visualizacionMediciones/visualizacion.html";
     }
+
+     document.getElementById('nuevaMedicion').addEventListener('click', function() {
+        document.getElementById('medicionDialog').showModal();
+      });
+      function closeDialog() {
+        document.getElementById('medicionDialog').close();
+      }

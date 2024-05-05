@@ -3,206 +3,7 @@
 <head>
   <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
   <title>Principal Page</title>
-  <style>
-body {
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  width: 1440px;
-  height: 1024px;
-  position: relative;
-  background: white;
-}
-
-.background-rect {
-  width: 377px;
-  height: 1155px;
-  left: 3px;
-  top: -5px;
-  position: absolute;
-  background: rgba(221, 245, 209, 0.5);
-  border-radius: 30px;
-  border: 1px solid #C6F0B2;
-}
-
-.rotated-rect {
-  width: 680.92px;
-  height: 864.79px;
-  left: 1335.77px;
-  top: 238px;
-  position: absolute;
-  transform: rotate(89.73deg);
-  transform-origin: 0 0;
-  background: rgba(184, 235, 161, 0.8);
-  border-radius: 30px;
-  border: 1px solid #C6F0B2;
-}
-
-.title {
-  width: 954px;
-  left: 428px;
-  top: 93px;
-  position: absolute;
-  text-align: center;
-  color: black;
-  font-size: 40px;
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 700;
-  word-wrap: break-word;
-}
-
-.image-1 {
-  width: 212px;
-  height: 195px;
-  left: 77px;
-  top: 66px;
-  position: absolute;
-  mix-blend-mode: multiply;
-}
-
-.image-2 {
-  width: 354px;
-  height: 151px;
-  left: 32px;
-  top: 823px;
-  position: absolute;
-}
-
-.image-3 {
-  width: 636px;
-  height: 636px;
-  left: 593px;
-  top: 261px;
-  position: absolute;
-  border-radius: 400px;
-}
-
-.button {
-  position: absolute;
-  width: 245px;
-  height: 63px;
-  background: #67B443;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  border: 1px solid black;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s; 
-}
-.button:active {
-  background-color: rgba(0, 0, 0, 0.5); /* Cambiamos el color de fondo cuando el botón está siendo presionado */
-}
-
-.button-text {
-  position: absolute;
-  color: black;
-  font-size: 30px;
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 700;
-  word-wrap: break-word;
-  margin: 0;
-  align-self: center;
-}
-
-.patients {
-  left: 62px;
-  top: 449px;
-}
-
-.home {
-  left: 62px;
-  top: 322px;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.measurements {
-  left: 62px;
-  top: 573px;
-}
-
-.exit {
-  left: 60px;
-  top: 699px;
-}
-    .buttons {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .buttons input[type="text"] {
-      margin-bottom: 10px;
-    }
-
-    .buttons button {
-      background: #67B443;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      border-radius: 10px;
-      border: 1px solid black;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.3s; 
-      font-size: 20px; 
-    }
-
-    .input-button-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .input-button-container input[type="text"] {
-      margin-right: 10px;
-      font-size: 18px; 
-    }
-
-
-    .containerMedition {
-      position: absolute;
-      right: 10%;
-      top: 50%;
-      transform: translateY(-40%);
-      width: 50%;
-      text-align: center;
-    }
-
-    .fundacion-image {
-      display: block;
-      margin: 20px auto;
-      width: 40%;
-    }
-
-    .titleMedition{
-      width: 500px;
-      left: 20%;
-      position: relative;
-      font-size: 40px;
-      font-family: 'Inter';
-      font-style: italic;
-      font-weight: 700;
-      word-wrap: break-word;
-    }
-    .buttonMedition{
-      background: #67B443;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      border-radius: 10px;
-      border: 1px solid black;
-      cursor: pointer;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.3s; 
-      font-size: 20px; 
-
-    }
-
-  </style>
+  <link href="visual.css" rel="stylesheet" />
 </head>
 <body>
   <div class="container">
@@ -225,6 +26,7 @@ body {
       </div>
       <div id="MedicionContainer"></div>
       <img src="/Resource/logoZonaMedicion.png" alt="Doctor" class="fundacion-image">
+
     </div>
 
     <button id= "button_patients" class="button patients">
@@ -239,7 +41,26 @@ body {
     <button id= "button_exit" class="button exit">
         <span class="button-text">EXIT</span>
     </button>
+
+
+    <dialog id="medicionDialog" class="iniciar-medicin">
+      <button class="custom-button x-button" onclick="closeDialog()">X</button>
+      <div class="rectangle-8"></div>
+      <button class="custom-button start-button">START</button>
+      <div class="group-71">
+        <div class="rectangle-7">
+          <div class="group-70">
+            <div class="time">TIME</div>
+            <div class="time-value">0:00</div>
+          </div>
+        </div>
+      </div>
+      <button class="custom-button end-button">END</button>
+    </dialog>
+  
   </div>
+
+
 
   <script src="./registroMedicion.js"></script>
 </body>
