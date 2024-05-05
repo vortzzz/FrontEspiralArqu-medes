@@ -2,44 +2,44 @@
 let userJSON= window.localStorage.getItem('user');
 
 if(userJSON===null){
-//    location.href = "../LoginDoctor/logIn.html"; 
-  }
-
+    //    location.href = "../LoginDoctor/logIn.html"; 
+}
 
 const homeButton = document.getElementById('button_home');
 const exitButton = document.getElementById('button_exit');
 const pacienteInput = document.getElementById('pacienteInput');
 const searchButton = document.getElementById('searchButton');
 const MedicionContainer = document.getElementById('MedicionContainer');
+const start=document.getElementById('start-button');
+const end=document.getElementById('end-button');
+const newMeasurent= document.getElementById('nuevaMedicion');
+
+let timerInterval=0;
 
 //Eventos
 
-homeButton.addEventListener('click',goHome);
-
+homeButton.addEventListener('click', goHome);
 exitButton.addEventListener('click', exit);
-searchButton.addEventListener('click',searchPaciente);
+searchButton.addEventListener('click', searchPaciente);
+start.addEventListener('click', cronometror); 
+end.addEventListener('click', endCronometror); 
+newMeasurent.addEventListener('click', openDialog); 
 
-
-//Acciones iniciales:
-
-
+// Acciones iniciales:
 
 function exit(){
     window.location.href = "../LoginDoctor/logIn.html"; 
     window.localStorage.removeItem('user');
-
 }
-
-
 
 function goHome(){
     window.location.href = "../principalPageDoctor/index.html";
 }
+
 async function searchPaciente(){
     let pacienteInput = pacienteInput.value;
     getPacientSearch(pacienteInput);
     window.location.href = "registroMedicion.html"
-
 }
 
 async function getPacientSearch(pacienteInput) {
@@ -54,11 +54,9 @@ async function getPacientSearch(pacienteInput) {
             let dateMedition = document.createElement('small');
             let buttonView = document.createElement('button');
 
-
             MedicionFoundContainer.appendChild(patientName);
             MedicionFoundContainer.appendChild(dateMedition);
             MedicionFoundContainer.appendChild(buttonView)
-
 
             doctorName.innerHTML = medicion.patientName;
             doctorCC.innerHTML = "fecha: " +  medicion.dateMedition;
@@ -67,22 +65,42 @@ async function getPacientSearch(pacienteInput) {
             buttonView.addEventListener('click',function(){
                 viewMedition(pacienteInput,medicion);
             })
-        
-
 
             searchResultsContainer.appendChild(MedicionFoundContainer);
-
-        }
-        );
+        });
     }
 
-    function viewMedition(pacienteInput,medicion){
-        window.location.href = "../visualizacionMediciones/visualizacion.html";
+function viewMedition(pacienteInput,medicion){
+    window.location.href = "../visualizacionMediciones/visualizacion.html";
+}
+
+ function openDialog(){
+    document.getElementById('medicionDialog').showModal();
+}
+
+ function closeDialog() {
+    document.getElementById('medicionDialog').close();
+    document.getElementById('time-value').textContent = '0:00'; 
+    clearInterval(timerInterval); 
+}
+
+function cronometror(){ 
+    let timeValueElement = document.getElementById('time-value');
+    let startTime = new Date().getTime(); // Tiempo inicial
+
+    // Función para actualizar el tiempo en el elemento
+    function updateTime() {
+        let currentTime = new Date().getTime(); 
+        let elapsedTime = currentTime - startTime; // Tiempo transcurrido desde el inicio
+        let minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60)); // Minutos
+        let seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000); // Segundos
+        timeValueElement.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0'); // Formato MM:SS
     }
 
-     document.getElementById('nuevaMedicion').addEventListener('click', function() {
-        document.getElementById('medicionDialog').showModal();
-      });
-      function closeDialog() {
-        document.getElementById('medicionDialog').close();
-      }
+    // Actualizar el tiempo cada segundo
+    timerInterval = setInterval(updateTime, 1000);
+}
+
+function endCronometror(){
+    clearInterval(timerInterval); 
+}

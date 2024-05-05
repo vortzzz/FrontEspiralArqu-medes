@@ -14,11 +14,11 @@
     <img class="image-2" src="/Resource/logo-icesi.png" />
 
     <div class="containerMedition">
-      <h1 class="titleMedition" style="color: #004d40;">Zona de pruebas por paciente:</h1>
+      <h1 class="titleMedition" style="color: #004d40;">Testing area per patient:</h1>
       <div class="buttons">
         <div class="input-button-container">
-          <input type="text" id="pacienteInput" name="pacienteInput" placeholder="CC del paciente">
-          <button id="searchButton">Buscar</button>
+          <input type="text" id="pacienteInput" name="pacienteInput" placeholder="Patient's CC">
+          <button id="searchButton">New measurement</button>
         </div>
       </div>
       <div>
@@ -46,16 +46,16 @@
     <dialog id="medicionDialog" class="iniciar-medicin">
       <button class="custom-button x-button" onclick="closeDialog()">X</button>
       <div class="rectangle-8"></div>
-      <button class="custom-button start-button">START</button>
+      <button id="start-button" class="custom-button start-button">START</button>
       <div class="group-71">
         <div class="rectangle-7">
           <div class="group-70">
             <div class="time">TIME</div>
-            <div class="time-value">0:00</div>
+            <div id="time-value"class="time-value">0:00</div>
           </div>
         </div>
       </div>
-      <button class="custom-button end-button">END</button>
+      <button id="end-button" class="custom-button end-button">END</button>
     </dialog>
   
   </div>
