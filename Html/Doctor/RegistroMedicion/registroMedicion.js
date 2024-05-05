@@ -38,36 +38,48 @@ function goHome(){
 
 async function searchPaciente(){
     let pacienteInput = pacienteInput.value;
-    getPacientSearch(pacienteInput);
+    await getPacientSearch(pacienteInput);
     window.location.href = "registroMedicion.html"
 }
 
 async function getPacientSearch(pacienteInput) {
     let json = JSON.stringify(pacienteInput); 
-    let response = await fetch('http://localhost:8080/paciente/mediciones/' + pacienteInput);
-        let medicion = await response.json();
-        users.forEach( medicion => {
-            MedicionContainer.innerHTML = '';
+    let response = await fetch('http://localhost:8080/patient/medition/' + pacienteInput,{
+        method: 'GET',
+        headers:{
+            'Content-Type': 'application/json'
+        }, 
+        body: json
+
+    });
+    let mediciones = await response.json();
+    if(response.ok){
+       mediciones.forEach( medicion => {
+        MedicionContainer.innerHTML = '';
             
-            let MedicionFoundContainer = document.createElement('div');
-            let patientName = document.createElement('h3');
-            let dateMedition = document.createElement('small');
-            let buttonView = document.createElement('button');
+        let MedicionFoundContainer = document.createElement('div');
+        let patientName = document.createElement('h3');
+        let dateMedition = document.createElement('small');
+        let buttonView = document.createElement('button');
 
-            MedicionFoundContainer.appendChild(patientName);
-            MedicionFoundContainer.appendChild(dateMedition);
-            MedicionFoundContainer.appendChild(buttonView)
+        MedicionFoundContainer.appendChild(patientName);
+        MedicionFoundContainer.appendChild(dateMedition);
+        MedicionFoundContainer.appendChild(buttonView)
 
-            doctorName.innerHTML = medicion.patientName;
-            doctorCC.innerHTML = "fecha: " +  medicion.dateMedition;
-            buttonView.innerHTML = "Ver"; 
+        patientName.innerHTML = pacienteInput;
+        dateMedition.innerHTML = "fecha: " +  medicion.dateTaken;
+        buttonView.innerHTML = "Ver"; 
 
-            buttonView.addEventListener('click',function(){
-                viewMedition(pacienteInput,medicion);
-            })
+        buttonView.addEventListener('click',function(){
+            viewMedition(pacienteInput,medicion.id);
+        })
 
-            searchResultsContainer.appendChild(MedicionFoundContainer);
-        });
+        searchResultsContainer.appendChild(MedicionFoundContainer);
+    }); 
+    } else{
+        alert(mediciones.filterMeditionsResponse); 
+    }
+    
     }
 
 function viewMedition(pacienteInput,medicion){

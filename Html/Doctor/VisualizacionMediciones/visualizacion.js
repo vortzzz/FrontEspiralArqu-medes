@@ -1,9 +1,9 @@
 //Validación de autenticación
-//let userJSON= window.localStorage.getItem('user');
+let userJSON= window.localStorage.getItem('user');
 
-//if(userJSON===null){
+if(userJSON===null){
     //location.href = "../LoginDoctor/logIn.html"; 
-  //}
+  }
 
 
 const homeButton = document.getElementById('homeButton');
@@ -42,7 +42,7 @@ function goHome(){
 }
 
 async function getCommets(){
-    let response = await fetch('http://localhost:8080/paciente/mediciones/comentarios'); //HTTP Requ
+    let response = await fetch('http://localhost:8080/patient/medition/comments/'+ medicionid); //HTTP Requ
     let users = await response.json();
 
     users.forEach( user => {
