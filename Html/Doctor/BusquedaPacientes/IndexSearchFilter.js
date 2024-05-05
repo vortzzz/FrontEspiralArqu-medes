@@ -25,7 +25,7 @@ function filter(){
 }
 
 async function getPatientfilter(namePatient){
-    let response = await fetch("http://localhost:8080/doctor/453/filterPatients/"+namePatient,{
+    let response = await fetch("http://localhost:8080/doctor"+userJSON.id+"/filterPatients/"+namePatient,{
     method: 'GET',
         headers:{
             'Content-Type': 'application/json'
