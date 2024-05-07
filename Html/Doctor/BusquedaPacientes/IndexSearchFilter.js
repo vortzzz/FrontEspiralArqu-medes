@@ -86,6 +86,9 @@ async function getPatientfilter(namePatient){
         }
     )}
     else{
+        patientsContainer.innerHTML = '';
+        setTimeout(function() {
         alert(patients.description);
+        }, 0); 
     }
 }
