@@ -2,7 +2,7 @@
 let userJSON= window.localStorage.getItem('user');
 
 if(userJSON===null){
-    //location.href = "../LoginDoctor/logIn.html"; 
+    location.href = "../LoginDoctor/logIn.html"; 
   }
 
 
@@ -29,7 +29,6 @@ document.getElementById('fecha').textContent = medicion.dateTaken;
 //Eventos
 
 homeButton.addEventListener('click',goHome);
-doctorsButton.addEventListener('click',goDoctorsSeccion);
 exitButton.addEventListener('click', exit);
 addButton.addEventListener('click',addComment);
 
@@ -42,10 +41,6 @@ getCommets();
 function exit(){
     window.location.href = "../LoginDoctor/logIn.html"; 
     window.localStorage.removeItem('user');
-
-}
-function goDoctorsSeccion(){
-    window.location.href = "../principalPageDoctor/index.html";
 
 }
 
@@ -85,7 +80,7 @@ async function getCommets(){
     if(comment===""){
         alert("digite un comentario valido");
     }else{
-        postCommentAdd(comment,pacienteInput);
+        postCommentAdd(comment,medicionid);
     }
 
 }
@@ -101,8 +96,8 @@ async function postCommentAdd(comment,medicionid){
         body: json
 
     })
-    let comment = await response.json();
-    alert( comment.description);
+    let comment1 = await response.json();
+    alert( "");
     window.location.href = "visualizacion.html";
 
 }
