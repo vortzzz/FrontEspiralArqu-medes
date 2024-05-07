@@ -18,7 +18,9 @@ const medicionString  = localStorage.getItem('medicion');
 const medicionid = localStorage.getItem('medicionid');
 
 // Convertir la cadena JSON a un objeto
+console.log(medicionString);
 const medicion = JSON.parse(medicionString);
+
 
 
 
@@ -86,9 +88,14 @@ async function getCommets(){
 }
 
 async function postCommentAdd(comment,medicionid){
-    let json = JSON.stringify(comment);
+    console.log(comment)
+    let commentobj = {
+        comment: comment 
+    }
 
-    let response = await fetch('http://localhost:8080/patient/addmedition/'+ medicionid + '/' + comment,{
+    let json = JSON.stringify(commentobj);
+
+    let response = await fetch('http://localhost:8080/patient/addmedition/'+ medicionid,{
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'
@@ -96,9 +103,10 @@ async function postCommentAdd(comment,medicionid){
         body: json
 
     })
+    console.log(response); 
     let comment1 = await response.json();
-    alert( "");
-    window.location.href = "visualizacion.html";
+    console.log(comment1); 
+    //window.location.href = "visualizacion.html";
 
 }
 
