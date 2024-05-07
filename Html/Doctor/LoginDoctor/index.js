@@ -49,7 +49,7 @@ async function  postLogin(LoginRequest){
    if(response.ok) {
     let user= JSON.stringify(data);
     window.localStorage.setItem('user', user);
-    window.location.href ='../PrincipalPageDOCTOR/DOCTORS.html'; 
+    window.location.href ='../RegistroMedicion/registroMedicion.html';  
     } else {
         if(response.status === 401) {
        alert(data.message);

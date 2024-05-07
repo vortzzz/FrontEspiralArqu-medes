@@ -2,7 +2,7 @@
 let userJSON= window.localStorage.getItem('user');
 
 if(userJSON===null){
-    //    location.href = "../LoginDoctor/logIn.html"; 
+        location.href = "../LoginDoctor/logIn.html"; 
 }
 
 const homeButton = document.getElementById('button_home');
@@ -37,21 +37,15 @@ function goHome(){
 }
 
 async function searchPaciente(){
-    let pacienteInput = pacienteInput.value;
-    await getPacientSearch(pacienteInput);
-    window.location.href = "registroMedicion.html"
+    let pacienteValue = pacienteInput.value;
+    await getPacientSearch(pacienteValue);
+    //window.location.href = "registroMedicion.html" ???????????????????????????????????
 }
 
 async function getPacientSearch(pacienteInput) {
-    let json = JSON.stringify(pacienteInput); 
-    let response = await fetch('http://localhost:8080/patient/medition/' + pacienteInput,{
-        method: 'GET',
-        headers:{
-            'Content-Type': 'application/json'
-        }, 
-        body: json
+    
+    let response = await fetch('http://localhost:8080/patient/medition/' + pacienteInput);
 
-    });
     let mediciones = await response.json();
     if(response.ok){
        mediciones.forEach( medicion => {
@@ -74,7 +68,7 @@ async function getPacientSearch(pacienteInput) {
             viewMedition(pacienteInput,medicion,medicion.id);
         })
 
-        searchResultsContainer.appendChild(MedicionFoundContainer);
+        MedicionContainer.appendChild(MedicionFoundContainer);
     }); 
     } else{
         alert(mediciones.description); 
