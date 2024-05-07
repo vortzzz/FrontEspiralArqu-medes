@@ -1,14 +1,14 @@
 //Autenticacion
 
-let userJSON= window.localStorage.getItem('user');
+// let userJSON= window.localStorage.getItem('user');
 
-if(userJSON===null){
-    location.href = "../LoginAdmin/Untitled-1.html";
-  }
-//Convierto string a objeto
-else{
-    userJSON=JSON.parse(userJSON);
-}
+// if(userJSON===null){
+//     location.href = "../LoginAdmin/Untitled-1.html";
+//   }
+// //Convierto string a objeto
+// else{
+//     userJSON=JSON.parse(userJSON);
+// }
 
 const homeButton = document.getElementById('homeButton');
 const doctorsButton = document.getElementById('doctorsButton');
@@ -25,7 +25,7 @@ function filter(){
 }
 
 async function getPatientfilter(namePatient){
-    let response = await fetch("http://localhost:8080/doctor"+userJSON.id+"/filterPatients/"+namePatient,{
+    let response = await fetch("http://localhost:8080/doctor/453/filterPatients/"+namePatient,{
     method: 'GET',
         headers:{
             'Content-Type': 'application/json'
@@ -34,27 +34,55 @@ async function getPatientfilter(namePatient){
     let patients= await response.json();
     console.log(response);
     if(response.status==200){
-        patients.forEach(patient =>{
-        
-            let userContainer = document.createElement('div');
-            let userTitle = document.createElement('h3');
-            let userSubtitle = document.createElement('small');
-            let space = document.createElement('br');
-            let userSubtitle2 = document.createElement('small');
-            
-    
-            userContainer.appendChild(userTitle);
-            userContainer.appendChild(userSubtitle);  
-            userContainer.appendChild(space);
-            userContainer.appendChild(userSubtitle2); 
-    
-            userTitle.innerHTML = patient.name; 
+        patientsContainer.innerHTML = '';
+        let table = document.createElement("table");
+        table.id = "miTabla";
+        var tblBody = document.createElement("tbody");
+        var textoCelda;
+        var hilera = document.createElement("tr");
+        for (var j = 0; j < 4; j++) {
+            var celda = document.createElement("td");   
+            if(j==0){
+                textoCelda=document.createTextNode("ID");
+            }
+            else if(j==1){
+                textoCelda=document.createTextNode("NAME");        
+            }
+            else if(j==2){
+                textoCelda=document.createTextNode("CC");
+            }
+            else{
+                textoCelda=document.createTextNode("PHONE");
+            }
+            celda.appendChild(textoCelda);
+            hilera.appendChild(celda);
+        }
+        tblBody.append(hilera);
+        table.appendChild(tblBody);
+        patientsContainer.appendChild(table);
 
-            userSubtitle.innerHTML ="Cedula: " + patient.cc; 
-    
-            userSubtitle2.innerHTML ="Telefono: " + patient.phone;
-    
-            patientsContainer.appendChild(userContainer);
+        patients.forEach(patient =>{
+                var hilera = document.createElement("tr");
+                for (var j = 0; j < 4; j++) {
+                    var celda = document.createElement("td");   
+                    if(j==0){
+                        textoCelda=document.createTextNode(patient.id);
+                    }
+                    else if(j==1){
+                        textoCelda=document.createTextNode(patient.name);        
+                    }
+                    else if(j==2){
+                        textoCelda=document.createTextNode(patient.cc);
+                    }
+                    else{
+                        textoCelda=document.createTextNode(patient.phone);
+                    }
+                    celda.appendChild(textoCelda);
+                    hilera.appendChild(celda);
+                }
+            tblBody.append(hilera);
+            table.appendChild(tblBody);
+            patientsContainer.appendChild(table);
         }
     )}
     else{
