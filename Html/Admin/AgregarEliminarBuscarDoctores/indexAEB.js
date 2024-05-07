@@ -34,6 +34,10 @@ function goHome(){
     window.location.href = "../AgregarEliminarBuscarDoctores/pagina.html";
 }
 
+function addDevice() {
+  window.location.href = "../CreacionDeDispositvo/Create.html";
+}
+
 
 
 
