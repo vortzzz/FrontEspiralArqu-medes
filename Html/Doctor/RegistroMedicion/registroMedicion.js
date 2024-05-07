@@ -10,6 +10,7 @@ const exitButton = document.getElementById('button_exit');
 const pacienteInput = document.getElementById('pacienteInput');
 const searchButton = document.getElementById('searchButton');
 const MedicionContainer = document.getElementById('MedicionContainer');
+const SearchResultContainer = document.getElementById('SearchResultContainer');
 const start=document.getElementById('start-button');
 const end=document.getElementById('end-button');
 const newMeasurent= document.getElementById('nuevaMedicion');
@@ -54,8 +55,9 @@ async function getPacientSearch(pacienteInput) {
     });
     let mediciones = await response.json();
     if(response.ok){
+
        mediciones.forEach( medicion => {
-        MedicionContainer.innerHTML = '';
+        SearchResultContainer.innerHTML = '';
             
         let MedicionFoundContainer = document.createElement('div');
         let patientName = document.createElement('h3');
@@ -74,7 +76,7 @@ async function getPacientSearch(pacienteInput) {
             viewMedition(pacienteInput,medicion,medicion.id);
         })
 
-        searchResultsContainer.appendChild(MedicionFoundContainer);
+        SearchResultContainer.appendChild(MedicionFoundContainer);
     }); 
     } else{
         alert(mediciones.description); 
