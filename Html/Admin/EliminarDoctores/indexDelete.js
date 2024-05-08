@@ -23,7 +23,7 @@ deleteButton.addEventListener('click',deleteDoctor);
 
 //Acciones iniciales:
 
-getListDoctors();
+getListDoctor();
 
 function exit(){
     window.location.href = "../LoginAdmin/Untitled-1.html"
@@ -31,7 +31,7 @@ function exit(){
 }
 
 
-async function getListDoctors(){
+async function getListDoctor(){
     let response = await fetch('http://localhost:8080/doctor/listDoctors')
     let doctors= await response.json();
 

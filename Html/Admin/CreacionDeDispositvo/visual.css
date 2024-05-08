@@ -1,0 +1,442 @@
+.doctor {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 50%;
+  }
+  
+  .doctor .div {
+    background-color: #ffffff;
+    width: 1440px;
+    height: 1024px;
+    position: relative;
+  }
+  
+  .doctor .group {
+    position: absolute;
+    width: 764px;
+    height: 605px;
+    top: 230px;
+    left: 522px;
+  }
+  
+  .doctor .BIG-IMAGE {
+    width: 763px;
+    height: 605px;
+    background-image: url(/Resource/rectangle-10.png);
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  
+  .doctor .ellipse {
+    position: absolute;
+    width: 508px;
+    height: 508px;
+    top: 11px;
+    left: 0;
+    background-color: #57a6d4;
+    border-radius: 253.92px;
+  }
+  
+  .doctor .pngwing {
+    position: absolute;
+    width: 489px;
+    height: 489px;
+    top: 0;
+    left: 9px;
+    object-fit: cover;
+  }
+  
+  .doctor .rectangle {
+    width: 361px;
+    height: 1024px;
+    left: -200;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+  }
+  
+  .doctor .image {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+    top: 850px;
+    left: 50px;
+    object-fit: cover;
+  }
+  
+  .doctor .FVL-LOGO {
+    position: absolute;
+    width: 212px;
+    height: 195px;
+    top: 66px;
+    left: 77px;
+    mix-blend-mode: multiply;
+    object-fit: cover;
+  }
+  
+  .doctor .overlap-group {
+    position: relative;
+    width: 508px;
+    height: 519px;
+    top: 37px;
+    left: 148px;
+  }
+  
+  .doctor .DEVICE {
+    position: absolute;
+    top: 65%;
+    left: 23%;
+    font-family: "Inter-BoldItalic", Helvetica;
+    font-weight: 700;
+    font-style: italic;
+    color: #000000;
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .doctor .DEVICE button{
+        width: 250px;
+        height: 66px; 
+        padding: 10px;
+        background: #67B443;
+        border: 1px solid #000000;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+        border-radius: 10px;
+        font-family: 'Inter';
+        font-style: italic;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 10px;
+        color: #000000;
+        cursor: pointer;
+        text-align: center;
+      }
+  .doctor .EXIT {
+    position: absolute;
+    top: 70%;
+    left: 7%;
+    font-family: "Inter-BoldItalic", Helvetica;
+    font-weight: 700;
+    font-style: italic;
+    color: #000000;
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .doctor .EXIT button{
+        width: 250px;
+        height: 66px; 
+        padding: 10px;
+        background: #67B443;
+        border: 1px solid #000000;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+        border-radius: 10px;
+        font-family: 'Inter';
+        font-style: italic;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 10px;
+        color: #000000;
+        cursor: pointer;
+        text-align: center;
+      }
+  
+  .doctor .DOCTORS {
+    position: absolute;
+    top: 52%;
+    left: 23%;
+    font-family: "Inter-BoldItalic", Helvetica;
+    font-weight: 700;
+    font-style: italic;
+    color: #67B443;
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: normal;  
+  }
+  
+  .doctor .DOCTORS button {
+    width: 250px;
+    height: 66px;
+    padding: 10px;
+    background: #000000;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 10px;
+    color: #67B443;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .doctor .HOUSE {
+    position: absolute;
+    top: 40%;
+    left: 23%;
+    font-family: "Inter-BoldItalic", Helvetica;
+    font-weight: 700;
+    font-style: italic;
+    color: #67B443;
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: normal;  
+  }
+  
+  .doctor .HOUSE button {
+        width: 250px;
+        height: 66px; 
+        padding: 10px;
+        background: #67B443;
+        border: 1px solid #000000;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+        border-radius: 10px;
+        font-family: 'Inter';
+        font-style: italic;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 10px;
+        color: #000000;
+        cursor: pointer;
+        text-align: center;
+  }
+  
+  .doctor .overlap-group-wrapper {
+    position: absolute;
+    width: 5%;
+    height: 5%;
+    top: 40%;
+    left: 52%;
+  }
+  
+  .doctor .rectangle-wrapper {
+    position: absolute;
+    width: 249px;
+    height: 63px;
+    top: 0;
+    left: 0;
+  }
+  
+  .doctor .img {
+    width: 257px;
+    height: 71px;
+    left: -4px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .doctor .title {
+    position: absolute;
+    width: 954px;
+    top: -700%;
+    left: 50px;
+    font-family: "Inter-BoldItalic", Helvetica;
+    font-weight: 700;
+    font-style: italic;
+    color: #000000;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .doctor .group-2 {
+    position: absolute;
+    width: 252px;
+    height: 96px;
+    top: 878px;
+    left: 984px;
+  }
+  
+  .doctor .overlap-4 {
+    position: absolute;
+    width: 248px;
+    height: 96px;
+    top: 878px;
+    left: 590px;
+  }
+  .doctor .rectangle-2 {
+    position: absolute;
+    width: 256px;
+    height: 104px;
+    top: 0;
+    left: -4px;
+  }
+    .login-form {
+    display: flex; 
+    position: absolute;
+    flex-direction: column;
+    width: 750px;
+    height: 75px;
+    top: 950%;
+    left: 150%;
+    border-radius: 10px;
+    }
+  .login-form h1 {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: #fff; /* Texto blanco */
+    }
+  
+    .login-form input[type="text"]{
+        width: 50%;  
+        padding: 10px;
+        box-sizing: border-box;
+        background: #91BB7D;
+        border: 1px solid #000000;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        margin-bottom: 30px;
+        font-family: 'Inter';
+        font-style: italic;
+        font-weight: 700;
+        line-height: 24px;
+        color: #000000;
+        opacity: 100;
+    }
+  
+    .login-form input[type="text"]::placeholder{
+        color: black;
+        opacity: 0.7;
+    }
+    .button{
+        position: absolute;
+        display: flex;
+        left: 110%;
+        bottom: -15%;
+        transform: translate(-50%, -50%);
+        width: 40%;
+        
+        
+      }
+  
+      .button button{
+        width: 100%;
+        height: 66px;
+        padding: 10px;
+        background: #67B443;
+        border: 1px solid #000000;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        font-family: 'Inter';
+        font-style: italic;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 10px;
+        color: #000000;
+        cursor: pointer;
+      }
+  
+      .assigDevice{
+        width: 800px;
+        height: 466px;
+        top:-100px;
+        position: relative;
+        background: #BDDFFF;
+        border: 1px solid black;
+      }
+  
+      .dropbtn {
+    background-color: #4CAF50;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 10px;
+    cursor: pointer;
+    text-align: center;
+    
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    left: 30px;
+    top: 30px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 0px; /* con esto añadimos o quitamos separacion */
+  }
+  
+  .dropdown-content a {
+    color: black; 
+    padding: 20px 20px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+
+  .dropdown-content a:focus {
+    background-color: #e1e1e1;
+  }
+
+  .device-info-container:hover {
+    cursor: pointer;
+  }
+
+  .device-info-container{
+    width: 100%;
+    position: relative;
+    display: flex;
+    left: 30px;
+    top: 30px;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 10px;
+    cursor: pointer;
+    text-align: center;
+    
+    
+  }
+  
+
+  .doctor-info-container{
+    flex-direction: column;
+    left:50px;
+  }
+  
+  .x-button {
+          background: #FF0000;
+          position: absolute;
+          width: 41.41px;
+          height: 47px;
+          left: 700.03px;
+          top: 10px;
+          color: #D9D9D9;
+          font-size: 40px;
+          font-family: Inter;
+          font-style: italic;
+          font-weight: 700;
+          cursor: pointer;
+        }
+  

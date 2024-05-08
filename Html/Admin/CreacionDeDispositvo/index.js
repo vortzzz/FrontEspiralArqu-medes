@@ -10,14 +10,20 @@ const exitButton = document.getElementById('exitButton');
 const name = document.getElementById('Name');
 const addButton = document.getElementById('addButton');
 const assign = document.getElementById('ASSIGN');
+const deviceInfoContainer = document.getElementById('device-info-container');
+const dropdownContent =document.getElementById('dropdown-content');  
+const doctorInfoContainer = document.getElementById('doctor-info-container');
+
+
 
 
 
 //Eventos
-//assign.addEventListener('click',asignDevice);
+assign.addEventListener('click',asignDevice);
 addButton.addEventListener('click',addDevice);
 homeButton.addEventListener('click',goHome);
 exitButton.addEventListener('click', exit);
+
 
 function exit(){
     window.location.href = "../LoginAdmin/Untitled-1.html";
@@ -42,31 +48,140 @@ function addDevice() {
     }
 }
 
-async function postDeviceAdd(device){
+async function postDeviceAdd(device) {
     let json = JSON.stringify(device);
 
-    let response = await fetch('http://localhost:8080/device/createDevice',{
-        method: 'POST',
-        headers:{
-            'Content-Type': 'application/json'
-        }, 
-        body: json
-    });
-    let data = await response.json();
-    if(response.ok) {
-        let device= JSON.stringify(data);
-        window.localStorage.setItem('device',device);
-        alert(data.description);
+    try {
+        let response = await fetch('http://localhost:8080/device/createDevice', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: json
+        });
+        let data = await response.json();
 
-    }else {
-    if(response.status === 401) {
-        alert(data.description);
-    } else {
-        console.error('Request error:', response.status);
-        alert('An error occurred in the request. Please try again later.');
+        if (response.ok) {
+            let device = JSON.stringify(data);
+            window.localStorage.setItem('device', device);
+            alert(data.description);
+        } else {
+            if (response.status === 401) {
+                alert(data.description);
+            } else {
+                console.error('Request error:', response.status);
+                alert('An error occurred in the request. Please try again later.');
+            }
+        }
+    } catch (error) {
+        console.error('Fetch error:', error);
+        alert('An error occurred during the fetch request. Please try again later.');
     }
-   }
 }
+
+function asignDevice(){
+    document.getElementById('assigDevice').showModal();
+    deviceInfoContainer.innerHTML = '';
+    doctorInfoContainer.innerHTML = '';
+    getListDevice();
+    
+}
+function closeDialog() {
+    dropdownContent.innerHTML = '';
+    document.getElementById('assigDevice').close();
+}
+
+
+async function getListDevice(){
+    let response = await fetch('http://localhost:8080/device/list');
+    let devices= await response.json();
+
+ 
+    devices.forEach(device => {
+        const link = document.createElement('a'); 
+        link.href = '#'; 
+        link.textContent = device.name; 
+        link.setAttribute('data-device-id', device.id); 
+        link.addEventListener('click',(event) => {
+            event.preventDefault();
+            const deviceId = event.target.getAttribute('data-device-id');
+            const selectedDevice = devices.find(d => d.id === parseInt(deviceId));
+            displaySelectedDevice(selectedDevice);
+          });
+        dropdownContent.appendChild(link); 
+    });
+}
+
+async function displaySelectedDevice(device) {
+    deviceInfoContainer.innerHTML = '';
+    getListDoctor();
+    const deviceName = document.createElement('p');
+    deviceName.textContent = device.name;
+    deviceInfoContainer.appendChild(deviceName);
+
+    const deviceInput = document.createElement('input');
+    deviceInput.type = 'text';
+    deviceInput.textContent = "CC of doctor";
+    deviceInfoContainer.appendChild(deviceInput);
+  
+    const selectButton = document.createElement('button');
+    selectButton.textContent = 'Select';
+    selectButton.addEventListener('click', async () => {
+        let ccdoctor=deviceInput.value;
+        if(ccdoctor===""){
+            alert("Digite la cedula de un doctor");
+        } else {
+            let json= JSON.stringify(device);
+            let response = await fetch('http://localhost:8080/device/AssignDevice/'+ccdoctor,{
+                method: 'POST',
+                headers:{
+                  'Content-Type': 'application/json'
+                },
+                body: json
+             });
+             let data= await response.json();
+             if(response.ok) {
+                alert("linked device");
+             }else{
+                alert(data.description);
+             }
+
+        }
+      
+      });
+    deviceInfoContainer.appendChild(selectButton);
+  }
+
+  async function getListDoctor(){
+    let response = await fetch('http://localhost:8080/doctor/listDoctors')
+    let doctors= await response.json();
+    doctors.forEach(doctor =>{
+        
+        let userContainer = document.createElement('div');
+        let userTitle = document.createElement('h3');
+        let userSubtitle = document.createElement('small');
+        let space = document.createElement('br');
+        let userSubtitle2 = document.createElement('small');
+        
+
+        userContainer.appendChild(userTitle);
+        userContainer.appendChild(userSubtitle);  
+        userContainer.appendChild(space);
+        userContainer.appendChild(userSubtitle2); 
+
+        userTitle.innerHTML = doctor.name; 
+        userSubtitle.innerHTML ="Cedula: " + doctor.cc; 
+
+        userSubtitle2.innerHTML ="Telefono: " +doctor.phone;
+
+        doctorInfoContainer.appendChild(userContainer);
+
+    }); 
+}
+
+
+
+
 
 
 
