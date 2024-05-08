@@ -21,7 +21,13 @@ filterBTN.addEventListener('click',filter)
 
 function filter(){
     let namePatient = inputFilterByName.value;
-    getPatientfilter(namePatient); 
+    if(namePatient!=""){
+    getPatientfilter(namePatient);
+    }
+    else{
+        patientsContainer.innerHTML = '';
+        alert("Enter something please");
+    }
 }
 
 async function getPatientfilter(namePatient){
@@ -32,29 +38,31 @@ async function getPatientfilter(namePatient){
         }, 
     });
     let patients= await response.json();
-    console.log(response);
     if(response.status==200){
         patientsContainer.innerHTML = '';
         let table = document.createElement("table");
         table.id = "miTabla";
         var tblBody = document.createElement("tbody");
-        var textoCelda;
+        var ceilInfo;
+        var textoBTN1;
+        var textoBTN2;
+        var patientID;
         var hilera = document.createElement("tr");
         for (var j = 0; j < 4; j++) {
             var celda = document.createElement("td");   
             if(j==0){
-                textoCelda=document.createTextNode("ID");
+                ceilInfo=document.createTextNode("ID");
             }
             else if(j==1){
-                textoCelda=document.createTextNode("NAME");        
+                ceilInfo=document.createTextNode("NAME");        
             }
             else if(j==2){
-                textoCelda=document.createTextNode("CC");
+                ceilInfo=document.createTextNode("CC");
             }
             else{
-                textoCelda=document.createTextNode("PHONE");
+                ceilInfo=document.createTextNode("PHONE");
             }
-            celda.appendChild(textoCelda);
+            celda.appendChild(ceilInfo);
             hilera.appendChild(celda);
         }
         tblBody.append(hilera);
@@ -63,21 +71,35 @@ async function getPatientfilter(namePatient){
 
         patients.forEach(patient =>{
                 var hilera = document.createElement("tr");
-                for (var j = 0; j < 4; j++) {
+                for (var j = 0; j < 6; j++) {
                     var celda = document.createElement("td");   
                     if(j==0){
-                        textoCelda=document.createTextNode(patient.id);
+                        ceilInfo=document.createTextNode(patient.id);
                     }
                     else if(j==1){
-                        textoCelda=document.createTextNode(patient.name);        
+                        ceilInfo=document.createTextNode(patient.name);        
                     }
                     else if(j==2){
-                        textoCelda=document.createTextNode(patient.cc);
+                        ceilInfo=document.createTextNode(patient.cc);
+                    }
+                    else if(j==3){
+                        ceilInfo=document.createTextNode(patient.phone);
+                    }
+                    else if(j==4){
+                        ceilInfo=document.createElement("button");
+                        textoBTN1=document.createTextNode("DELETE");
+                        ceilInfo.appendChild(textoBTN1);
+                        ceilInfo.addEventListener("click", function(){
+                            remove(patient.id);
+                        });
                     }
                     else{
-                        textoCelda=document.createTextNode(patient.phone);
+                        ceilInfo=document.createElement("button");
+                        textoBTN2=document.createTextNode("MODIFY");
+                        ceilInfo.appendChild(textoBTN2);
                     }
-                    celda.appendChild(textoCelda);
+
+                    celda.appendChild(ceilInfo);
                     hilera.appendChild(celda);
                 }
             tblBody.append(hilera);
@@ -87,8 +109,9 @@ async function getPatientfilter(namePatient){
     )}
     else{
         patientsContainer.innerHTML = '';
-        setTimeout(function() {
         alert(patients.description);
-        }, 0); 
+    }
+    function remove(id){
+        console.log(id);
     }
 }
