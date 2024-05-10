@@ -101,23 +101,48 @@ function viewMedition(pacienteInput,medicion,medicionid){
     clearInterval(timerInterval); 
 }
 
-function cronometror(){ 
+async function cronometror(){ 
+    
     let timeValueElement = document.getElementById('time-value');
-    let startTime = new Date().getTime(); // Tiempo inicial
+    if( timeValueElement.textContent == '0:00'){
+        let startTime = new Date().getTime(); // Tiempo inicial
 
-    // Función para actualizar el tiempo en el elemento
-    function updateTime() {
-        let currentTime = new Date().getTime(); 
-        let elapsedTime = currentTime - startTime; // Tiempo transcurrido desde el inicio
-        let minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60)); // Minutos
-        let seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000); // Segundos
-        timeValueElement.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0'); // Formato MM:SS
+        let response = await fetch('http://localhost:8080/device/Device-00 /startMedition',{
+            method: 'POST',
+            headers:{
+              'Content-Type': 'application/json'
+            },
+         });
+
+         let data= await response.json();
+        
+        // Función para actualizar el tiempo en el elemento
+        function updateTime() {
+            let currentTime = new Date().getTime(); 
+            let elapsedTime = currentTime - startTime; // Tiempo transcurrido desde el inicio
+            let minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60)); // Minutos
+            let seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000); // Segundos
+            timeValueElement.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0'); // Formato MM:SS
+        }
+    
+        // Actualizar el tiempo cada segundo
+        timerInterval = setInterval(updateTime, 1000);
+    }else{
+        document.getElementById('time-value').textContent = '0:00'; 
+        clearInterval(timerInterval); 
     }
 
-    // Actualizar el tiempo cada segundo
-    timerInterval = setInterval(updateTime, 1000);
 }
 
-function endCronometror(){
+async function endCronometror(){
     clearInterval(timerInterval); 
+
+    let response = await fetch('http://localhost:8080/device/Device-00 /stopMedition',{
+        method: 'POST',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+     });
+
+     let data= await response.json();
 }
