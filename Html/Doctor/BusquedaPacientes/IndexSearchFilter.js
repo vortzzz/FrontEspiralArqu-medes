@@ -1,28 +1,43 @@
 //Autenticacion
 
-// let userJSON= window.localStorage.getItem('user');
+let userJSON= window.localStorage.getItem('user');
 
-// if(userJSON===null){
-//     location.href = "../LoginAdmin/Untitled-1.html";
-//   }
-// //Convierto string a objeto
-// else{
-//     userJSON=JSON.parse(userJSON);
-// }
+if(userJSON===null){
+    location.href = "../LoginDoctor/Login.html";
+  }
+//Convierto string a objeto
+else{
+    userJSON=JSON.parse(userJSON);
+}
 
 const homeButton = document.getElementById('homeButton');
 const doctorsButton = document.getElementById('doctorsButton');
+const exitButton = document.getElementById('exitButton');
 const inputFilterByName = document.getElementById('inputFilterByName');
 const filterBTN = document.getElementById('filterBTN');
 const patientsContainer=document.getElementById('patientsContainer');
+const selection=document.getElementById('options');
 
-
+homeButton.addEventListener('click',home)
+exitButton.addEventListener('click',exit)
 filterBTN.addEventListener('click',filter)
+
+
+function home(){
+    location.href='../PrincipalPageDOCTOR/indexPagePrincipalDoctor.html';
+}
+
+function exit(){
+    location.href='../LoginDoctor/Login.html';
+    window.localStorage.removeItem('user');
+}
+
+
 
 function filter(){
     let namePatient = inputFilterByName.value;
     if(namePatient!=""){
-    getPatientfilter(namePatient);
+    typeofFiltering(namePatient);
     }
     else{
         patientsContainer.innerHTML = '';
@@ -30,14 +45,38 @@ function filter(){
     }
 }
 
-async function getPatientfilter(namePatient){
-    let response = await fetch("http://localhost:8080/doctor/52/filterPatients/"+namePatient,{
+async function typeofFiltering(namePatient){
+
+    console.log(selection.value);
+
+    if(selection.value==="myPatients"){
+    let response = await fetch("http://localhost:8080/doctor/"+userJSON.id+"/filterPatients/"+namePatient,{
     method: 'GET',
         headers:{
             'Content-Type': 'application/json'
         }, 
     });
     let patients= await response.json();
+    getPatientfilter(patients,response);
+    }
+    else if (selection.value==="allDatabase"){
+        let response = await fetch("http://localhost:8080/doctor/filterPatients/"+namePatient,{
+            method: 'GET',
+                headers:{
+                    'Content-Type': 'application/json'
+                }, 
+            });
+        let patients= await response.json();
+        getPatientfilter(patients,response);
+    }
+    else{
+        alert("Please select a type of filtering")
+    }
+}
+
+
+
+async function getPatientfilter(patients,response){
     if(response.status==200){
         patientsContainer.innerHTML = '';
         let table = document.createElement("table");
@@ -46,7 +85,6 @@ async function getPatientfilter(namePatient){
         var ceilInfo;
         var textoBTN1;
         var textoBTN2;
-        var patientID;
         var hilera = document.createElement("tr");
         for (var j = 0; j < 4; j++) {
             var celda = document.createElement("td");   
@@ -97,6 +135,9 @@ async function getPatientfilter(namePatient){
                         ceilInfo=document.createElement("button");
                         textoBTN2=document.createTextNode("MODIFY");
                         ceilInfo.appendChild(textoBTN2);
+                        ceilInfo.addEventListener("click", function(){
+                            modifyPatient(patient);
+                        });
                     }
 
                     celda.appendChild(ceilInfo);
@@ -111,7 +152,9 @@ async function getPatientfilter(namePatient){
         patientsContainer.innerHTML = '';
         alert(patients.description);
     }
-    function remove(id){
-        console.log(id);
+    function modifyPatient(patient){
+        let patientToString= JSON.stringify(patient);
+        window.localStorage.setItem('patient', patientToString);
+        window.location.href = "../ModificacionPacientes/ModifyPatients.html"
     }
 }
