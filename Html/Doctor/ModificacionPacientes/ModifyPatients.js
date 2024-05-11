@@ -47,17 +47,15 @@ function modify(){
             cc : newPatientCC.value,
             email : newPatientEmail.value,
             phone : newPatientPhone.value,
+            doctorId : patientJSON.doctorId  
         }
     
         postPatientModify(patient);
     }
 
     async function postPatientModify(patient){
-    console.log(patient);
     let json = JSON.stringify(patient);
-
-
-    let response = await fetch('http://localhost:8080/doctor/'+userJSON.id+'/patient/'+patientJSON.id+'/modify',{
+    let response = await fetch('http://localhost:8080/doctor/patient/'+patientJSON.id+'/modify',{
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'

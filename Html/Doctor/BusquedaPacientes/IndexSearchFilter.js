@@ -15,6 +15,7 @@ const doctorsButton = document.getElementById('doctorsButton');
 const inputFilterByName = document.getElementById('inputFilterByName');
 const filterBTN = document.getElementById('filterBTN');
 const patientsContainer=document.getElementById('patientsContainer');
+const selection=document.getElementById('options');
 
 
 filterBTN.addEventListener('click',filter)
@@ -22,7 +23,7 @@ filterBTN.addEventListener('click',filter)
 function filter(){
     let namePatient = inputFilterByName.value;
     if(namePatient!=""){
-    getPatientfilter(namePatient);
+    typeofFiltering(namePatient);
     }
     else{
         patientsContainer.innerHTML = '';
@@ -30,7 +31,9 @@ function filter(){
     }
 }
 
-async function getPatientfilter(namePatient){
+async function typeofFiltering(namePatient){
+    
+    if(selection.value==="myPatients"){
     let response = await fetch("http://localhost:8080/doctor/"+userJSON.id+"/filterPatients/"+namePatient,{
     method: 'GET',
         headers:{
@@ -38,6 +41,23 @@ async function getPatientfilter(namePatient){
         }, 
     });
     let patients= await response.json();
+    getPatientfilter(patients,response);
+    }
+    else{
+        let response = await fetch("http://localhost:8080/doctor/filterPatients/"+namePatient,{
+            method: 'GET',
+                headers:{
+                    'Content-Type': 'application/json'
+                }, 
+            });
+        let patients= await response.json();
+        getPatientfilter(patients,response);
+    }
+}
+
+
+
+async function getPatientfilter(patients,response){
     if(response.status==200){
         patientsContainer.innerHTML = '';
         let table = document.createElement("table");
@@ -46,7 +66,6 @@ async function getPatientfilter(namePatient){
         var ceilInfo;
         var textoBTN1;
         var textoBTN2;
-        var patientID;
         var hilera = document.createElement("tr");
         for (var j = 0; j < 4; j++) {
             var celda = document.createElement("td");   
