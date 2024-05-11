@@ -17,12 +17,19 @@ const newPatientCC = document.getElementById('newPatientCC');
 const newPatientEmail= document.getElementById('newPatientEmail');
 const newPatientPhone = document.getElementById('newPatientPhone');
 const modifyButton = document.getElementById('modifyButton');
+const homeButton = document.getElementById('homeButton');
 const doneButton = document.getElementById('doneButton');
 
 modifyButton.addEventListener("click", modify);
 
 doneButton.addEventListener("click",done)
 
+homeButton.addEventListener("click",home)
+
+
+function home(){
+    location.href='../PrincipalPageDOCTOR/indexPagePrincipalDoctor.html';
+}
 
 getInfo();
 
