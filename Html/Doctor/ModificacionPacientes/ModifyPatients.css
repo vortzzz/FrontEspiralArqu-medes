@@ -1,0 +1,155 @@
+#containerDiv{
+    display: flex;
+}
+
+#sidebar{
+    width: 24%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    height: 1024px;
+    background-image: url("/Resource/rectangle-8.png");
+    
+}
+.buttons {
+    width: 250px;
+    height: 66px; 
+    padding: 10px;
+    background: #67B443;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 10px;
+    color: #000000;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+#patients{
+  width: 250px;
+  height: 66px;
+  padding: 10px;
+  background: #000000;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+  border-radius: 10px;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 10px;
+  color: #67B443;
+  cursor: pointer;
+}
+
+#logo-valle-del-lili{
+    width: 212px;
+    height: 195px;
+    margin-bottom: 20px;
+}
+#logoIcesi{
+    width: 250px;
+    height: 120px;
+    margin-top: 50px;
+}
+#secondContainer{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    height: 1024px;
+}
+#textTitle{
+    width: 75% ;
+    font-family: "Inter-BoldItalic", Helvetica;
+    font-weight: 700;
+    font-style: italic;
+    color: #000000;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-bottom: 50px;
+}
+
+/*Ajusto tabla*/
+#table {
+    margin-top: 100px;
+    width: 40%;
+    background: #91BB7D;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 30px;
+    color: #000000; 
+    opacity: 100;
+}
+
+/*Ajusto filas y columnas*/
+#table td,
+#table th {
+    padding: 3%;
+    border: 1px solid #dddddd;  
+    text-align: center;
+    justify-content: center;
+}
+
+/*Ajusto primera columa*/
+#table td:nth-child(1), 
+#table th:nth-child(1)   {
+    width: 10%; 
+}
+
+/*Ajusto segunda columa*/
+#table td:nth-child(2), 
+#table th:nth-child(2) {
+    width: 50%; 
+}
+
+#table input {
+    width: 75%; 
+    padding: 10px;
+    box-sizing: border-box;
+    background: #c0c0c0;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    font-family: 'Inter';
+    font-size: 100%;
+    font-style: italic;
+    font-weight: 700;
+    color: #000000;
+    opacity: 100;
+}
+
+#divContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: 50px;
+}
+
+.button{
+    margin-top: 100px;
+    width: 10%;
+    height: 60%;
+    margin-right: 50px;
+    background: #67B443;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-style  : italic;
+    font-weight: 700;
+    font-size: 30px;
+    color: #000000;
+    cursor: pointer
+}

@@ -1,14 +1,14 @@
 //Autenticacion
 
-// let userJSON= window.localStorage.getItem('user');
+let userJSON= window.localStorage.getItem('user');
 
-// if(userJSON===null){
-//     location.href = "../LoginAdmin/Untitled-1.html";
-//   }
-// //Convierto string a objeto
-// else{
-//     userJSON=JSON.parse(userJSON);
-// }
+if(userJSON===null){
+    location.href = "../LoginDoctor/Login.html";
+  }
+//Convierto string a objeto
+else{
+    userJSON=JSON.parse(userJSON);
+}
 
 const homeButton = document.getElementById('homeButton');
 const doctorsButton = document.getElementById('doctorsButton');
@@ -31,7 +31,7 @@ function filter(){
 }
 
 async function getPatientfilter(namePatient){
-    let response = await fetch("http://localhost:8080/doctor/52/filterPatients/"+namePatient,{
+    let response = await fetch("http://localhost:8080/doctor/"+userJSON.id+"/filterPatients/"+namePatient,{
     method: 'GET',
         headers:{
             'Content-Type': 'application/json'
@@ -97,6 +97,9 @@ async function getPatientfilter(namePatient){
                         ceilInfo=document.createElement("button");
                         textoBTN2=document.createTextNode("MODIFY");
                         ceilInfo.appendChild(textoBTN2);
+                        ceilInfo.addEventListener("click", function(){
+                            modifyPatient(patient);
+                        });
                     }
 
                     celda.appendChild(ceilInfo);
@@ -111,7 +114,9 @@ async function getPatientfilter(namePatient){
         patientsContainer.innerHTML = '';
         alert(patients.description);
     }
-    function remove(id){
-        console.log(id);
+    function modifyPatient(patient){
+        let patientToString= JSON.stringify(patient);
+        window.localStorage.setItem('patient', patientToString);
+        window.location.href = "../ModificacionPacientes/ModifyPatients.html"
     }
 }
