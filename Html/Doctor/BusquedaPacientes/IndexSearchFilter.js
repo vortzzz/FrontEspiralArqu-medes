@@ -12,13 +12,27 @@ else{
 
 const homeButton = document.getElementById('homeButton');
 const doctorsButton = document.getElementById('doctorsButton');
+const exitButton = document.getElementById('exitButton');
 const inputFilterByName = document.getElementById('inputFilterByName');
 const filterBTN = document.getElementById('filterBTN');
 const patientsContainer=document.getElementById('patientsContainer');
 const selection=document.getElementById('options');
 
-
+homeButton.addEventListener('click',home)
+exitButton.addEventListener('click',exit)
 filterBTN.addEventListener('click',filter)
+
+
+function home(){
+    location.href='../PrincipalPageDOCTOR/indexPagePrincipalDoctor.html';
+}
+
+function exit(){
+    location.href='../LoginDoctor/Login.html';
+    window.localStorage.removeItem('user');
+}
+
+
 
 function filter(){
     let namePatient = inputFilterByName.value;
@@ -32,7 +46,9 @@ function filter(){
 }
 
 async function typeofFiltering(namePatient){
-    
+
+    console.log(selection.value);
+
     if(selection.value==="myPatients"){
     let response = await fetch("http://localhost:8080/doctor/"+userJSON.id+"/filterPatients/"+namePatient,{
     method: 'GET',
@@ -43,7 +59,7 @@ async function typeofFiltering(namePatient){
     let patients= await response.json();
     getPatientfilter(patients,response);
     }
-    else{
+    else if (selection.value==="allDatabase"){
         let response = await fetch("http://localhost:8080/doctor/filterPatients/"+namePatient,{
             method: 'GET',
                 headers:{
@@ -52,6 +68,9 @@ async function typeofFiltering(namePatient){
             });
         let patients= await response.json();
         getPatientfilter(patients,response);
+    }
+    else{
+        alert("Please select a type of filtering")
     }
 }
 

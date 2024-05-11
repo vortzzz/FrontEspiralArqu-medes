@@ -35,6 +35,7 @@ function getInfo(){
 
 function done(){
     location.href = "../BusquedaPacientes/IndexSearchFilter.html";
+    localStorage.removeItem('patient');
 }
 
 function modify(){
