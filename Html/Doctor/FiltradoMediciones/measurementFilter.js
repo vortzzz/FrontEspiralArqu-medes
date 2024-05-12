@@ -48,6 +48,7 @@ function search(){
     }
     else{
         alert("Please fill the field");
+        measurementContainer.innerHTML = '';
     }
     
 }
