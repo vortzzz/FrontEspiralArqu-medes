@@ -16,3 +16,4 @@ function exit(){
 function patientsSection(){
     window.location.href = "../BusquedaPacientes/indexSearchFilter.html"
 }
+function measurementSection() {}
