@@ -2,8 +2,11 @@
 let userJSON= window.localStorage.getItem('user');
 
 if(userJSON===null){
-        location.href = "../LoginDoctor/logIn.html"; 
+       location.href = "../LoginDoctor/logIn.html"; 
+}else{
+    userJSON=JSON.parse(userJSON);
 }
+
 
 const homeButton = document.getElementById('button_home');
 const exitButton = document.getElementById('button_exit');
@@ -45,7 +48,7 @@ async function searchPaciente(){
 
 async function getPacientSearch(pacienteInput) {
     
-    let response = await fetch('http://localhost:8080/patient/medition/' + pacienteInput);
+    let response = await fetch('http://localhost:8080/patient/medition/' + pacienteInput + userJSON.id);
 
     let mediciones = await response.json();
     if(response.ok){
