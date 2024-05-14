@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página del Doctor</title>
+  <style>
+    .patient {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 50%;
+}
+
+.patient .div {
+  background-color: #ffffff;
+  width: 1440px;
+  height: 1024px;
+  position: relative;
+}
+
+.patient .group {
+  position: absolute;
+  width: 764px;
+  height: 605px;
+  top: 230px;
+  left: 522px;
+}
+
+.patient .BIG-IMAGE {
+  width: 763px;
+  height: 605px;
+  background-image: url(/Resource/rectangle-10.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.patient .ellipse {
+  position: absolute;
+  width: 508px;
+  height: 508px;
+  top: 11px;
+  left: 0;
+  background-color: #57a6d4;
+  border-radius: 253.92px;
+}
+
+.patient .pngwing {
+  position: absolute;
+  width: 489px;
+  height: 489px;
+  top: 0;
+  left: 9px;
+  object-fit: cover;
+}
+
+.patient .rectangle {
+  width: 361px;
+  height: 1024px;
+  left: -200;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+}
+
+.patient .image {
+  position: absolute;
+  width: 250px;
+  height: 100px;
+  top: 850px;
+  left: 50px;
+  object-fit: cover;
+}
+
+.patient .FVL-LOGO {
+  position: absolute;
+  width: 212px;
+  height: 195px;
+  top: 66px;
+  left: 77px;
+  mix-blend-mode: multiply;
+  object-fit: cover;
+}
+
+.patient .overlap-group {
+  position: relative;
+  width: 508px;
+  height: 519px;
+  top: 37px;
+  left: 148px;
+}
+
+.patient .EXIT {
+  position: absolute;
+  top: 70%;
+  left: 7%;
+  font-family: "Inter-BoldItalic", Helvetica;
+  font-weight: 700;
+  font-style: italic;
+  color: #000000;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patient.EXIT button{
+      width: 250px;
+      height: 66px; 
+      padding: 10px;
+      background: #67B443;
+      border: 1px solid #000000;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+      border-radius: 10px;
+      font-family: 'Inter';
+      font-style: italic;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 10px;
+      color: #000000;
+      cursor: pointer;
+    }
+
+.patient .PATIENTS {
+  position: absolute;
+  top: 60%;
+  left: 23%;
+  font-family: "Inter-BoldItalic", Helvetica;
+  font-weight: 700;
+  font-style: italic;
+  color: #67B443;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: normal;  
+}
+
+.patient .PATIENTS button {
+  width: 250px;
+  height: 66px;
+  padding: 10px;
+  background: #000000;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+  border-radius: 10px;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 10px;
+  color: #67B443;
+  cursor: pointer;
+}
+
+.patient .HOUSE {
+  position: absolute;
+  top: 40%;
+  left: 23%;
+  font-family: "Inter-BoldItalic", Helvetica;
+  font-weight: 700;
+  font-style: italic;
+  color: #67B443;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: normal;  
+}
+
+.patient .HOUSE button {
+      width: 250px;
+      height: 66px; 
+      padding: 10px;
+      background: #67B443;
+      border: 1px solid #000000;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+      border-radius: 10px;
+      font-family: 'Inter';
+      font-style: italic;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 10px;
+      color: #000000;
+      cursor: pointer;
+}
+
+.patient .overlap-group-wrapper {
+  position: absolute;
+  width: 5%;
+  height: 5%;
+  top: 40%;
+  left: 52%;
+}
+
+.patient .rectangle-wrapper {
+  position: absolute;
+  width: 249px;
+  height: 63px;
+  top: 0;
+  left: 0;
+}
+
+.patient .img {
+  width: 257px;
+  height: 71px;
+  left: -4px;
+  position: absolute;
+  top: 0;
+}
+
+.patient .title {
+  position: absolute;
+  width: 954px;
+  top: -700%;
+  left: 50px;
+  font-family: "Inter-BoldItalic", Helvetica;
+  font-weight: 700;
+  font-style: italic;
+  color: #000000;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patient .group-2 {
+  position: absolute;
+  width: 252px;
+  height: 96px;
+  top: 878px;
+  left: 984px;
+}
+
+.patient .overlap-4 {
+  position: absolute;
+  width: 248px;
+  height: 96px;
+  top: 878px;
+  left: 590px;
+}
+.patient .rectangle-2 {
+  position: absolute;
+  width: 256px;
+  height: 104px;
+  top: 0;
+  left: -4px;
+}
+  .login-form {
+  display: flex; 
+  position: absolute;
+  width: 850px;
+  height: 75px;
+  top: 950%;
+  left: 150%;
+  border-radius: 10px;
+  }
+.login-form h1 {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #fff; /* Texto blanco */
+  }
+
+  .login-form input[type="text"]{
+      width: 100%;  
+      padding: 10px;
+      box-sizing: border-box;
+      background: #91BB7D;
+      border: 1px solid #000000;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+      margin-bottom: 30px;
+      font-family: 'Inter';
+      font-style: italic;
+      font-weight: 700;
+      line-height: 24px;
+      color: #000000;
+      opacity: 100;
+  }
+
+  .login-form input[type="text"]::placeholder{
+      color: black;
+      opacity: 0.7;
+  }
+  .button{
+      position: absolute;
+      left: 110%;
+      bottom: -15%;
+      transform: translate(-50%, -50%);
+      
+    }
+
+    .button button{
+      width: 100px;
+      height: 66px;
+      padding: 10px;
+      background: #67B443;
+      border: 1px solid #000000;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+      font-family: 'Inter';
+      font-style: italic;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 10px;
+      color: #000000;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="patient>
+    <div class="div">
+      <div class="group">
+        <div class="BIG-IMAGE">
+          <div class="overlap-group">
+            <div class="ellipse"></div>
+            <img class="pngwing" src="/Resource/patient_706161.png" />
+          </div>
+        </div>
+      </div>
+        <img class="rectangle" src="/Resource/rectangle-8.png" />
+        <img class="image" src="/Resource/logoIcesi.png" />
+        <img class="FVL-LOGO" src="/Resource/logoFundacion.png" />
+          <div class="EXIT">
+            <button id="exitButton">EXIT</button>
+          </div>
+          <div class="PATIENTS>
+            <button id="patient" class="button">PATIENTS</button>
+          </div>
+          <div class="HOUSE">
+            <button id="homeButton" class="button">HOME</button>
+          </div>
+        <div class="overlap-group-wrapper">
+          <div class="overlap-2">
+            <div class="login-form">
+            <input type="text" id="patientName" placeholder="Name" name="patientName">
+            <input type="text" id="patientEmail" placeholder="Email" name="patientEmail">
+            <input type="text" id="patientCC" placeholder="CC"name= "patientCC">
+            <input type="text" id="patientPhone"placeholder="Phone" name="patientPhone">
+            <div class="button">
+              <button id="addButton">ADD</button>
+            </div>
+          </div>
+          <p class="title">HAND TREMOR MEASUREMENT SYSTEM FOR THE ARCHIMEDES SPIRAL TEST</p>
+        </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+  <script src="./IndexAddPatient.js"></script>
+</html>
