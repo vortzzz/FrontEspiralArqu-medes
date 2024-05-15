@@ -7,6 +7,7 @@ const button_patients = document.getElementById('button_patients');
 //Eventos
 button_exit.addEventListener('click',exit);
 button_patients.addEventListener('click',patientsSection);
+button_measurements.addEventListener('click', measurementSection); 
 
 function exit(){
     window.location.href = "../LoginDoctor/Login.html"
@@ -16,4 +17,6 @@ function exit(){
 function patientsSection(){
     window.location.href = "../BusquedaPacientes/indexSearchFilter.html"
 }
-function measurementSection() {}
+function measurementSection() {
+    window.location.href = "../RegistroMedicion/registroMedicion.html"
+}

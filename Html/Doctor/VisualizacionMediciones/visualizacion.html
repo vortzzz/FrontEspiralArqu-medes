@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página del Administrador</title>
   <style>
@@ -29,10 +30,10 @@ body {
 }
 
 .rotated-rect {
-  width: 680.92px;
-  height: 864.79px;
+  width: 1100.92px;
+  height: 1100.79px;
   left: 1335.77px;
-  top: 238px;
+  top: 200px;
   position: absolute;
   transform: rotate(89.73deg);
   transform-origin: 0 0;
@@ -168,19 +169,21 @@ body {
   <div class="container">
 
     <div class="background-rect"></div>
-    <div class="rotated-rect"></div>
-    <h1 class="title">HAND TREMOR MEASUREMENT SYSTEM FOR THE ARCHIMEDES SPIRAL TEST</h1>
+    <div class="rotated-rect" style=" margin-left: 15.5%;"></div>
+
     <img class="image-1" src="/Resource/logoFundacion.png" />
     <img class="image-2" src="/Resource/logo-icesi.png" />
 
-  <div class="containerMedition" style="padding: 20px;">
+  <div class="containerMedition" style="padding: 20%;; margin-left: 20%;">
     
-    <h1 style="color: #004d40;">Medición: </h1>
-    <h3 style="color: #004d40;">Paciente: <span id="paciente"></span></h3>
-    <h3 style="color: #004d40;">Fecha: <span id="fecha"></span></h3>
+    <h1 style="color: #004d40;">medition: </h1>
+    <h3 style="color: #004d40;">patient: <span id="paciente"></span></h3>
+    <h3 style="color: #004d40;">date: <span id="fecha"></span></h3>
 
-    <img src="/Resource/Doctor.jpg" alt="Doctor" class="fundacion-image">&nbsp;  
+    <div id = "graphicsContainer"  style="margin-left: auto; margin-right: auto; background-color: #f0f0f0; padding: 20px;">
+      <canvas></canvas>
 
+    </div>
     <div  id = "CommentsContainer">
         
     </div>

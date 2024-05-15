@@ -43,6 +43,8 @@ function goHome(){
     window.location.href = "../principalPageDoctor/index.html";
 }
 
+
+
 async function searchPaciente(){
     let pacienteValue = pacienteInput.value;
     await getPacientSearch(pacienteValue);
@@ -152,7 +154,7 @@ function addMedition() {
 async function postMeditionAdd(cc,medition,device){
 
     let id= userJSON.id;
-    let response = await fetch('http://localhost:8080/patient/medition/getDevice'+id+"/"+deviceValue);
+    let response = await fetch('http://localhost:8080/patient/medition/getDevice/'+id+"/"+deviceValue);
     let device1= await response.json();
     if(response.ok){
         let json = JSON.stringify(medition);
