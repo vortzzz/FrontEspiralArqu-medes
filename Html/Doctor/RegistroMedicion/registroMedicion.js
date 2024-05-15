@@ -1,10 +1,10 @@
 //Validación de autenticación
-let user= window.localStorage.getItem('user');
+let userJSON= window.localStorage.getItem('user');
 
-if(user===null){
+if(userJSON===null){
        location.href = "../LoginDoctor/logIn.html"; 
 }else{
-    userJSON=JSON.parse(user);
+    userJSON=JSON.parse(userJSON);
 }
 
 
