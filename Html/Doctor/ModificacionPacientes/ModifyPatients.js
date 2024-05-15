@@ -46,7 +46,11 @@ function done(){
 }
 
 function modify(){
-    if(newPatientName.value===""||newPatientCC.value===""||newPatientEmail===""||newPatientPhone===""){
+    console.log(newPatientName.value);
+    console.log(newPatientCC.value);
+    console.log(newPatientEmail);
+    console.log(newPatientPhone);
+    if(newPatientName.value===""||newPatientCC.value===""||newPatientEmail.value===""||newPatientPhone.value===""){
         alert("Fill all fields please")
     }
     else{
