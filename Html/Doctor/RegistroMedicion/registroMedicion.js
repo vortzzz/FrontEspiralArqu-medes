@@ -58,12 +58,13 @@ async function searchDevice(){
 
 async function getDeviceSearch(deviceValue){
     let id= userJSON.id;
-    let response = await fetch('http://localhost:8080/patient/medition/getDevice'+id+"/"+deviceValue);
+    let response = await fetch('http://localhost:8080/patient/medition/getDevice/'+id+"/"+deviceValue);
     if(response.ok){
-        alert("No matches in device for doctor");
+        alert("device found");
+        
     }else{
         if(response.status === 401) {
-            alert("device found");
+            alert("No matches in device for doctor");
          } else {
              console.error('Request error: ', response.status);
              alert('An error occurred in the request. Please try again later.');
@@ -154,7 +155,7 @@ function addMedition() {
 async function postMeditionAdd(cc,medition,device){
 
     let id= userJSON.id;
-    let response = await fetch('http://localhost:8080/patient/medition/getDevice/'+id+"/"+deviceValue);
+    let response = await fetch('http://localhost:8080/patient/medition/getDevice/'+id+"/"+device);
     let device1= await response.json();
     if(response.ok){
         let json = JSON.stringify(medition);
@@ -219,7 +220,7 @@ async function cronometror() {
         });
 
         if (response.ok) {
-            alert(await response.text());
+          
             isCronometrorRunning = true; 
 
             function updateTime() {
@@ -232,6 +233,13 @@ async function cronometror() {
                     clearInterval(timerInterval);
                     seconds = 5;
                     isCronometrorRunning = false; 
+                    let response =  fetch('http://localhost:8080/device/' + deviceJson.name + '/stopMedition', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                    });
+                    alert(response.text());
                 }
 
                 timeValueElement.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
@@ -242,13 +250,6 @@ async function cronometror() {
             alert(await response.text());
         }
     } else {
-        let response = await fetch('http://localhost:8080/device/' + deviceJson.name + '/stopMedition', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        });
-
         alert(await response.text());
         document.getElementById('time-value').textContent = '0:00';
         clearInterval(timerInterval);
