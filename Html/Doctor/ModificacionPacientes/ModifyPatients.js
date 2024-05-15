@@ -13,7 +13,6 @@ else{
 }
 
 const newPatientName = document.getElementById('newPatientName');
-const newPatientCC = document.getElementById('newPatientCC');
 const newPatientEmail= document.getElementById('newPatientEmail');
 const newPatientPhone = document.getElementById('newPatientPhone');
 const modifyButton = document.getElementById('modifyButton');
@@ -35,7 +34,6 @@ getInfo();
 
 function getInfo(){
     newPatientName.value=patientJSON.name;
-    newPatientCC.value=patientJSON.cc;
     newPatientEmail.value=patientJSON.email;
     newPatientPhone.value=patientJSON.phone;
 }
@@ -46,20 +44,14 @@ function done(){
 }
 
 function modify(){
-    console.log(newPatientName.value);
-    console.log(newPatientCC.value);
-    console.log(newPatientEmail);
-    console.log(newPatientPhone);
-    if(newPatientName.value===""||newPatientCC.value===""||newPatientEmail.value===""||newPatientPhone.value===""){
+    if(newPatientName.value===""||newPatientEmail.value===""||newPatientPhone.value===""){
         alert("Fill all fields please")
     }
     else{
         let patient  = {
             name: newPatientName.value, 
-            cc : newPatientCC.value,
             email : newPatientEmail.value,
             phone : newPatientPhone.value,
-            doctorId : patientJSON.doctorId  
         }
     
         postPatientModify(patient);

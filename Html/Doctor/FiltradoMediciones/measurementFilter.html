@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Zona de busqueda doctores</title>
+        <link rel = "stylesheet" href="measurementFilter.css"/>
+    </head>
+    <body>
+        <div id="containerDiv">
+            <div id="sidebar">
+                <img id="logo-valle-del-lili" src="/Resource/logoFundacion.png">
+                <button id="homeButton" class="buttons" >HOME</button>
+                <button id="patientsButton" class="buttons">PATIENTS</button>
+                <button id="measurementButton" class="buttons">MEASUREMENTS</button> 
+                <button id="exitButton" class="buttons">EXIT</button>
+                <img id="logoIcesi" src="/Resource/logoIcesi.png">
+            </div>
+            <div id="secondContainer">
+                <p id="textTitle">HAND TREMOR MEASUREMENT SYSTEM FOR THE ARCHIMEDES SPIRAL TEST</p>
+                <p id="subTitle">SEARCH MEASUREMENT</p>
+                <div id="searchbar">
+                    <input type="text" class="input1" id="inputSearchByCC" placeholder="searchByCC">
+                    <button id="searchBTN" class="minibuttons" >SEARCH</button>
+                    <form>
+                        <select id="selection" class="options">
+                            <option value="" disabled selected hidden>Filtering type</option>
+                            <option id="byDate" value="byDate">byDate</option>
+                            <option id="byNamePatient" value="byNamePatient">bynamePatient</option>
+                        </select>
+                    </form>                    
+                    <div id="divContainer"></div>
+                </div>
+                <div id = "measurementContainer">
+                </div>
+            </div>
+        </div>
+        <script src="./measurementFilter.js"></script>
+    </body>
+</html>
