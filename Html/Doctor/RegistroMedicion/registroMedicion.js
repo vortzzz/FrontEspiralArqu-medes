@@ -210,6 +210,8 @@ async function cronometror() {
     let timeValueElement = document.getElementById('time-value');
     let deviceJson = JSON.parse(window.localStorage.getItem('device'));
 
+
+
     if (timeValueElement.textContent == '0:00') {
         let startTime = new Date().getTime(); 
         let response = await fetch('http://localhost:8080/device/' + deviceJson.name + '/startMedition', {
@@ -218,11 +220,12 @@ async function cronometror() {
                 'Content-Type': 'application/json'
             },
         });
+        let response1 = await fetch('http://localhost:8080/patient/medition/' + pacienteInput.value +'/'+ userJSON.id);
 
-        if (response.ok) {
+        if (response.ok & response1) {
           
             isCronometrorRunning = true; 
-
+            connectMeasure("on");
             function updateTime() {
                 let currentTime = new Date().getTime();
                 let elapsedTime = currentTime - startTime; // Tiempo transcurrido desde el inicio
@@ -230,6 +233,7 @@ async function cronometror() {
                 let seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000); // Segundos
 
                 if (elapsedTime >= 5000) {
+                    connectMeasure("off");
                     clearInterval(timerInterval);
                     seconds = 5;
                     isCronometrorRunning = false; 
@@ -239,7 +243,6 @@ async function cronometror() {
                             'Content-Type': 'application/json'
                         },
                     });
-                    alert(response.text());
                 }
 
                 timeValueElement.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
@@ -256,5 +259,40 @@ async function cronometror() {
         isCronometrorRunning = false; 
     }
 }
+
+
+function connectMeasure(status) {
+    let medition = JSON.parse(window.localStorage.getItem('medition'));
+    let device = JSON.parse(window.localStorage.getItem('device'));
+    var host = "broker.emqx.io";
+    var port = 8083;
+    var path = '/mqtt';
+    var clientId = 'doctor'+userJSON.id;
+    var client = new Paho.MQTT.Client(host, port, path, clientId);
+    var connectOptions = {
+        onSuccess: function () {
+            client.unsubscribe("#", {
+                onSuccess: function () {
+                    client.subscribe("medition/"+device.name, {
+                        onSuccess: function () {
+                            console.log("subscribed to " + "medition/"+device.name);
+                            
+                            let text =status+"/"+ medition.id;
+                            message = new Paho.MQTT.Message(text);
+                            message.destinationName = "medition/"+device.name;
+                            client.send(message);
+                        }
+                    });
+                }
+            });
+        },
+        onFailure: function () {
+         }
+    };
+
+    client.connect(connectOptions);
+
+}
+
 
 
