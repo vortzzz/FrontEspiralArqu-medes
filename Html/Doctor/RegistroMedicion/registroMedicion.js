@@ -115,24 +115,12 @@ function viewMedition(pacienteInput,medicion,medicionid){
 
     // Guardar los datos en el almacenamiento local
     localStorage.setItem('pacienteInput', pacienteInput);
-    localStorage.setItem('medicion', medicionString);
-    localStorage.setItem('medicionid', medicionid);
+    localStorage.setItem('medition', medicionString);
+    localStorage.setItem('meditionid', medicionid);
     window.location.href = "../visualizacionMediciones/visualizacion.html";
 }
 
 
-function viewMedition(pacienteInput,medicion,medicionid){
-
-    // Convertir el objeto a una cadena JSON
-    const medicionString = JSON.stringify(medicion);
-
-
-    // Guardar los datos en el almacenamiento local
-    localStorage.setItem('pacienteInput', pacienteInput);
-    localStorage.setItem('medicion', medicionString);
-    localStorage.setItem('medicionid', medicionid);
-    window.location.href = "../visualizacionMediciones/visualizacion.html";
-}
 
 
 function addMedition() {
@@ -175,7 +163,7 @@ async function postMeditionAdd(cc,medition,device){
            window.localStorage.setItem('medition',meditionD);
            openDialog();
        }else{
-           alert("bobo hp");
+           alert("error");
        }
    
     }else{
@@ -209,7 +197,7 @@ async function postMeditionAdd(cc,medition,device){
 async function cronometror() {
     let timeValueElement = document.getElementById('time-value');
     let deviceJson = JSON.parse(window.localStorage.getItem('device'));
-
+    let medition = JSON.parse(window.localStorage.getItem('medition'));
 
 
     if (timeValueElement.textContent == '0:00') {
@@ -222,7 +210,7 @@ async function cronometror() {
         });
         let response1 = await fetch('http://localhost:8080/patient/medition/' + pacienteInput.value +'/'+ userJSON.id);
 
-        if (response.ok & response1) {
+        if (response.ok & response1.ok) {
           
             isCronometrorRunning = true; 
             connectMeasure("on");
@@ -243,6 +231,7 @@ async function cronometror() {
                             'Content-Type': 'application/json'
                         },
                     });
+                    viewMedition(pacienteInput.value,medition,medition.id);
                 }
 
                 timeValueElement.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
@@ -253,7 +242,7 @@ async function cronometror() {
             alert(await response.text());
         }
     } else {
-        alert(await response.text());
+         alert(await response.text());
         document.getElementById('time-value').textContent = '0:00';
         clearInterval(timerInterval);
         isCronometrorRunning = false; 
@@ -261,7 +250,7 @@ async function cronometror() {
 }
 
 
-function connectMeasure(status) {
+async function connectMeasure(status) {
     let medition = JSON.parse(window.localStorage.getItem('medition'));
     let device = JSON.parse(window.localStorage.getItem('device'));
     var host = "broker.emqx.io";
