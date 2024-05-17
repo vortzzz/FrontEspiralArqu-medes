@@ -45,7 +45,7 @@ function goHome(){
 async function searchPaciente(){
     let pacienteValue = pacienteInput.value;
     await getPacientSearch(pacienteValue);
-    //window.location.href = "registroMedicion.html" ???????????????????????????????????
+    //window.location.href = "registroMedicion.html" 
 }
 
 async function getPacientSearch(pacienteInput) {
@@ -53,10 +53,12 @@ async function getPacientSearch(pacienteInput) {
     let response = await fetch('http://localhost:8080/patient/medition/' + pacienteInput +'/' + userJSON.id);
 
     let mediciones = await response.json();
+    console.log(mediciones);
     if(response.ok){
 
-       mediciones.forEach( medicion => {
         SearchResultContainer.innerHTML = '';
+       mediciones.forEach( medicion => {
+        
             
         let MedicionFoundContainer = document.createElement('div');
         let patientName = document.createElement('h3');
@@ -68,7 +70,7 @@ async function getPacientSearch(pacienteInput) {
         MedicionFoundContainer.appendChild(buttonView)
 
         patientName.innerHTML = pacienteInput;
-        dateMedition.innerHTML = "fecha: " +  medicion.dateTaken;
+        dateMedition.innerHTML = "fecha: " +  medicion.dateTaken + "      ";
         buttonView.innerHTML = "Ver"; 
 
         buttonView.addEventListener('click',function(){

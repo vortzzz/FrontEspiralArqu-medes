@@ -13,6 +13,7 @@ const commentsInput = document.getElementById('commentsInput');
 const addButton = document.getElementById('addButton');
 const CommentsContainer = document.getElementById('CommentsContainer');
 const graphicsContainer= document.getElementById('graphicsContainer'); 
+const graphicsContainer2= document.getElementById('graphicsContainer2'); 
 
 const pacienteInput = localStorage.getItem('pacienteInput');
 const medicionString  = localStorage.getItem('medicion');
@@ -22,15 +23,11 @@ const medicionid = localStorage.getItem('medicionid');
 console.log(medicionString);
 const medicion = JSON.parse(medicionString);
 
-
-
-
 document.getElementById('paciente').textContent = pacienteInput;
 document.getElementById('fecha').textContent = medicion.dateTaken;
 
 
 //Eventos
-
 homeButton.addEventListener('click',goHome);
 exitButton.addEventListener('click', exit);
 addButton.addEventListener('click',addComment);
@@ -39,7 +36,6 @@ addButton.addEventListener('click',addComment);
 //Acciones iniciales:
 getCommets();
 getGraphics(); 
-
 
 
 function exit(){
@@ -58,14 +54,15 @@ async function getCommets(){
     let response = await fetch('http://localhost:8080/patient/medition/comments/'+ medicionid); //HTTP Requ
     let users = await response.json();
 
+    console.log(users);
     users.forEach( user => {
         
         let userContainer = document.createElement('div'); //<div></div>
-        let userSubtitle = document.createElement('small'); //<small></small>
+        let userSubtitle = document.createElement('span'); //<small></small>
 
         userContainer.appendChild(userSubtitle); //<div><h3></h3><small></small></div>
 
-        userSubtitle.innerHTML = user.comments; //<small>***</small>
+        userSubtitle.innerHTML = user.comment; //<small>***</small>
       
         CommentsContainer.appendChild(userContainer);
         
@@ -75,16 +72,17 @@ async function getCommets(){
 
 async function getGraphics() {
     let response = await fetch('http://localhost:8080/doctor/patient/medition/' + medicionid);
-    let magnitudesAndTimes = await response.json();
+    let arraysGraphics = await response.json();
     if (response.ok) {
         
-        graphics(magnitudesAndTimes);
+        graphicsMagnitudesAndTimes(arraysGraphics);
+        graphisSpectrumFreqs(arraysGraphics); 
     } else {
-        alert(magnitudesAndTimes.body)
+        alert(arraysGraphics.body)
     }
 }
 
-function graphics(magnitudesAndTimes) {
+function graphicsMagnitudesAndTimes(magnitudesAndTimes) {
     const magnitudes = magnitudesAndTimes.magnitudes;
     const times = magnitudesAndTimes.times;
 
@@ -101,7 +99,7 @@ function graphics(magnitudesAndTimes) {
                 label: "Magnitudes",
                 data: magnitudes,
                 borderColor: "rgb(255, 99, 132)",
-                borderWidth: 2, // Aumenta el grosor de la línea
+                borderWidth: 2, 
                 fill: false
             }]
         },
@@ -112,16 +110,16 @@ function graphics(magnitudesAndTimes) {
                     position: 'bottom',
                     title: {
                         display: true,
-                        text: 'Tiempo',
+                        text: 'Time',
                         color: 'black',
                         font: {
-                            size: 22 // Tamaño de fuente para el título del eje X
+                            size: 22 
                         }
                     },
                     ticks: {
                         color: 'black',
                         font: {
-                            size: 15 // Tamaño de fuente para las etiquetas del eje X
+                            size: 15 
                         }
                     }
                 },
@@ -131,13 +129,13 @@ function graphics(magnitudesAndTimes) {
                         text: 'Magnitudes',
                         color: 'black',
                         font: {
-                            size: 22 // Tamaño de fuente para el título del eje Y
+                            size: 22 
                         }
                     },
                     ticks: {
                         color: 'black',
                         font: {
-                            size: 15 // Tamaño de fuente para las etiquetas del eje Y
+                            size: 15
                         }
                     }
                 }
@@ -146,7 +144,7 @@ function graphics(magnitudesAndTimes) {
                 legend: {
                     labels: {
                         font: {
-                            size: 22 // Tamaño de fuente para la etiqueta del conjunto de datos
+                            size: 22 
                         }
                     }
                 }
@@ -155,6 +153,80 @@ function graphics(magnitudesAndTimes) {
     });
 }
 
+function graphisSpectrumFreqs(arraysGraphics){
+
+    const spectrum = arraysGraphics.spectrum;
+    const freqs = arraysGraphics.freqs;
+
+    const canvas = document.createElement("canvas");
+    graphicsContainer2.appendChild(canvas);
+
+    const ctx = canvas.getContext("2d");
+
+    new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: freqs,
+            datasets: [{
+                label: "Spectrum",
+                data: spectrum,
+                borderColor: "rgb(255, 99, 132)",
+                borderWidth: 2, 
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'frequency',
+                        color: 'black',
+                        font: {
+                            size: 22 
+                        }
+                    },
+                    ticks: {
+                        color: 'black',
+                        font: {
+                            size: 15 
+                        }
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Spectrum',
+                        color: 'black',
+                        font: {
+                            size: 22 
+                        }
+                    },
+                    ticks: {
+                        color: 'black',
+                        font: {
+                            size: 15
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 22 
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+
+
+}
 
 
 
@@ -190,9 +262,3 @@ async function postCommentAdd(comment,medicionid){
     window.location.href = "visualizacion.html";
 
 }
-
-        
-        
-
-
-
