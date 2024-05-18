@@ -17,8 +17,8 @@ const graphicsContainer2= document.getElementById('graphicsContainer2');
 const graphicsContainer3= document.getElementById('graphicsContainer3'); 
 
 const pacienteInput = localStorage.getItem('pacienteInput');
-const medicionString  = localStorage.getItem('medicion');
-const medicionid = localStorage.getItem('medicionid');
+const medicionString  = localStorage.getItem('medition');
+const medicionid = localStorage.getItem('meditionid');
 
 // Convertir la cadena JSON a un objeto
 console.log(medicionString);
