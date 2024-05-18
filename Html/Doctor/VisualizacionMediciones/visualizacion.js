@@ -14,6 +14,7 @@ const addButton = document.getElementById('addButton');
 const CommentsContainer = document.getElementById('CommentsContainer');
 const graphicsContainer= document.getElementById('graphicsContainer'); 
 const graphicsContainer2= document.getElementById('graphicsContainer2'); 
+const graphicsContainer3= document.getElementById('graphicsContainer3'); 
 
 const pacienteInput = localStorage.getItem('pacienteInput');
 const medicionString  = localStorage.getItem('medition');
@@ -82,6 +83,7 @@ async function getGraphics() {
         
         graphicsMagnitudesAndTimes(arraysGraphics);
         graphisSpectrumFreqs(arraysGraphics); 
+        graphiscircular(arraysGraphics);
     } else {
         alert(arraysGraphics.body)
     }
@@ -232,9 +234,99 @@ function graphisSpectrumFreqs(arraysGraphics){
 
 
 }
+function graphiscircular(arraysGraphics) {
+    const spectrum = arraysGraphics.spectrum;
+    const freqs = arraysGraphics.freqs;
+
+    const canvas = document.createElement("canvas");
+    canvas.width = 700;
+    canvas.height = 700;
+    graphicsContainer3.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    const width = canvas.width;
+    const height = canvas.height;
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const radius = 250; // Ajustado para que la gráfica sea más grande
+
+    ctx.clearRect(0, 0, width, height);
+
+    // se dibuja la circunferencia de guia xddd
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = '#FFF';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    
+    const lineWidth = 2; // ancho de la linea
+
+  
+    const xPoints = [];
+    const yPoints = [];
+    for (let i = 0; i < spectrum.length; i++) {
+        const angle = (i / spectrum.length) * 2 * Math.PI;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+
+        const spectrumValue = spectrum[i] / 256;
+        const lineLength = spectrumValue * 700;  // Ajustado para que las líneas sean más largas
+
+        const x2 = centerX + (radius + lineLength) * Math.cos(angle);
+        const y2 = centerY + (radius + lineLength) * Math.sin(angle);
+
+        xPoints.push(x2);
+        yPoints.push(y2);
+
+        if (i === 0) {
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x2, y2);
+        } else {
+            ctx.lineTo(x2, y2);
+        }
+    }
+    ctx.strokeStyle = 'red'; 
+    ctx.lineWidth = lineWidth; 
+    ctx.stroke();
+
+    
+    const specificLabels = [0,5, 10, 15, 20, 25];
+    const threshold = 0.1;
+
+    for (let i = 0; i < spectrum.length; i++) {
+        const angle = (i / spectrum.length) * 2 * Math.PI;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+
+        if (specificLabels.some(label => Math.abs(freqs[i] - label) <= threshold)) {
+            ctx.fillStyle = 'black';
+            ctx.font = '12px sans-serif';
+            const textX = x + 40 * Math.cos(angle);
+            const textY = y + 40 * Math.sin(angle);
+            ctx.fillText(freqs[i].toFixed(0) + " Hz", textX, textY);
+        }
+    }
+
+   
+    ctx.beginPath();
+    ctx.moveTo(xPoints[0], yPoints[0]);
+    ctx.lineTo(xPoints[xPoints.length - 1], yPoints[yPoints.length - 1]);
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = lineWidth;
+    ctx.stroke();
+
+    
+    ctx.font = '16px sans-serif';
+    ctx.fillStyle = 'black';
+    ctx.fillText('Spectrum (Red)', 10, height - 20);
+
+}
 
 
 
+  
  function addComment(){
     let comment = commentsInput.value; 
     if(comment===""){
