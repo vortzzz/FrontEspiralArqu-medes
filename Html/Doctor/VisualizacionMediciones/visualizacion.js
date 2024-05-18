@@ -8,7 +8,8 @@
 
 const homeButton = document.getElementById('button_home');
 const exitButton = document.getElementById('button_exit');
-const patientButton = document.getElementById('button_patients') 
+const patientButton = document.getElementById('button_patients')
+const measurementButton = document.getElementById('button_measurements') 
 const commentsInput = document.getElementById('commentsInput');
 const addButton = document.getElementById('addButton');
 const CommentsContainer = document.getElementById('CommentsContainer');
@@ -29,6 +30,7 @@ document.getElementById('fecha').textContent = medicion.dateTaken;
 
 //Eventos
 homeButton.addEventListener('click',goHome);
+measurementButton.addEventListener('click', measurement);
 exitButton.addEventListener('click', exit);
 addButton.addEventListener('click',addComment);
 patientButton.addEventListener('click', patients)
@@ -53,6 +55,11 @@ function goHome(){
 function patients(){
     location.href='../PagPpalPacientes/PaginaPacientes.html';
 }
+
+function measurement(){
+    location.href='../PaginaPrincipalMedicion/Meditions.html';
+}
+
 
 async function getCommets(){
     
