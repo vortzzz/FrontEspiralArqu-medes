@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eliminar Paciente</title>
+  <style>
+    body {
+      background-color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .sidebar {
+      background-color: #aed581;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .logo {
+      width: 180px;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      background-color: #7cb342;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin: 10px;
+      cursor: pointer;
+      width: 120px;
+      text-align: center;
+    }
+
+    .button:last-child {
+      background-color: #689f38;
+    }
+
+    .logoIcesi {
+      width: 200px;
+      margin-top: auto;
+      margin-right: 200x;
+      filter: brightness(0.4);
+    }
+
+    .button:nth-child(2), /*Home*/
+    .button:nth-child(3),/*Doctos*/
+    .button:nth-child(4) /*Exit*/{
+      margin-top: auto;
+    }
+
+    .button:nth-child(3) {
+      background-color: #2d572c;
+    }
+
+    .fundacion-image {
+      width: 50%;
+      margin-left: auto; /* Alinear a la derecha */
+      margin-right: auto; /* Alinear a la izquierda */
+      display: block; /* Hacer que la imagen sea un bloque */
+      margin-top: 20px;
+    }
+
+    .logo {
+      margin-top: 10px;
+    }
+
+    /* Estilos añadidos para mover el botón al lado derecho del input */
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .buttons input[type="text"] {
+      margin-bottom: 10px;
+    }
+
+    .buttons button {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <img src="/Resource/logoFundacion.png" alt="Logofundacion" class="logo">
+    <button id="homeButton" class="button">Home</button>
+    <button id="patientsButton" class="button">Patients</button>
+    <button id="exitButton" class="button">Exit</button>
+    <img src="/Resource/logoIcesi.png" alt="LogoIcesi" class="logoIcesi">
+  </div>
+
+  <div class="container" style="padding: 20px;">
+    <h1 style="color: #004d40;">Zona de eliminación de pacientes: </h1>
+    <img src="/Resource/Doctor.jpg" alt="Doctor" class="fundacion-image">&nbsp;
+    <div  id = "testsContainer">
+        
+    </div>
+    <div class="buttons" style="text-align: center;">&nbsp;
+      <div style="margin-bottom: 10px; display: flex; align-items: center;">
+        <input type="text" id="doctorInput" name="doctorInput" placeholder="digite la cedula del paciente"><br><br>
+        <button id="deleteButton" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Eliminar</button>
+      </div>
+      
+    </div>
+  </div>
+
+  <script src="./BorrarMedicion.js"></script>
+</body>
+</html>

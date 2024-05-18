@@ -5,30 +5,32 @@ if(userJSON===null){
     location.href = "../LoginDoctor/LogIn.html";
   }
 
-const homeButton = document.getElementById('homeButton');
-const exitButton = document.getElementById('exitButton');
-const patientName = document.getElementById('patientName');
-const patientEmail = document.getElementById('patientEmail');
-const patientCC = document.getElementById('patientCC');
-const patientPhone = document.getElementById('patientPhone');
+
+const patientName = document.getElementById('doctorInputName');
+const patientEmail = document.getElementById('doctorInputEmail');
+const patientCC = document.getElementById('doctorInputCC');
+const patientPhone = document.getElementById('doctorInputPhone');
 const addButton = document.getElementById('addButton');
-
-
+const button_exit = document.getElementById('button_exit');
+const button_measurements = document.getElementById('button_measurements');
+const button_home= document.getElementById('button_home');
 //Eventos
 addButton.addEventListener('click',addPatient);
-homeButton.addEventListener('click',goHome);
-exitButton.addEventListener('click', exit);
+button_exit.addEventListener('click',exit);
+button_measurements.addEventListener('click', measurement); 
+button_home.addEventListener('click', home);
 
+//Funciones
 function exit(){
-    window.location.href = "../LoginDoctor/LogIn.html";
+    window.location.href = "../LoginDoctor/Login.html"
     window.localStorage.removeItem('user');
 }
-
-function goHome(){
-    window.location.href = "../PrincipalPageDOCTOR/indexPagePrincipalDoctor.html";
+function measurement(){
+    location.href='../PaginaPrincipalMedicion/Meditions.html';
 }
-
-
+function home(){
+    location.href='../PrincipalPageDOCTOR/indexPagePrincipalDoctor.html';
+}
 function addPatient() {
 
     let name = patientName.value;
@@ -60,8 +62,8 @@ async function postPatientAdd(patientAdd){
         }, 
         body: json
     });
-    let doctor = await response.json();
-    alert(doctor.description);
+    let patient = await response.json();
+    alert(patient.description);
     //Actualizo
     window.location.href = "RegistrarPaciente.html";
 }
