@@ -44,15 +44,15 @@ function filter(){
     }
 }
 
-async function getPatientfilter(namePatient){
-    let response = await fetch("http://localhost:8080/doctor/"+userJSON.id+"/filterPatients/"+namePatient,{
-    method: 'GET',
-        headers:{
+async function getPatientfilter(namePatient) {
+    let response = await fetch("http://localhost:8080/doctor/" + userJSON.id + "/filterPatients/" + namePatient, {
+        method: 'GET',
+        headers: {
             'Content-Type': 'application/json'
-        }, 
+        },
     });
-    let patients= await response.json();
-    if(response.status==200){
+    let patients = await response.json();
+    if (response.status == 200) {
         patientsContainer.innerHTML = '';
         let table = document.createElement("table");
         table.id = "miTabla";
@@ -62,18 +62,15 @@ async function getPatientfilter(namePatient){
         var textoBTN2;
         var hilera = document.createElement("tr");
         for (var j = 0; j < 4; j++) {
-            var celda = document.createElement("td");   
-            if(j==0){
-                ceilInfo=document.createTextNode("ID");
-            }
-            else if(j==1){
-                ceilInfo=document.createTextNode("NAME");        
-            }
-            else if(j==2){
-                ceilInfo=document.createTextNode("CC");
-            }
-            else{
-                ceilInfo=document.createTextNode("PHONE");
+            var celda = document.createElement("td");
+            if (j == 0) {
+                ceilInfo = document.createTextNode("ID");
+            } else if (j == 1) {
+                ceilInfo = document.createTextNode("NAME");
+            } else if (j == 2) {
+                ceilInfo = document.createTextNode("CC");
+            } else {
+                ceilInfo = document.createTextNode("PHONE");
             }
             celda.appendChild(ceilInfo);
             hilera.appendChild(celda);
@@ -82,35 +79,30 @@ async function getPatientfilter(namePatient){
         table.appendChild(tblBody);
         patientsContainer.appendChild(table);
 
-        patients.forEach(patient =>{
+        patients.forEach(patient => {
                 var hilera = document.createElement("tr");
                 for (var j = 0; j < 6; j++) {
-                    var celda = document.createElement("td");   
-                    if(j==0){
-                        ceilInfo=document.createTextNode(patient.id);
-                    }
-                    else if(j==1){
-                        ceilInfo=document.createTextNode(patient.name);        
-                    }
-                    else if(j==2){
-                        ceilInfo=document.createTextNode(patient.cc);
-                    }
-                    else if(j==3){
-                        ceilInfo=document.createTextNode(patient.phone);
-                    }
-                    else if(j==4){
-                        ceilInfo=document.createElement("button");
-                        textoBTN1=document.createTextNode("DELETE");
+                    var celda = document.createElement("td");
+                    if (j == 0) {
+                        ceilInfo = document.createTextNode(patient.id);
+                    } else if (j == 1) {
+                        ceilInfo = document.createTextNode(patient.name);
+                    } else if (j == 2) {
+                        ceilInfo = document.createTextNode(patient.cc);
+                    } else if (j == 3) {
+                        ceilInfo = document.createTextNode(patient.phone);
+                    } else if (j == 4) {
+                        ceilInfo = document.createElement("button");
+                        textoBTN1 = document.createTextNode("DELETE");
                         ceilInfo.appendChild(textoBTN1);
-                        ceilInfo.addEventListener("click", function(){
+                        ceilInfo.addEventListener("click", function () {
                             remove(patient.id);
                         });
-                    }
-                    else{
-                        ceilInfo=document.createElement("button");
-                        textoBTN2=document.createTextNode("MODIFY");
+                    } else {
+                        ceilInfo = document.createElement("button");
+                        textoBTN2 = document.createTextNode("MODIFY");
                         ceilInfo.appendChild(textoBTN2);
-                        ceilInfo.addEventListener("click", function(){
+                        ceilInfo.addEventListener("click", function () {
                             modifyPatient(patient);
                         });
                     }
@@ -118,18 +110,39 @@ async function getPatientfilter(namePatient){
                     celda.appendChild(ceilInfo);
                     hilera.appendChild(celda);
                 }
-            tblBody.append(hilera);
-            table.appendChild(tblBody);
-            patientsContainer.appendChild(table);
-        }
-    )}
-    else{
+                tblBody.append(hilera);
+                table.appendChild(tblBody);
+                patientsContainer.appendChild(table);
+            }
+        )
+    } else {
         patientsContainer.innerHTML = '';
         alert(patients.description);
     }
-    function modifyPatient(patient){
-        let patientToString= JSON.stringify(patient);
+
+    function modifyPatient(patient) {
+        let patientToString = JSON.stringify(patient);
         window.localStorage.setItem('patient', patientToString);
         window.location.href = "../ModificacionPacientes/ModifyPatients.html"
+    }
+
+    async function deletePatient(patientId) {
+        let response = await fetch(`http://localhost:8080/doctors/${userJSON.id}/patients/${patientId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.status == 204) {
+            alert("Patient deleted successfully");
+            filter(); // Refrescar la lista después de eliminar
+        } else if (response.status == 403) {
+            alert("You do not have permission to delete this patient.");
+        } else if (response.status == 404) {
+            alert("Patient or doctor not found.");
+        } else {
+            alert("An error occurred while trying to delete the patient.");
+        }
     }
 }
