@@ -11,6 +11,7 @@ if(userJSON===null){
 const homeButton = document.getElementById('button_home');
 const exitButton = document.getElementById('button_exit');
 const patientsButton = document.getElementById('button_patients');
+const measurementButton = document.getElementById('button_measurements');
 const pacienteInput = document.getElementById('pacienteInput');
 const searchButton = document.getElementById('searchButton');
 const MedicionContainer = document.getElementById('MedicionContainer');
@@ -27,6 +28,7 @@ let timerInterval=0;
 homeButton.addEventListener('click', goHome);
 exitButton.addEventListener('click', exit);
 patientsButton.addEventListener('click', patients)
+measurementButton.addEventListener('click',measurement);
 searchButton.addEventListener('click', searchPaciente);
 start.addEventListener('click', cronometror); 
 newMeasurent.addEventListener('click', addMedition); 
@@ -42,11 +44,15 @@ function exit(){
 }
 
 function goHome(){
-    window.location.href = "../principalPageDoctor/index.html";
+    window.location.href = "../PrincipalPageDoctor/indexPagePrincipalDoctor.html";
 }
 
 function patients(){
     location.href='../PagPpalPacientes/PaginaPacientes.html';
+}
+
+function measurement(){
+    location.href='../PaginaPrincipalMedicion/Meditions.html';
 }
 
 

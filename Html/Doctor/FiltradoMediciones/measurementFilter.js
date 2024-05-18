@@ -205,7 +205,7 @@ async function getMeasurementfilter(measurement,response){
                         textoBTN2=document.createTextNode("MODIFY");
                         ceilInfo.appendChild(textoBTN2);
                         ceilInfo.addEventListener("click", function(){
-                            modifyMeasurement(measurement);
+                            editMeasurement(measurement);
                         });
                     }
 
@@ -221,9 +221,10 @@ async function getMeasurementfilter(measurement,response){
         measurementContainer.innerHTML = '';
         alert(measurement.description);
     }
-    // function modifyMeasurement(measurement){
-    //     let patientToString= JSON.stringify(measurement);
-    //     window.localStorage.setItem('measurement', measurement);
-    //     window.location.href = "../ModificacionPacientes/ModifyPatients.html"
-    // }
+    function editMeasurement(measurement){
+        window.localStorage.setItem('medition', JSON.stringify(measurement))
+        window.localStorage.setItem('medicionid', measurement.id);
+        window.localStorage.setItem('medicionid', measurement.patient.cc);
+        window.location.href = "../VisualizacionMediciones/visualizacion.html"
+    }
 }
