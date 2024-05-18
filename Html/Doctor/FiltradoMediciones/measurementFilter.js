@@ -13,6 +13,8 @@ else{
 const homeButton = document.getElementById('homeButton');
 const doctorsButton = document.getElementById('doctorsButton');
 const exitButton = document.getElementById('exitButton');
+const patientsButton = document.getElementById('patientsButton');
+const measurementButton = document.getElementById('measurementButton');
 const inputSearchByCC= document.getElementById('inputSearchByCC');
 const filterBTN = document.getElementById('filterBTN');
 const measurementContainer=document.getElementById('measurementContainer');
@@ -25,8 +27,10 @@ var text ='';
 
 homeButton.addEventListener('click',home)
 exitButton.addEventListener('click',exit)
+measurementButton.addEventListener('click',measurement)
 selection.addEventListener('change',changeInput)
 searchBTN.addEventListener('click',search)
+patientsButton.addEventListener("click",patients);
 
 
 function home(){
@@ -36,6 +40,14 @@ function home(){
 function exit(){
     location.href='../LoginDoctor/Login.html';
     window.localStorage.removeItem('user');
+}
+
+function patients(){
+    location.href='../PagPpalPacientes/PaginaPacientes.html';
+}
+
+function measurement(){
+    location.href='../PaginaPrincipalMedicion/Meditions.html';
 }
 
 function search(){
@@ -193,7 +205,7 @@ async function getMeasurementfilter(measurement,response){
                         textoBTN2=document.createTextNode("MODIFY");
                         ceilInfo.appendChild(textoBTN2);
                         ceilInfo.addEventListener("click", function(){
-                            modifyMeasurement(measurement);
+                            editMeasurement(measurement);
                         });
                     }
 
@@ -209,9 +221,10 @@ async function getMeasurementfilter(measurement,response){
         measurementContainer.innerHTML = '';
         alert(measurement.description);
     }
-    // function modifyMeasurement(measurement){
-    //     let patientToString= JSON.stringify(measurement);
-    //     window.localStorage.setItem('measurement', measurement);
-    //     window.location.href = "../ModificacionPacientes/ModifyPatients.html"
-    // }
+    function editMeasurement(measurement){
+        window.localStorage.setItem('medition', JSON.stringify(measurement))
+        window.localStorage.setItem('medicionid', measurement.id);
+        window.localStorage.setItem('medicionid', measurement.patient.cc);
+        window.location.href = "../VisualizacionMediciones/visualizacion.html"
+    }
 }

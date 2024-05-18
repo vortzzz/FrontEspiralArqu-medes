@@ -13,12 +13,16 @@ else{
 const homeButton = document.getElementById('homeButton');
 const doctorsButton = document.getElementById('doctorsButton');
 const exitButton = document.getElementById('exitButton');
+const patientsButton = document.getElementById('patientsButton');
 const inputFilterByName = document.getElementById('inputFilterByName');
+const measurementButton = document.getElementById('measurementButton');
 const filterBTN = document.getElementById('filterBTN');
 const patientsContainer=document.getElementById('patientsContainer');
 
 homeButton.addEventListener('click',home)
 exitButton.addEventListener('click',exit)
+patientsButton.addEventListener("click",patients);
+measurementButton.addEventListener('click',measurement)
 filterBTN.addEventListener('click',filter)
 
 
@@ -29,6 +33,13 @@ function home(){
 function exit(){
     location.href='../LoginDoctor/Login.html';
     window.localStorage.removeItem('user');
+}
+function measurement(){
+    location.href='../PaginaPrincipalMedicion/Meditions.html';
+}
+
+function patients(){
+    location.href='../PagPpalPacientes/PaginaPacientes.html';
 }
 
 

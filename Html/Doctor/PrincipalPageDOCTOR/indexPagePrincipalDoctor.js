@@ -6,14 +6,17 @@ const button_patients = document.getElementById('button_patients');
 
 //Eventos
 button_exit.addEventListener('click',exit);
-button_patients.addEventListener('click',patientsSection);
+button_patients.addEventListener('click',patients);
+button_measurements.addEventListener('click', measurement); 
 
 function exit(){
     window.location.href = "../LoginDoctor/Login.html"
     window.localStorage.removeItem('user');
 }
 
-function patientsSection(){
-    window.location.href = "../BusquedaPacientes/indexSearchFilter.html"
+function patients(){
+    location.href='../PagPpalPacientes/PaginaPacientes.html';
 }
-function measurementSection() {}
+function measurement(){
+    location.href='../PaginaPrincipalMedicion/Meditions.html';
+}

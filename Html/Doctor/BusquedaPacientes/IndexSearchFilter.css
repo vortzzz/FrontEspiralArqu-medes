@@ -128,6 +128,18 @@
       color: #000000;
       opacity: 100;
 }
+#subTitle{
+    width: 90% ;
+    font-family: "Inter-BoldItalic", Helvetica;
+    font-weight: 700;
+    font-style: italic;
+    color: #67B443;
+    font-size: 35px;
+    text-align: left    ;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-bottom: 50px;
+}
 
 #miTabla {
     margin-top: 100px;
