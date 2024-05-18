@@ -8,12 +8,11 @@
 
 const homeButton = document.getElementById('button_home');
 const exitButton = document.getElementById('button_exit');
-
+const patientButton = document.getElementById('button_patients') 
 const commentsInput = document.getElementById('commentsInput');
 const addButton = document.getElementById('addButton');
 const CommentsContainer = document.getElementById('CommentsContainer');
 const graphicsContainer= document.getElementById('graphicsContainer'); 
-
 const pacienteInput = localStorage.getItem('pacienteInput');
 const medicionString  = localStorage.getItem('medicion');
 const medicionid = localStorage.getItem('medicionid');
@@ -34,6 +33,8 @@ document.getElementById('fecha').textContent = medicion.dateTaken;
 homeButton.addEventListener('click',goHome);
 exitButton.addEventListener('click', exit);
 addButton.addEventListener('click',addComment);
+patientButton.addEventListener('click', patients)
+
 
 
 //Acciones iniciales:
@@ -48,9 +49,12 @@ function exit(){
 
 }
 
-
 function goHome(){
     window.location.href = "../principalPageDoctor/index.html";
+}
+
+function patients(){
+    location.href='../PagPpalPacientes/PaginaPacientes.html';
 }
 
 async function getCommets(){

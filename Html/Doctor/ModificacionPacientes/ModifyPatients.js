@@ -17,7 +17,9 @@ const newPatientEmail= document.getElementById('newPatientEmail');
 const newPatientPhone = document.getElementById('newPatientPhone');
 const modifyButton = document.getElementById('modifyButton');
 const homeButton = document.getElementById('homeButton');
+const patientsButton = document.getElementById('patientsButton');
 const doneButton = document.getElementById('doneButton');
+const measurementButton = document.getElementById('measurementButton');
 
 modifyButton.addEventListener("click", modify);
 
@@ -25,9 +27,20 @@ doneButton.addEventListener("click",done)
 
 homeButton.addEventListener("click",home)
 
+measurementButton.addEventListener("click",measurement)
+
+patientsButton.addEventListener("click",patients);
+
+function measurement(){
+    location.href='../PaginaPrincipalMedicion/Meditions.html';
+}
 
 function home(){
     location.href='../PrincipalPageDOCTOR/indexPagePrincipalDoctor.html';
+}
+
+function patients(){
+    location.href='../PagPpalPacientes/PaginaPacientes.html';
 }
 
 getInfo();
