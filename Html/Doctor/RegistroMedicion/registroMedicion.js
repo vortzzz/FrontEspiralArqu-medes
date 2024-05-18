@@ -44,7 +44,7 @@ function exit(){
 }
 
 function goHome(){
-    window.location.href = "../principalPageDoctor/index.html";
+    window.location.href = "../PrincipalPageDoctor/indexPagePrincipalDoctor.html";
 }
 
 function patients(){
