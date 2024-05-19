@@ -234,7 +234,7 @@ async function cronometror() {
                 let minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60)); // Minutos
                 let seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000); // Segundos
 
-                if (elapsedTime >= 5000) {
+                if (elapsedTime >= 10000) {
                     connectMeasure("off");
                     clearInterval(timerInterval);
                     seconds = 5;
@@ -247,8 +247,10 @@ async function cronometror() {
                     });
                     viewMedition(pacienteInput.value,medition,medition.id);
                 }
-
-                timeValueElement.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+                if(elapsedTime <= 6000){
+                    timeValueElement.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+                }
+               
             }
 
             timerInterval = setInterval(updateTime, 1000);
