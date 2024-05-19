@@ -50,6 +50,7 @@ function measurement(){
     location.href='../PaginaPrincipalMedicion/Meditions.html';
 }
 
+
 function search(){
     date1.value='';
     date2.value='';
@@ -74,6 +75,18 @@ async function searchByCC(patientCC){
     });
     let measurement= await response.json();
     getMeasurementfilter(measurement,response);
+}
+
+
+async function remove(meditionId){
+    let response = await fetch ('http://localhost:8080/doctor/deleteMedition/' +meditionId,{
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json'
+    },
+    });
+    alert(await response.text());
+    window.location.href = "../VisualizacionMediciones/visualizacion.html"
 }
 
 
