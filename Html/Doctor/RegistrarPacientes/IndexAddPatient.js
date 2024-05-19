@@ -4,6 +4,9 @@ let userJSON= window.localStorage.getItem('user');
 if(userJSON===null){
     location.href = "../LoginDoctor/LogIn.html";
   }
+  else{
+    userJSON=JSON.parse(userJSON);
+  }
 
 
 const patientName = document.getElementById('doctorInputName');
@@ -31,6 +34,7 @@ function measurement(){
 function home(){
     location.href='../PrincipalPageDOCTOR/indexPagePrincipalDoctor.html';
 }
+
 function addPatient() {
 
     let name = patientName.value;
@@ -55,7 +59,7 @@ function addPatient() {
 async function postPatientAdd(patientAdd){
     let json = JSON.stringify(patientAdd);
 
-    let response = await fetch('http://localhost:8080/patient/create',{
+    let response = await fetch('http://localhost:8080/patient/create/'+userJSON.id,{
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'
