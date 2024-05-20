@@ -115,7 +115,7 @@ async function getPatientSearch(ccPatient){
 
     }else{
         patientsContainer.innerHTML = '';
-        alert(patients.description);
+        alert(patient.description);
     }
     function modifyPatient(patient){
         let patientToString= JSON.stringify(patient);
