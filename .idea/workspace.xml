@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9de10c4f-fd21-4268-a5f6-f1805363538d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Html/Doctor/BusquedaPacientes/IndexSearchFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/Html/Doctor/BusquedaPacientes/IndexSearchFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BuscarDoctores/paginaSearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/BuscarDoctores/paginaSearch.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,21 +32,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Asus Rog Strix/Downloads/HelloWorldAPI",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
+  <component name="PropertiesComponent">{
+    &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus Rog Strix/Documents/FrontEnd/FrontEspiralArqu-medes&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+    }
+    }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Asus Rog Strix\Documents\FrontEnd\FrontEspiralArqu-medes\BuscarDoctores" />
@@ -63,17 +63,6 @@
       <workItem from="1713657626415" duration="2121000" />
       <workItem from="1713666368718" duration="5443000" />
       <workItem from="1713742193473" duration="320000" />
-      <workItem from="1715779158656" duration="3010000" />
-      <workItem from="1715792160362" duration="667000" />
-      <workItem from="1715796188077" duration="323000" />
-      <workItem from="1715959965843" duration="1120000" />
-      <workItem from="1715963887084" duration="2146000" />
-      <workItem from="1715975650620" duration="488000" />
-      <workItem from="1716047427727" duration="28000" />
-      <workItem from="1716071110455" duration="2383000" />
-      <workItem from="1716206317396" duration="41000" />
-      <workItem from="1716390727670" duration="1217000" />
-      <workItem from="1716399187722" duration="74000" />
     </task>
     <servers />
   </component>

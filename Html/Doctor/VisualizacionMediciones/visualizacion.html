@@ -11,6 +11,11 @@ body {
   padding: 0;
 }
 
+#graphicsCirculars {
+  width: 400px;
+  height: 400px;
+}
+
 .container {
   width: 1440px;
   height: 1024px;
@@ -30,8 +35,8 @@ body {
 }
 
 .rotated-rect {
-  width: 1100.92px;
-  height: 1100.79px;
+  width: 1000.92px;
+  height: 2350.79px;
   left: 1335.77px;
   top: 200px;
   position: absolute;
@@ -169,32 +174,43 @@ body {
   <div class="container">
 
     <div class="background-rect"></div>
-    <div class="rotated-rect" style=" margin-left: 15.5%;"></div>
+    <div class="rotated-rect" style=" margin-left: 99%;"></div>
 
     <img class="image-1" src="/Resource/logoFundacion.png" />
     <img class="image-2" src="/Resource/logo-icesi.png" />
 
-  <div class="containerMedition" style="padding: 20%;; margin-left: 20%;">
-    
-    <h1 style="color: #004d40;">medition: </h1>
-    <h3 style="color: #004d40;">patient: <span id="paciente"></span></h3>
-    <h3 style="color: #004d40;">date: <span id="fecha"></span></h3>
+    <div class="containerMedition" style="padding: 20%; margin-left: 20%;width: 80%;">
+      <h1 style="color: #004d40;">medition: </h1>
+      <h3 style="color: #004d40;">patient: <span id="paciente"></span></h3>
+      <h3 style="color: #004d40;">date: <span id="fecha"></span></h3>
+  
+      <div class="graphicsWrapper" style="display: flex; width: 200%">
+          <div id="graphicsContainer" style="flex: 1; background-color: #f0f0f0; padding: 20px;">
+              <canvas></canvas>
+          </div>
+  
+          <div id="graphicsContainer2" style="flex: 1;margin-left: 40px; background-color: #f0f0f0; padding: 20px;">
+              <canvas></canvas>
+          </div>
 
-    <div id = "graphicsContainer"  style="margin-left: auto; margin-right: auto; background-color: #f0f0f0; padding: 20px;">
-      <canvas></canvas>
+          <div id="graphicsContainer3" style="flex: 1;margin-left: 70px; background-color: #f0f0f0; padding: 20px;">
+           
+        </div>
 
-    </div>
-    <div  id = "CommentsContainer">
-        
-    </div>
-    <div class="buttonsMedition" style="text-align: center;">&nbsp;
-      <div style="margin-bottom: 10px; display: flex; align-items: center;">
-        <input type="text" id="commentsInput" name="doctorInput" placeholder="Agregue su comentario"><br><br>
-        <button id="addButton" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Agregar</button>
+
       </div>
-      
-    </div>
+  
+      <div id="CommentsContainer"></div>
+  
+      <div class="buttonsMedition" style="text-align: center;">
+          &nbsp;
+          <div style="margin-bottom: 10px; display: flex; align-items: center;">
+              <input type="text" id="commentsInput" name="doctorInput" placeholder="Add a comment"><br><br>
+              <button id="addButton" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Add</button>
+          </div>
+      </div>
   </div>
+  
 
 
   <button id= "button_patients" class="button patients">

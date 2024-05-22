@@ -10,6 +10,8 @@ if(userJSON===null){
 
 const homeButton = document.getElementById('button_home');
 const exitButton = document.getElementById('button_exit');
+const patientsButton = document.getElementById('button_patients');
+const measurementButton = document.getElementById('button_measurements');
 const pacienteInput = document.getElementById('pacienteInput');
 const searchButton = document.getElementById('searchButton');
 const MedicionContainer = document.getElementById('MedicionContainer');
@@ -25,6 +27,8 @@ let timerInterval=0;
 
 homeButton.addEventListener('click', goHome);
 exitButton.addEventListener('click', exit);
+patientsButton.addEventListener('click', patients)
+measurementButton.addEventListener('click',measurement);
 searchButton.addEventListener('click', searchPaciente);
 start.addEventListener('click', cronometror); 
 newMeasurent.addEventListener('click', addMedition); 
@@ -40,7 +44,15 @@ function exit(){
 }
 
 function goHome(){
-    window.location.href = "../principalPageDoctor/index.html";
+    window.location.href = "../PrincipalPageDoctor/indexPagePrincipalDoctor.html";
+}
+
+function patients(){
+    location.href='../PagPpalPacientes/PaginaPacientes.html';
+}
+
+function measurement(){
+    location.href='../PaginaPrincipalMedicion/Meditions.html';
 }
 
 
@@ -48,7 +60,7 @@ function goHome(){
 async function searchPaciente(){
     let pacienteValue = pacienteInput.value;
     await getPacientSearch(pacienteValue);
-    //window.location.href = "registroMedicion.html" ???????????????????????????????????
+    //window.location.href = "registroMedicion.html" 
 }
 async function searchDevice(){
     let deviceValue = inputDevice.value;
@@ -77,10 +89,12 @@ async function getPacientSearch(pacienteInput) {
     let response = await fetch('http://localhost:8080/patient/medition/' + pacienteInput +'/'+ userJSON.id);
 
     let mediciones = await response.json();
+    console.log(mediciones);
     if(response.ok){
 
-       mediciones.forEach( medicion => {
         SearchResultContainer.innerHTML = '';
+       mediciones.forEach( medicion => {
+        
             
         let MedicionFoundContainer = document.createElement('div');
         let patientName = document.createElement('h3');
@@ -92,7 +106,7 @@ async function getPacientSearch(pacienteInput) {
         MedicionFoundContainer.appendChild(buttonView)
 
         patientName.innerHTML = pacienteInput;
-        dateMedition.innerHTML = "fecha: " +  medicion.dateTaken;
+        dateMedition.innerHTML = "fecha: " +  medicion.dateTaken + "      ";
         buttonView.innerHTML = "Ver"; 
 
         buttonView.addEventListener('click',function(){
@@ -115,24 +129,12 @@ function viewMedition(pacienteInput,medicion,medicionid){
 
     // Guardar los datos en el almacenamiento local
     localStorage.setItem('pacienteInput', pacienteInput);
-    localStorage.setItem('medicion', medicionString);
-    localStorage.setItem('medicionid', medicionid);
+    localStorage.setItem('medition', medicionString);
+    localStorage.setItem('meditionid', medicionid);
     window.location.href = "../visualizacionMediciones/visualizacion.html";
 }
 
 
-function viewMedition(pacienteInput,medicion,medicionid){
-
-    // Convertir el objeto a una cadena JSON
-    const medicionString = JSON.stringify(medicion);
-
-
-    // Guardar los datos en el almacenamiento local
-    localStorage.setItem('pacienteInput', pacienteInput);
-    localStorage.setItem('medicion', medicionString);
-    localStorage.setItem('medicionid', medicionid);
-    window.location.href = "../visualizacionMediciones/visualizacion.html";
-}
 
 
 function addMedition() {
@@ -175,7 +177,7 @@ async function postMeditionAdd(cc,medition,device){
            window.localStorage.setItem('medition',meditionD);
            openDialog();
        }else{
-           alert("bobo hp");
+           alert("error");
        }
    
     }else{
@@ -209,6 +211,8 @@ async function postMeditionAdd(cc,medition,device){
 async function cronometror() {
     let timeValueElement = document.getElementById('time-value');
     let deviceJson = JSON.parse(window.localStorage.getItem('device'));
+    let medition = JSON.parse(window.localStorage.getItem('medition'));
+
 
     if (timeValueElement.textContent == '0:00') {
         let startTime = new Date().getTime(); 
@@ -218,18 +222,20 @@ async function cronometror() {
                 'Content-Type': 'application/json'
             },
         });
+        let response1 = await fetch('http://localhost:8080/patient/medition/' + pacienteInput.value +'/'+ userJSON.id);
 
-        if (response.ok) {
+        if (response.ok & response1.ok) {
           
             isCronometrorRunning = true; 
-
+            connectMeasure("on");
             function updateTime() {
                 let currentTime = new Date().getTime();
                 let elapsedTime = currentTime - startTime; // Tiempo transcurrido desde el inicio
                 let minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60)); // Minutos
                 let seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000); // Segundos
 
-                if (elapsedTime >= 5000) {
+                if (elapsedTime >= 10000) {
+                    connectMeasure("off");
                     clearInterval(timerInterval);
                     seconds = 5;
                     isCronometrorRunning = false; 
@@ -239,10 +245,12 @@ async function cronometror() {
                             'Content-Type': 'application/json'
                         },
                     });
-                    alert(response.text());
+                    viewMedition(pacienteInput.value,medition,medition.id);
                 }
-
-                timeValueElement.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+                if(elapsedTime <= 6000){
+                    timeValueElement.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+                }
+               
             }
 
             timerInterval = setInterval(updateTime, 1000);
@@ -250,11 +258,46 @@ async function cronometror() {
             alert(await response.text());
         }
     } else {
-        alert(await response.text());
+         alert(await response.text());
         document.getElementById('time-value').textContent = '0:00';
         clearInterval(timerInterval);
         isCronometrorRunning = false; 
     }
 }
+
+
+async function connectMeasure(status) {
+    let medition = JSON.parse(window.localStorage.getItem('medition'));
+    let device = JSON.parse(window.localStorage.getItem('device'));
+    var host = "broker.emqx.io";
+    var port = 8083;
+    var path = '/mqtt';
+    var clientId = 'doctor'+userJSON.id;
+    var client = new Paho.MQTT.Client(host, port, path, clientId);
+    var connectOptions = {
+        onSuccess: function () {
+            client.unsubscribe("#", {
+                onSuccess: function () {
+                    client.subscribe("medition/"+device.name, {
+                        onSuccess: function () {
+                            console.log("subscribed to " + "medition/"+device.name);
+                            
+                            let text =status+"/"+ medition.id;
+                            message = new Paho.MQTT.Message(text);
+                            message.destinationName = "medition/"+device.name;
+                            client.send(message);
+                        }
+                    });
+                }
+            });
+        },
+        onFailure: function () {
+         }
+    };
+
+    client.connect(connectOptions);
+
+}
+
 
 
