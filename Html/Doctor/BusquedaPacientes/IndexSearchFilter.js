@@ -120,29 +120,29 @@ async function getPatientfilter(namePatient) {
         alert(patients.description);
     }
 
-    function modifyPatient(patient) {
-        let patientToString = JSON.stringify(patient);
-        window.localStorage.setItem('patient', patientToString);
-        window.location.href = "../ModificacionPacientes/ModifyPatients.html"
-    }
 
-    async function deletePatient(patientId) {
-        let response = await fetch(`http://localhost:8080/doctors/${userJSON.id}/patients/${patientId}`, {
+
+    async function remove(patientId) {
+        let response = await fetch("http://localhost:8080/doctors/" + userJSON.id + "/patients/" + patientId, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             }
         });
 
-        if (response.status == 204) {
+        if (response.status === 204) {
             alert("Patient deleted successfully");
             filter(); // Refrescar la lista después de eliminar
-        } else if (response.status == 403) {
-            alert("You do not have permission to delete this patient.");
-        } else if (response.status == 404) {
-            alert("Patient or doctor not found.");
+        } else if (response.status === 404) {
+            alert("Patient not found.");
         } else {
             alert("An error occurred while trying to delete the patient.");
         }
+    }
+
+    function modifyPatient(patient) {
+        let patientToString = JSON.stringify(patient);
+        window.localStorage.setItem('patient', patientToString);
+        window.location.href = "../ModificacionPacientes/ModifyPatients.html";
     }
 }
