@@ -36,6 +36,24 @@ function search(){
 
 }
 
+async function remove(patientId) {
+    let response = await fetch("http://localhost:8080/doctors/" + userJSON.id + "/patients/" + patientId, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (response.status === 204) {
+        alert("Patient deleted successfully");
+        location.href='IndexSearchFilter.html';
+    } else if (response.status === 404) {
+        alert("Patient not found.");
+    } else {
+        alert("An error occurred while trying to delete the patient.");
+    }
+}
+
 async function getPatientSearch(ccPatient){
     let response = await fetch("http://localhost:8080/doctor/"+userJSON.id+"/searchPatients/"+ccPatient,{
     method: 'GET',
@@ -226,26 +244,6 @@ async function getPatientfilter(namePatient) {
     } else {
         patientsContainer.innerHTML = '';
         alert(patients.description);
-    }
-
-
-
-    async function remove(patientId) {
-        let response = await fetch("http://localhost:8080/doctors/" + userJSON.id + "/patients/" + patientId, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        if (response.status === 204) {
-            alert("Patient deleted successfully");
-            filter(); // Refrescar la lista después de eliminar
-        } else if (response.status === 404) {
-            alert("Patient not found.");
-        } else {
-            alert("An error occurred while trying to delete the patient.");
-        }
     }
 
     function modifyPatient(patient) {
