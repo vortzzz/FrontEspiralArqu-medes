@@ -68,12 +68,14 @@ async function selectGrafics(){
     const value = selection.value;
     let response = await fetch('http://localhost:8080/doctor/patient/medition/' + medicionid);
     let arraysGraphics = await response.json();
+    console.log("lo que sigue deberia ser el obj de las graficas")
+    console.log(arraysGraphics)
     if(response.ok){
-        if(value=="Time"){
+        if(value=="option1"){
             graphicsMagnitudesAndTimes(arraysGraphics);
-        }else if(value=="Frequency"){
+        }else if(value=="option2"){
             graphisSpectrumFreqs(arraysGraphics); 
-        }else if (value=="Circle"){
+        }else if (value=="option3"){
             graphiscircular(arraysGraphics);
         }
     }
@@ -116,6 +118,7 @@ async function getGraphics() {
 }
 
 function graphicsMagnitudesAndTimes(magnitudesAndTimes) {
+    graphicsContainer.innerHTML = '';
     const magnitudes = magnitudesAndTimes.magnitudes;
     const times = magnitudesAndTimes.times;
 
@@ -187,7 +190,7 @@ function graphicsMagnitudesAndTimes(magnitudesAndTimes) {
 }
 
 function graphisSpectrumFreqs(arraysGraphics){
-
+    graphicsContainer.innerHTML = '';
     const spectrum = arraysGraphics.spectrum;
     const freqs = arraysGraphics.freqs;
 
@@ -261,6 +264,7 @@ function graphisSpectrumFreqs(arraysGraphics){
 
 }
 function graphiscircular(arraysGraphics) {
+    graphicsContainer.innerHTML = '';
     const spectrum = arraysGraphics.spectrum;
     const freqs = arraysGraphics.freqs;
 
