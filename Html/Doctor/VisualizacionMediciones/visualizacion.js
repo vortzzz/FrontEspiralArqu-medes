@@ -14,12 +14,15 @@ const commentsInput = document.getElementById('commentsInput');
 const addButton = document.getElementById('addButton');
 const CommentsContainer = document.getElementById('CommentsContainer');
 const graphicsContainer= document.getElementById('graphicsContainer'); 
-const graphicsContainer2= document.getElementById('graphicsContainer2'); 
-const graphicsContainer3= document.getElementById('graphicsContainer3'); 
 
 const pacienteInput = localStorage.getItem('pacienteInput');
 const medicionString  = localStorage.getItem('medition');
 const medicionid = localStorage.getItem('meditionid');
+
+const selection = document.getElementById('mySelection');
+const buttonGrafics = document.getElementById('showSelection');
+
+
 
 // Convertir la cadena JSON a un objeto
 console.log(medicionString);
@@ -35,12 +38,12 @@ measurementButton.addEventListener('click', measurement);
 exitButton.addEventListener('click', exit);
 addButton.addEventListener('click',addComment);
 patientButton.addEventListener('click', patients)
-
+buttonGrafics.addEventListener('click', selectGrafics)
 
 
 //Acciones iniciales:
 getCommets();
-getGraphics(); 
+//getGraphics(); 
 
 
 function exit(){
@@ -60,6 +63,22 @@ function patients(){
 function measurement(){
     location.href='../PaginaPrincipalMedicion/Meditions.html';
 }
+
+async function selectGrafics(){
+    const value = selection.value;
+    let response = await fetch('http://localhost:8080/doctor/patient/medition/' + medicionid);
+    let arraysGraphics = await response.json();
+    if(response.ok){
+        if(value=="Time"){
+            graphicsMagnitudesAndTimes(arraysGraphics);
+        }else if(value=="Frequency"){
+            graphisSpectrumFreqs(arraysGraphics); 
+        }else if (value=="Circle"){
+            graphiscircular(arraysGraphics);
+        }
+    }
+    }
+
 
 
 async function getCommets(){
@@ -173,7 +192,7 @@ function graphisSpectrumFreqs(arraysGraphics){
     const freqs = arraysGraphics.freqs;
 
     const canvas = document.createElement("canvas");
-    graphicsContainer2.appendChild(canvas);
+    graphicsContainer.appendChild(canvas);
 
     const ctx = canvas.getContext("2d");
 
@@ -248,7 +267,7 @@ function graphiscircular(arraysGraphics) {
     const canvas = document.createElement("canvas");
     canvas.width = 700;
     canvas.height = 700;
-    graphicsContainer3.appendChild(canvas);
+    graphicsContainer.appendChild(canvas);
 
     const ctx = canvas.getContext('2d');
     const width = canvas.width;
@@ -365,4 +384,6 @@ async function postCommentAdd(comment,medicionid){
     console.log(comment1); 
     window.location.href = "visualizacion.html";
 
+    
 }
+

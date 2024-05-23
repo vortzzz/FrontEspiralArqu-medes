@@ -35,10 +35,10 @@ body {
 }
 
 .rotated-rect {
-  width: 1000.92px;
-  height: 2350.79px;
-  left: 1335.77px;
-  top: 200px;
+  width: 880.92px;
+  height: 1150.79px;
+  left: 1535.77px;
+  top: 238px;
   position: absolute;
   transform: rotate(89.73deg);
   transform-origin: 0 0;
@@ -174,7 +174,7 @@ body {
   <div class="container">
 
     <div class="background-rect"></div>
-    <div class="rotated-rect" style=" margin-left: 99%;"></div>
+    <div class="rotated-rect"></div>
 
     <img class="image-1" src="/Resource/logoFundacion.png" />
     <img class="image-2" src="/Resource/logo-icesi.png" />
@@ -183,21 +183,20 @@ body {
       <h1 style="color: #004d40;">medition: </h1>
       <h3 style="color: #004d40;">patient: <span id="paciente"></span></h3>
       <h3 style="color: #004d40;">date: <span id="fecha"></span></h3>
+
+      <label for="mySelection">choose a graph:</label>
+      <select id="mySelection">
+          <option value="option1">Time</option>
+          <option value="option2">Frequency</option>
+          <option value="option3">Circle</option>
+      </select>
   
-      <div class="graphicsWrapper" style="display: flex; width: 200%">
+      <button id="showSelection">Show</button>
+  
+      <div class="graphicsWrapper" style=" width: 90%; margin-left: 10px; margin-right: 10px">
           <div id="graphicsContainer" style="flex: 1; background-color: #f0f0f0; padding: 20px;">
               <canvas></canvas>
           </div>
-  
-          <div id="graphicsContainer2" style="flex: 1;margin-left: 40px; background-color: #f0f0f0; padding: 20px;">
-              <canvas></canvas>
-          </div>
-
-          <div id="graphicsContainer3" style="flex: 1;margin-left: 70px; background-color: #f0f0f0; padding: 20px;">
-           
-        </div>
-
-
       </div>
   
       <div id="CommentsContainer"></div>
