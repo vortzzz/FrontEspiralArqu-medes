@@ -37,8 +37,8 @@ homeButton.addEventListener('click',goHome);
 measurementButton.addEventListener('click', measurement);
 exitButton.addEventListener('click', exit);
 addButton.addEventListener('click',addComment);
-patientButton.addEventListener('click', patients)
-buttonGrafics.addEventListener('click', selectGrafics)
+patientButton.addEventListener('click', patients);
+buttonGrafics.addEventListener('click', selectGrafics);
 
 
 //Acciones iniciales:
@@ -77,6 +77,8 @@ async function selectGrafics(){
             graphisSpectrumFreqs(arraysGraphics); 
         }else if (value=="option3"){
             graphiscircular(arraysGraphics);
+        }else{
+            console.log("bobo hp")
         }
     }
     }
