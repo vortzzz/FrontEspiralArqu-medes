@@ -22,6 +22,8 @@ addButton.addEventListener('click',addPatient);
 button_exit.addEventListener('click',exit);
 button_measurements.addEventListener('click', measurement); 
 button_home.addEventListener('click', home);
+button_patients.addEventListener('click',patients);
+
 
 //Funciones
 function exit(){
@@ -34,6 +36,11 @@ function measurement(){
 function home(){
     location.href='../PrincipalPageDOCTOR/indexPagePrincipalDoctor.html';
 }
+
+function patients(){
+    location.href='../PagPpalPacientes/PaginaPacientes.html';
+}
+
 
 function addPatient() {
 

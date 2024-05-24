@@ -86,7 +86,7 @@ async function remove(meditionId){
     },
     });
     alert(await response.text());
-    window.location.href = "../VisualizacionMediciones/visualizacion.html"
+    window.location.href = "../FiltradoMediciones/measurementFilter.html"
 }
 
 
@@ -237,7 +237,7 @@ async function getMeasurementfilter(measurement,response){
     function editMeasurement(measurement){
         window.localStorage.setItem('medition', JSON.stringify(measurement))
         window.localStorage.setItem('medicionid', measurement.id);
-        window.localStorage.setItem('medicionid', measurement.patient.cc);
+        window.localStorage.setItem('pacienteInput', measurement.patient.cc);
         window.location.href = "../VisualizacionMediciones/visualizacion.html"
     }
 }

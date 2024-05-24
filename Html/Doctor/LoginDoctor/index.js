@@ -17,7 +17,7 @@ function page_password(){
 
 
 function back_page(){
-    window.location.href = "../LoginAdmin/Untitled-1.html";
+    location.href = "../../Admin/LoginAdmin/Untitled-1.html";
 }
 
 function login(){

@@ -21,6 +21,7 @@ const homeButton = document.getElementById('homeButton');
 const doneButton = document.getElementById('doneButton');
 const exitButton = document.getElementById('exitButton');
 const searchBTN = document.getElementById('searchBTN');
+const addBTN = document.getElementById('addBTN');
 
 exitButton.addEventListener("click", exit)
 
@@ -29,6 +30,8 @@ measurementButton.addEventListener("click",measurement)
 homeButton.addEventListener("click",home)
 
 searchBTN.addEventListener('click', searchPatient);
+
+addBTN.addEventListener('click',addPatient);
 
 function home(){
     location.href='../PrincipalPageDOCTOR/indexPagePrincipalDoctor.html';
@@ -45,4 +48,7 @@ function exit(){
 
 function searchPatient(){
     location.href='../BusquedaPacientes/IndexSearchFilter.html';
+}
+function addPatient(){
+    location.href='../RegistrarPacientes/RegistrarPaciente.html';
 }

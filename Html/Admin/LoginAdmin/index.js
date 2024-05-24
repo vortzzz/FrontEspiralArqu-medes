@@ -11,7 +11,7 @@ login_doctor.addEventListener('click',back_page);
 
 
 function back_page(){
-  window.location.href ='../LoginDoctor/LogIn.html';
+  window.location.href ='../../Doctor/LoginDoctor/LogIn.html';
 }
 
 
