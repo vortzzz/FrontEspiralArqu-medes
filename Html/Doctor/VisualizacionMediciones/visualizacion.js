@@ -78,7 +78,7 @@ async function selectGrafics(){
         }else if (value=="option3"){
             graphiscircular(arraysGraphics);
         }else{
-            console.log("bobo hp")
+            console.log(":D")
         }
     }
     }
