@@ -21,9 +21,9 @@ const char *ID = "Device-00";
 const String nameDevice = "Device-00";
 const String TOPIC = "medition/" + nameDevice;
 const char *STATE_TOPIC = "room/light/state";
-const int MEASUREMENT_DELAY = 20;
+const int MEASUREMENT_DELAY = 30;
 int idMedition;
-const char *SERVER_ADDRESS = "http://192.168.130.68:8080/device";
+const char *SERVER_ADDRESS = "http://192.168.130.37:8080/device";
 String statusRed="not";
 String statusSensor="not";
 String statusMqtt="not";
@@ -64,6 +64,7 @@ void callback(char *topic, byte *payload, unsigned int length) {
     takingMeasurements = true;        // Iniciar la toma de mediciones
     measurementStartTime = millis();  // Guardar el tiempo actual
     measurementIndex = 0;             // Reiniciar el índice de la medición
+    performMeasurement();
   } else if (message[0] == "off") {
     takingMeasurements = false;  // Detener la toma de mediciones
   }
@@ -118,15 +119,6 @@ void performMeasurement() {
     int ax = a.acceleration.x;
     int ay = a.acceleration.y;
     int az = a.acceleration.z;
-
-    Serial.print("Acceleration X: ");
-    Serial.print(a.acceleration.x);
-    Serial.print(", Y: ");
-    Serial.print(a.acceleration.y);
-    Serial.print(", Z: ");
-    Serial.print(a.acceleration.z);
-    Serial.println(" m/s^2");
-
     Medicion medicion;
     medicion.posX = ax;
     medicion.posY = ay;
@@ -206,7 +198,5 @@ void loop() {
   }
   client.loop();
 
-  if (takingMeasurements) {
-    performMeasurement();
-  }
+
 }

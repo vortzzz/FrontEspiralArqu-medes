@@ -151,6 +151,7 @@ function addMedition() {
        }
 
     postMeditionAdd(cc,medition,device);
+    console.log(1);
     }
 }
 
@@ -160,6 +161,7 @@ async function postMeditionAdd(cc,medition,device){
     let response = await fetch('http://localhost:8080/patient/medition/getDevice/'+id+"/"+device);
     let device1= await response.json();
     if(response.ok){
+        console.log(2);
         let json = JSON.stringify(medition);
 
         response = await fetch('http://localhost:8080/medition/'+cc+"/create",{

@@ -325,7 +325,7 @@ function graphiscircular(arraysGraphics) {
 
     
     const specificLabels = [0,5, 10, 15, 20, 25];
-    const threshold = 0.1;
+    const threshold = 0.05;
 
     for (let i = 0; i < spectrum.length; i++) {
         const angle = (i / spectrum.length) * 2 * Math.PI;
