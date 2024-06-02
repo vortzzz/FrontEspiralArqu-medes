@@ -100,7 +100,7 @@
 }
 
 .minibuttons{
-    width: 100px;
+    width: 200px;
     height: 40px; 
     padding: 10px;
     background: #67B443;
@@ -118,6 +118,32 @@
     margin-right: 50px;
 }
 
+.newmedition{
+  position: absolute;
+  display: inline-block;
+  bottom: 0;
+  left: 25%;
+  margin: 20px;
+  bottom: -200px;
+}
+.minibuttons1{
+  width: 200px;
+  height: 40px; 
+  padding: 10px;
+  background: #67B443;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+  border-radius: 10px;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 10px;
+  color: #000000;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 50px;
+}
 #searchText{
     width: 40px;
     font-family: "Inter-BoldItalic", Helvetica;
@@ -218,4 +244,163 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.newMeasurementForm {
+    width: auto;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    padding: 10px; /* add some padding to create space between components */
+    margin: 10px; /* add some margin to create space between components */
+    
+  }
+  
+  .newMeasurementForm > * {
+    margin-bottom: 10px; /* add margin bottom to each component */
+  }
+  
+  .newMeasurementForm select {
+    margin-right: 10px; /* add margin right to each select component */
+  }
+
+
+  .iniciar-medicin {
+    width: 1153px;
+    height: 466px;
+    position: relative;
+    background: #BDDFFF;
+    border: 1px solid black;
+  }
+
+
+
+  .rectangle-18 {
+    width: 81.41px;
+    height: 57px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #FF0000;
+    border: 1px solid #FF0000;
+  }
+
+  .x-button {
+    background: #FF0000;
+    position: absolute;
+    width: 81.41px;
+    height: 57px;
+    left: 1071.03px;
+    top: 2px;
+    color: #D9D9D9;
+    font-size: 40px;
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .rectangle-8 {
+    width: 1087.55px;
+    height: 367.16px;
+    left: 36.89px;
+    top: 58.17px;
+    position: absolute;
+    background: white;
+    border-radius: 30px;
+    border: 1px solid black;
+  }
+
+  .start-button {
+    width: 298.62px;
+    height: 144.33px;
+    left: 81.37px;
+    top: 174.86px;
+    position: absolute;
+    background: #67B443;
+    border-radius: 40px; /* Hacer el botón circular */
+    text-align: center;
+    color: black;
+    font-size: 50px;
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 700;
+    cursor: pointer;
+    background: #67B443;
+    border: 1px solid #483030;
+  }
+
+  .group-71 {
+    width: 298.62px;
+    height: 144.33px;
+    left: 430.21px;
+    top: 174.86px;
+    position: absolute;
+    display: flex;
+  }
+
+  .rectangle-7 {
+    width: 298.62px;
+    height: 144.33px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #F84D53;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    border: 1px solid #483030;
+    display: flex;
+  }
+
+  .group-70 {
+    width: 228.15px;
+    height: 68.83px;
+    left: 41.83px;
+    top: 25.84px;
+    position: relative;
+  }
+
+  .time {
+    width: 133.75px;
+    height: 56.43px;
+    left: 30.59px;
+    position: absolute;
+    text-align: center;
+    color: #000000;
+    font-size: 36px;
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .time-value {
+    width: 167.81px;
+    height: 62.21px;
+    left: 15.41px;
+    top: 40.48px;
+    position: absolute;
+    text-align: center;
+    color: #000000;
+    font-size: 48px;
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .end-button {
+    border-radius: 40px; /* Hacer el botón circular */
+
+    width: 289.69px;
+    height: 142.63px;
+    position: absolute;
+    left: 781.34px;
+    top: 176.82px;
+    text-align: center;
+    color: black;
+    font-size: 50px;
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 700;
+    cursor: pointer;
+    background: #67B443;
+    border: 1px solid #483030;
+  }
 

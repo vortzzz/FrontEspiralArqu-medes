@@ -43,7 +43,7 @@ buttonGrafics.addEventListener('click', selectGrafics);
 
 //Acciones iniciales:
 getCommets();
-//getGraphics(); 
+getGraphics(); 
 
 
 function exit(){
@@ -112,8 +112,6 @@ async function getGraphics() {
     if (response.ok) {
         
         graphicsMagnitudesAndTimes(arraysGraphics);
-        graphisSpectrumFreqs(arraysGraphics); 
-        graphiscircular(arraysGraphics);
     } else {
         alert(arraysGraphics.body)
     }

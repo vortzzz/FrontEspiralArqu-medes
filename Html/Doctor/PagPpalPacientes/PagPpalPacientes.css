@@ -103,6 +103,24 @@
     margin-left: 10px;
     margin-right: 50px;
 }
+.minibuttonsCreate{
+    width: 200px;
+    height: 40px; 
+    padding: 10px;
+    background: #67B443;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 10px;
+    color: #000000;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 50px;
+}
 
 #searchText{
     width: 40px;
@@ -128,18 +146,7 @@
       color: #000000;
       opacity: 100;
 }
-#subTitle{
-    width: 90% ;
-    font-family: "Inter-BoldItalic", Helvetica;
-    font-weight: 700;
-    font-style: italic;
-    color: #67B443;
-    font-size: 35px;
-    text-align: left    ;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-bottom: 50px;
-}
+
 
 #miTabla {
     margin-top: 100px;
@@ -179,3 +186,61 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+
+dialog {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 50%;
+    margin: 40px auto;
+    background-color: #fefefe;
+    font-family: 'Inter';
+    font-style: italic;
+  }
+  
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  dialog label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  dialog input {
+    display: block;
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  dialog button {
+    display: inline-block;
+    width: 20%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #measurements-list li {
+    cursor: pointer; /* Cambia el cursor del mouse a una mano para indicar que se puede clickear */
+    padding: 10px; /* Agrega un poco de espacio entre los elementos de la lista */
+    border-bottom: 1px solid #ccc; /* Agrega una línea de separación entre los elementos de la lista */
+  }
+  
+  #measurements-list li:hover {
+    background-color: #f2f2f2; /* Cambia el fondo del elemento cuando se pasa el mouse por encima */
+  }
+
+  .close-dialog {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  

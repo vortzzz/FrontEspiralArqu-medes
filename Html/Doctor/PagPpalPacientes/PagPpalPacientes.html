@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <title>Zona de busqueda doctores</title>
+    <link rel = "stylesheet" href="PagPpalPacientes.css"/>
+</head>
+    <body>
+        <div id="containerDiv">
+            <div id="sidebar">
+                <img id="logo-valle-del-lili" src="/Resource/logoFundacion.png">
+                <button id="homeButton" class="buttons" >HOME</button>
+                <button id="patientsButton" class="buttons">PATIENTS</button>
+                <button id="measurementButton" class="buttons">MEASUREMENTS</button> 
+                <button id="exitButton" class="buttons">EXIT</button>
+                <img id="logoIcesi" src="/Resource/logoIcesi.png">
+            </div>
+            <div id="secondContainer">
+                <p id="textTitle">HAND TREMOR MEASUREMENT SYSTEM FOR THE ARCHIMEDES SPIRAL TEST</p>
+                <div id="searchbar">
+                    <input type="text" class="input" id="inputSearchByID" placeholder="searchByCC">
+                    <button id="searchBTN" class="minibuttons" >Buscar</button>
+                    <input type="text" class="input" id="inputFilterByName"placeholder="filterByName">
+                    <button id="filterBTN" class="minibuttons"> Filtrar</button>
+                    <button id="CreatePatient" class="minibuttonsCreate">+  Crear Paciente</button>
+                    <dialog id="createPatientDialog">
+                        <h2>Crear un paciente</h2>
+                        <form>
+                          <label for="doctorInputName">Nombre:</label>
+                          <input type="text" id="doctorInputName" name="doctorInputName">
+                          <br>
+                          <label for="doctorInputCC">CC:</label>
+                          <input type="text" id="doctorInputCC" name="doctorInputCC" >
+                          <br>
+                          <label for="doctorInputPhone">Numero de telefono:</label>
+                          <input type="text" id="doctorInputPhone" name="doctorInputPhone">
+                          <br>
+                          <label for="doctorInputEmail">Email:</label>
+                          <input type="text" id="doctorInputEmail" name="doctorInputEmail" >
+                          <br>
+                          <button id="addButton">Añadir</button>
+                          <button id="CancelButton">Cancelar</button>
+                        </form>
+                      </dialog>
+
+                      <dialog id="ModifyPatientDialog">
+                        <h2>Modificar Paciente</h2>
+                        <form>
+                          <label for="newPatientName">Nombre:</label>
+                          <input type="text" id="newPatientName" name="newPatientName" >
+                          <br>
+                          <label for="newPatientPhone">Numero de telefono:</label>
+                          <input type="text" id="newPatientPhone" name="newPatientPhone">
+                          <br>
+                          <label for="newPatientEmail">Email:</label>
+                          <input type="text" id="newPatientEmail" name=newPatientEmail" >
+                          <br>
+                          <button id="ModiffyButton">Modificar</button>
+                          <button id="CancelButtonModify">Cancelar</button>
+                        </form>
+                      </dialog>
+                </div>
+                <div id = "patientsContainer">
+                </div>
+            </div>
+        </div>
+        <script src="./PagPpalPacientes.js"></script>
+    </body>
+</html>

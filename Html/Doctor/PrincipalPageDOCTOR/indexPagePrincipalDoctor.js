@@ -1,7 +1,7 @@
-const button_exit = document.getElementById('button_exit');
-const button_measurements = document.getElementById('button_measurements');
-const button_home= document.getElementById('button_home');
-const button_patients = document.getElementById('button_patients');
+const button_exit = document.getElementById('exitButton');
+const button_measurements = document.getElementById('measurementButton');
+const button_home= document.getElementById('homeButton');
+const button_patients = document.getElementById('patientsButton');
 
 
 //Eventos
@@ -15,8 +15,8 @@ function exit(){
 }
 
 function patients(){
-    location.href='../PagPpalPacientes/PaginaPacientes.html';
+    location.href='../PagPpalPacientes/PagPpalPacientes.html';
 }
 function measurement(){
-    location.href='../PaginaPrincipalMedicion/Meditions.html';
+    location.href='../PaginaPrincipalMedicion/PaginaPrincipalMedicion.html';
 }
