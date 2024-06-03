@@ -26,6 +26,7 @@ const patientSelect = document.getElementById('patientSelect');
 const deviceSelect = document.getElementById('deviceSelect');
 const newMeasurement = document.getElementById('addmedition');
 const start=document.getElementById('start-button');
+const stateMeasurent =document.getElementById('stateMeasurent');
 let timerInterval=0;
 var date1 ='';
 var date2 ='';
@@ -149,7 +150,7 @@ async function remove(meditionId){
     },
     });
     alert(await response.text());
-    window.location.href = "../FiltradoMediciones/measurementFilter.html"
+    location.href='../PaginaPrincipalMedicion/PaginaPrincipalMedicion.html';
 }
 
 
@@ -399,6 +400,7 @@ async function cronometror() {
         if (response.ok & response1.ok) {
           
             isCronometrorRunning = true; 
+            stateMeasurent.textContent="Tomando Medicion";
             connectMeasure("on");
             function updateTime() {
                 let currentTime = new Date().getTime();
@@ -418,6 +420,9 @@ async function cronometror() {
                         },
                     });
                     viewMedition(patientSelect.value,medition,medition.id);
+                }
+                if(elapsedTime >= 6000){
+                    stateMeasurent.textContent="Cargando Mediciones";
                 }
                 if(elapsedTime <= 6000){
                     timeValueElement.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');

@@ -243,4 +243,11 @@ dialog {
     font-size: 18px;
     cursor: pointer;
   }
+
+  #patientsContainer {
+    max-height: 540px; 
+    max-width: 100%; 
+    overflow-y: auto; 
+    overflow-x: auto; 
+  }
   
