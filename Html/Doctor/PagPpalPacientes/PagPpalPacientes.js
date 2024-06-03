@@ -9,38 +9,49 @@ if(userJSON===null){
 else{
     userJSON=JSON.parse(userJSON);
 }
-
+//Botones de navegacion
 const homeButton = document.getElementById('homeButton');
-const doctorsButton = document.getElementById('doctorsButton');
 const exitButton = document.getElementById('exitButton');
 const patientsButton = document.getElementById('patientsButton');
 const inputFilterByName = document.getElementById('inputFilterByName');
 const measurementButton = document.getElementById('measurementButton');
+
+//Elementos de filtracion y busqueda
 const filterBTN = document.getElementById('filterBTN');
 const patientsContainer=document.getElementById('patientsContainer');
 const searchBTN= document.getElementById('searchBTN');
 const inputSearchByID = document.getElementById('inputSearchByID');
+//Botono de creacion de paciente
 const createPatientButton= document.getElementById('CreatePatient');
+//ventanas emergentes y sus botones
 const dialogCreate = document.getElementById('createPatientDialog');
 const dialogModify = document.getElementById('ModifyPatientDialog');
+
+//boton de ventana de creacion de paciente
 const addButton= document.getElementById('addButton');
 const cancelButtonCreate=document.getElementById('CancelButton');
+
+//botones de modificacion de paciente
 const modiffyButton= document.getElementById('ModiffyButton');
 const cancelButtonModify= document.getElementById('CancelButtonModify')
 
+//inputs de creacion de paciente
 const patientName = document.getElementById('doctorInputName');
 const patientEmail = document.getElementById('doctorInputEmail');
 const patientCC = document.getElementById('doctorInputCC');
 const patientPhone = document.getElementById('doctorInputPhone');
-
+// inputs de modificacion de paciente
 const newPatientName = document.getElementById('newPatientName');
 const newPatientEmail= document.getElementById('newPatientEmail');
 const newPatientPhone = document.getElementById('newPatientPhone');
 
+//eventos de navegacion
 homeButton.addEventListener('click',home);
 exitButton.addEventListener('click',exit);
 patientsButton.addEventListener("click",patients);
 measurementButton.addEventListener('click',measurement);
+
+//eventos de busqueda y filtro
 filterBTN.addEventListener('click',filter);
 searchBTN.addEventListener('click',search);
 createPatientButton.addEventListener('click', () => {
@@ -182,6 +193,7 @@ async function getPatientSearch(ccPatient){
         var ceilInfo;
         var textoBTN1;
         var textoBTN2;
+        var textoBTN3;
         var hilera = document.createElement("tr");
         for (var j = 0; j < 4; j++) {
             var celda = document.createElement("td");   
@@ -205,7 +217,7 @@ async function getPatientSearch(ccPatient){
         patientsContainer.appendChild(table);
 
         var hilera = document.createElement("tr");
-                for (var j = 0; j < 6; j++) {
+                for (var j = 0; j < 7; j++) {
                     var celda = document.createElement("td");   
                     if(j==0){
                         ceilInfo=document.createTextNode(patient.id);
@@ -227,12 +239,19 @@ async function getPatientSearch(ccPatient){
                             remove(patient.id);
                         });
                     }
-                    else{
+                    else if(j==5){
                         ceilInfo=document.createElement("button");
                         textoBTN2=document.createTextNode("MODIFY");
                         ceilInfo.appendChild(textoBTN2);
                         ceilInfo.addEventListener("click", function(){
                             modifyPatient(patient);
+                        });
+                    }else{
+                        ceilInfo = document.createElement("button");
+                        textoBTN3 = document.createTextNode("MEDICIONES");
+                        ceilInfo.appendChild(textoBTN3);
+                        ceilInfo.addEventListener("click", function () {
+                          showMeasurements(patient);
                         });
                     }
 
@@ -409,6 +428,7 @@ async function getPatientfilter(namePatient) {
         var ceilInfo;
         var textoBTN1;
         var textoBTN2;
+        var textoBTN3;
         var hilera = document.createElement("tr");
         for (var j = 0; j < 4; j++) {
             var celda = document.createElement("td");
@@ -430,7 +450,7 @@ async function getPatientfilter(namePatient) {
 
         patients.forEach(patient => {
                 var hilera = document.createElement("tr");
-                for (var j = 0; j < 6; j++) {
+                for (var j = 0; j < 7; j++) {
                     var celda = document.createElement("td");
                     if (j == 0) {
                         ceilInfo = document.createTextNode(patient.id);
@@ -447,12 +467,19 @@ async function getPatientfilter(namePatient) {
                         ceilInfo.addEventListener("click", function () {
                             remove(patient.id);
                         });
-                    } else {
+                    } else if(j==5) {
                         ceilInfo = document.createElement("button");
                         textoBTN2 = document.createTextNode("MODIFY");
                         ceilInfo.appendChild(textoBTN2);
                         ceilInfo.addEventListener("click", function () {
                             modifyPatient(patient);
+                        });
+                    }else{
+                        ceilInfo = document.createElement("button");
+                        textoBTN3 = document.createTextNode("MEDICIONES");
+                        ceilInfo.appendChild(textoBTN3);
+                        ceilInfo.addEventListener("click", function () {
+                          showMeasurements(patient);
                         });
                     }
 

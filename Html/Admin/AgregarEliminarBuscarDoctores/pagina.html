@@ -1,102 +1,30 @@
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página del Administrador</title>
-  <style>
-    body {
-      background-color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .sidebar {
-      background-color: #aed581;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .logo {
-      width: 180px; /* Ajuste del ancho de la imagen */
-      margin-bottom: 20px;
-    }
-
-    .button {
-      background-color: #7cb342;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      margin: 10px; /* Ajuste de margen horizontal */
-      cursor: pointer;
-      width: 120px;
-      text-align: center;
-    }
-
-    .button:last-child {
-      background-color: #689f38; /* Verde más fuerte */
-    }
-
-    .logoIcesi {
-      width: 200px; /* Ajuste del ancho de la imagen */
-      margin-top: auto;
-      margin-right: 200x; /* Ajuste de margen derecho */
-      filter: brightness(0.4); /* Reducir brillo */
-    }
-
-    /* Ajuste de posición vertical para los botones */
-    .button:nth-child(2),
-    .button:nth-child(3),
-    .button:nth-child(4) {
-      margin-top: auto;
-    }
-
-    /* Hacer el botón "Doctors" aún más oscuro */
-    .button:nth-child(3) {
-      background-color: #2d572c;
-    }
-
-    /* Ajuste de tamaño para la imagen "fundacion" */
-    .fundacion-image {
-      width: 95%; /* Reducción del ancho */
-      margin-left: 50px;
-    }
-
-    /* Ajuste de posición vertical para logofundacion */
-    .logo {
-      margin-top: 10px; /* Ajuste de margen superior */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <title>Página del Administrador</title>
+    <link href="main.css" rel="stylesheet" />
 </head>
-<body>
-  <div class="sidebar">
-    <img src="/Resource/logoFundacion.png" alt="Logofundacion" class="logo">
-    <button class="button">Home</button>
-    <button class="button">Doctors</button> <!-- Cambio de color -->
-    <button onclick="exit()" class="button">Exit</button>
-    <img src="/Resource/logo-icesi.png" alt="LogoIcesi" class="logoIcesi">
-  </div>
+    <body>
+        <div id="containerDiv">
+            <div id="sidebar">
+                <img id="logo-valle-del-lili" src="/Resource/logoFundacion.png">
 
-  <div class="container" style="padding: 20px;">
-    <h1 style="color: #004d40;">Hola Admin! ¿Qué vamos a hacer?</h1>
-    <img src="/Resource/fundacion.jpg" alt="fundacion" class="fundacion-image" style="margin-top: 20px;">
-    <div class="buttons" style="margin-top: 20px; text-align: center;">
-      <button onclick="agregarDoctor()" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 50px; margin-right: 50px; cursor: pointer;">Agregar Doctor</button> <!-- Margen horizontal aumentado -->
-      <button onclick="buscarDoctor()" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 50px; margin-right: 50px; cursor: pointer;">Buscar Doctor</button> <!-- Margen horizontal aumentado -->
-      <button onclick="eliminarDoctor()" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 50px; margin-right: 50px; cursor: pointer;">Eliminar Doctor</button> <!-- Margen horizontal aumentado --> 
-      <button onclick="addDevice()" style="background-color: #689f38; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 50px; margin-right: 50px; cursor: pointer;">Add device</button> <!-- Margen horizontal aumentado -->    
-    </div>
-  </div>
-
-  <script src="./indexAEB.js"></script>
-</body>
+                <button id="homeButton" class="buttons" >HOME</button>
+                <button id="DoctorButton" class="buttons">DOCTOR</button>
+                <button id="DeviceButton" class="buttons">DEVICE</button> 
+                <button id="exitButton" class="buttons">EXIT</button>
+                
+                <img id="logoIcesi" src="/Resource/logoIcesi.png">
+            </div>
+            <div id="secondContainer">
+                <p id="textTitle">HAND TREMOR MEASUREMENT SYSTEM FOR THE ARCHIMEDES SPIRAL TEST</p>
+                <img src="/Resource/fundacion.jpg" alt="fundacion" class="fundacion-image" style="margin-top: 20px;">
+            </div>
+        </div>
+        <script src="./indexAEB.js"></script>
+    </body>
 </html>
-

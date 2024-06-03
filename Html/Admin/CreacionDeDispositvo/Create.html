@@ -7,63 +7,51 @@
   <title>Página del Administrador</title>
 </head>
 <body>
-  <div class="doctor">
-    <div class="div">
-      <div class="group">
-        <div class="BIG-IMAGE">
-          <div class="overlap-group">
-            <div class="ellipse"></div>
-            <img class="pngwing" src="/Resource/pngwing.png" />
-          </div>
-        </div>
-      </div>
-        <img class="rectangle" src="/Resource/rectangle-8.png" />
-        <img class="image" src="/Resource/logoIcesi.png" />
-        <img class="FVL-LOGO" src="/Resource/logoFundacion.png" />
-          <div class="DEVICE">
-            <button id="DiveceButton" class="button">DEVICE</button>
-          </div>
-          <div class="EXIT">
-            <button id="exitButton">EXIT</button>
-          </div>
-          <div class="DOCTORS">
-            <button id="doctorsButton" class="button">DOCTORS</button>
-          </div>
-          <div class="HOUSE">
-            <button id="homeButton" class="button">HOME</button>
-          </div>
-          
-          
-        <div class="overlap-group-wrapper">
-          <div class="overlap-2">
-            <div class="login-form">
-            <input type="text" id="Name" placeholder="Name" name="Name">
-            <div class="button">
-              <button id="addButton">ADD</button>
-              <button id="ASSIGN">ASSIGN DEVICE</button>
-            </div>
-          </div>
-          <p class="title">HAND TREMOR MEASUREMENT SYSTEM FOR THE ARCHIMEDES SPIRAL TEST</p>
-          <dialog id="assigDevice" class="assigDevice">
-            <button class="custom-button x-button" onclick="closeDialog()">X</button>
-            <div class="rectangle-8"></div>
-            <div class="dropdown">
-              <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Devices</button>
-              <ul id="dropdown-content" class="dropdown-content" aria-label="Device list">
-              </ul>
 
 
- 
-            </div>
-            <div id="device-info-container"class="device-info-container"></div>
-            <div id="doctor-info-container"class="doctor-info-container"></div>
-          </dialog>
-        </div>
+  <div id="containerDiv">
+    <div id="sidebar">
+        <img id="logo-valle-del-lili" src="/Resource/logoFundacion.png">
+
+        <button id="homeButton" class="buttons" >HOME</button>
+        <button id="DoctorButton" class="buttons">DOCTOR</button>
+        <button id="DeviceButton" class="buttons">DEVICE</button> 
+        <button id="exitButton" class="buttons">EXIT</button>
+        
+        <img id="logoIcesi" src="/Resource/logoIcesi.png">
     </div>
-  </div>
+    <div id="secondContainer">
+        <p id="textTitle">HAND TREMOR MEASUREMENT SYSTEM FOR THE ARCHIMEDES SPIRAL TEST</p>
+        <img class="pngwing" src="/Resource/pngwing.png" />
 
 
-  </div>
+
+      <div class="createDevice">
+        <input class="input" type="text" id="Name" placeholder="Name" name="Name">
+        <button class="minibuttons" id="addButton">ADD</button>
+        <button class="minibuttons" id="ASSIGN">ASSIGN DEVICE</button>
+
+      </div>
+
+            
+        <dialog id="assigDevice" class="assigDevice">
+          <button class="custom-button x-button" onclick="closeDialog()">X</button>
+          <div class="rectangle-8"></div>
+          <div class="dropdown">
+            <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Devices</button>
+            <ul id="dropdown-content" class="dropdown-content" aria-label="Device list">
+            </ul>
+
+
+
+          </div>
+          <div id="device-info-container"class="device-info-container"></div>
+          <div id="doctor-info-container"class="doctor-info-container"></div>
+        </dialog>
+        </div>
+
+    </div>
+
 
 
  </body>
