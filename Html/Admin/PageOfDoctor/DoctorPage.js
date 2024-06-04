@@ -54,7 +54,7 @@ function goHome() {
 }
 
 function goDevice() {
-    window.location.href = "../CreacionDeDispositivo/Create.html";
+    window.location.href = "../CreacionDeDispositvo/Create.html";
 }
 
 function searchDoctor() {
