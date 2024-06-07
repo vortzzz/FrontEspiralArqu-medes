@@ -48,7 +48,7 @@ getGraphics();
 
 function exit(){
     window.location.href = "../LoginDoctor/logIn.html"; 
-    window.localStorage.removeItem('user');
+    localStorage.clear();
 
 }
 

@@ -19,7 +19,7 @@ doctorButton.addEventListener('click',goDoctor);
 
 function exit(){
   window.location.href = "../LoginAdmin/Untitled-1.html"
-  window.localStorage.removeItem('user');
+  localStorage.clear();
 }
 
 

@@ -19,7 +19,7 @@ button_measurements.addEventListener('click', measurement);
 
 function exit(){
     window.location.href = "../LoginDoctor/Login.html"
-    window.localStorage.removeItem('user');
+    localStorage.clear();
 }
 
 function patients(){

@@ -110,7 +110,8 @@ cursor: pointer;
 }
 .input{
   position:relative;
-  width: 30%;  
+  width: 30%; 
+  margin-left: 125px; 
     padding: 10px;
     box-sizing: border-box;
     background: #91BB7D;

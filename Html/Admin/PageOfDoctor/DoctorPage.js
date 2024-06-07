@@ -46,7 +46,7 @@ getDoctorList();
 
 function exit(){
     window.location.href = "../LoginAdmin/Untitled-1.html";
-    window.localStorage.removeItem('user');
+    localStorage.clear();
 }
 
 function goHome() {
@@ -87,13 +87,13 @@ async function postDoctorSearch(doctorSearch) {
                 ceilInfo=document.createTextNode("ID");
             }
             else if(j==1){
-                ceilInfo=document.createTextNode("NAME");        
+                ceilInfo=document.createTextNode("NOMBRE");        
             }
             else if(j==2){
                 ceilInfo=document.createTextNode("CC");
             }
             else{
-                ceilInfo=document.createTextNode("PHONE");
+                ceilInfo=document.createTextNode("TELEFONO");
             }
             celda.appendChild(ceilInfo);
             hilera.appendChild(celda);
@@ -135,7 +135,7 @@ async function postDoctorSearch(doctorSearch) {
 
     }else{
         doctorContainer.innerHTML = '';
-        alert(doctor.description);
+        alert(doctor.doctorCc);
         getDoctorList();
     }
 
@@ -165,11 +165,11 @@ async function getDoctorList(){
             if (j == 0) {
                 ceilInfo = document.createTextNode("ID");
             } else if (j == 1) {
-                ceilInfo = document.createTextNode("NAME");
+                ceilInfo = document.createTextNode("NOMBRE");
             } else if (j == 2) {
                 ceilInfo = document.createTextNode("CC");
             } else {
-                ceilInfo = document.createTextNode("PHONE");
+                ceilInfo = document.createTextNode("TELEFONO");
             }
             celda.appendChild(ceilInfo);
             hilera.appendChild(celda);
@@ -192,7 +192,7 @@ async function getDoctorList(){
                         ceilInfo = document.createTextNode(doctor.phone);
                     } else {
                         ceilInfo = document.createElement("button");
-                        textoBTN1 = document.createTextNode("DELETE");
+                        textoBTN1 = document.createTextNode("BORRAR");
                         ceilInfo.appendChild(textoBTN1);
                         ceilInfo.addEventListener("click", function () {
                             remove(doctor.cc);

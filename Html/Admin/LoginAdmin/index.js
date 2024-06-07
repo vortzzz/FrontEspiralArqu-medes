@@ -50,7 +50,7 @@ async function  postLogin(LoginRequest){
         alert(data.message);
     } else {
         console.error('Request error:', response.status);
-        alert('An error occurred in the request. Please try again later.');
+        alert('Ha ocurrido un error, por favor intente más tarde.');
     }
     }
 

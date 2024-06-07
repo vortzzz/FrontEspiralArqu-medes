@@ -29,7 +29,7 @@ exitButton.addEventListener('click', exit);
 
 function exit(){
     window.location.href = "../LoginAdmin/Untitled-1.html";
-    window.localStorage.removeItem('user');
+    localStorage.clear();
 }
 
 function goHome(){
@@ -75,12 +75,12 @@ async function postDeviceAdd(device) {
                 alert(data.description);
             } else {
                 console.error('Request error:', response.status);
-                alert('An error occurred in the request. Please try again later.');
+                alert('Un error ha ocurrido por favor intente más tarde.');
             }
         }
     } catch (error) {
         console.error('Fetch error:', error);
-        alert('An error occurred during the fetch request. Please try again later.');
+        alert('Un error ha ocurrido por favor intente más tarde.');
     }
 }
 
@@ -146,7 +146,7 @@ async function displaySelectedDevice(device) {
              });
              let data= await response.json();
              if(response.ok) {
-                alert("linked device");
+                alert("Asignado");
              }else{
                 alert(data.description);
              }

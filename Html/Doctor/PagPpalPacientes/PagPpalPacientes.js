@@ -115,11 +115,11 @@ async function getPatientList(){
             if (j == 0) {
                 ceilInfo = document.createTextNode("ID");
             } else if (j == 1) {
-                ceilInfo = document.createTextNode("NAME");
+                ceilInfo = document.createTextNode("NOMBRE");
             } else if (j == 2) {
                 ceilInfo = document.createTextNode("CC");
             } else {
-                ceilInfo = document.createTextNode("PHONE");
+                ceilInfo = document.createTextNode("TELEFONO");
             }
             celda.appendChild(ceilInfo);
             hilera.appendChild(celda);
@@ -142,14 +142,14 @@ async function getPatientList(){
                         ceilInfo = document.createTextNode(patient.phone);
                     } else if (j == 4) {
                         ceilInfo = document.createElement("button");
-                        textoBTN1 = document.createTextNode("DELETE");
+                        textoBTN1 = document.createTextNode("BORRAR");
                         ceilInfo.appendChild(textoBTN1);
                         ceilInfo.addEventListener("click", function () {
                             remove(patient.id);
                         });
                     } else if (j == 5){
                         ceilInfo = document.createElement("button");
-                        textoBTN2 = document.createTextNode("MODIFY");
+                        textoBTN2 = document.createTextNode("MODIFICAR");
                         ceilInfo.appendChild(textoBTN2);
                         ceilInfo.addEventListener("click", function () {
                             modifyPatient(patient);
@@ -201,13 +201,13 @@ async function getPatientSearch(ccPatient){
                 ceilInfo=document.createTextNode("ID");
             }
             else if(j==1){
-                ceilInfo=document.createTextNode("NAME");        
+                ceilInfo=document.createTextNode("NOMBRE");        
             }
             else if(j==2){
                 ceilInfo=document.createTextNode("CC");
             }
             else{
-                ceilInfo=document.createTextNode("PHONE");
+                ceilInfo=document.createTextNode("TELEFONO");
             }
             celda.appendChild(ceilInfo);
             hilera.appendChild(celda);
@@ -233,7 +233,7 @@ async function getPatientSearch(ccPatient){
                     }
                     else if(j==4){
                         ceilInfo=document.createElement("button");
-                        textoBTN1=document.createTextNode("DELETE");
+                        textoBTN1=document.createTextNode("BORRAR");
                         ceilInfo.appendChild(textoBTN1);
                         ceilInfo.addEventListener("click", function(){
                             remove(patient.id);
@@ -241,7 +241,7 @@ async function getPatientSearch(ccPatient){
                     }
                     else if(j==5){
                         ceilInfo=document.createElement("button");
-                        textoBTN2=document.createTextNode("MODIFY");
+                        textoBTN2=document.createTextNode("BORRAR");
                         ceilInfo.appendChild(textoBTN2);
                         ceilInfo.addEventListener("click", function(){
                             modifyPatient(patient);
@@ -390,7 +390,7 @@ function home(){
 
 function exit(){
     location.href='../LoginDoctor/Login.html';
-    window.localStorage.removeItem('user');
+    localStorage.clear();
 }
 function measurement(){
     location.href='../PaginaPrincipalMedicion/PaginaPrincipalMedicion.html';
@@ -435,11 +435,11 @@ async function getPatientfilter(namePatient) {
             if (j == 0) {
                 ceilInfo = document.createTextNode("ID");
             } else if (j == 1) {
-                ceilInfo = document.createTextNode("NAME");
+                ceilInfo = document.createTextNode("NOMBRE");
             } else if (j == 2) {
                 ceilInfo = document.createTextNode("CC");
             } else {
-                ceilInfo = document.createTextNode("PHONE");
+                ceilInfo = document.createTextNode("TELEFONO");
             }
             celda.appendChild(ceilInfo);
             hilera.appendChild(celda);
@@ -462,14 +462,14 @@ async function getPatientfilter(namePatient) {
                         ceilInfo = document.createTextNode(patient.phone);
                     } else if (j == 4) {
                         ceilInfo = document.createElement("button");
-                        textoBTN1 = document.createTextNode("DELETE");
+                        textoBTN1 = document.createTextNode("BORRAR");
                         ceilInfo.appendChild(textoBTN1);
                         ceilInfo.addEventListener("click", function () {
                             remove(patient.id);
                         });
                     } else if(j==5) {
                         ceilInfo = document.createElement("button");
-                        textoBTN2 = document.createTextNode("MODIFY");
+                        textoBTN2 = document.createTextNode("MODIFICAR");
                         ceilInfo.appendChild(textoBTN2);
                         ceilInfo.addEventListener("click", function () {
                             modifyPatient(patient);

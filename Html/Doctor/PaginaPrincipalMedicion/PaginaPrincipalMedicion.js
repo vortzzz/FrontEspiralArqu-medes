@@ -91,7 +91,7 @@ function home(){
 
 function exit(){
     location.href='../LoginDoctor/Login.html';
-    window.localStorage.removeItem('user');
+    localStorage.clear();
 }
 
 function patients(){
@@ -175,6 +175,7 @@ function changeInput(){
         divContainer.appendChild(btn);
     }
     else if(selection.value==="byNamePatient"){
+        console.log(selection.value)
         text=document.createElement("input");
         text.id="text";
         text.className="input2";
@@ -247,10 +248,10 @@ async function getMeasurementfilter(measurement,response){
                 ceilInfo=document.createTextNode("ID");
             }
             else if(j==1){
-                ceilInfo=document.createTextNode("PATIENT");        
+                ceilInfo=document.createTextNode("PACIENTE");        
             }
             else{
-                ceilInfo=document.createTextNode("DATE TAKEN");
+                ceilInfo=document.createTextNode("FECHA");
             }
             celda.appendChild(ceilInfo);
             hilera.appendChild(celda);
@@ -274,7 +275,7 @@ async function getMeasurementfilter(measurement,response){
                     }
                     else if(j==3){
                         ceilInfo=document.createElement("button");
-                        textoBTN1=document.createTextNode("DELETE");
+                        textoBTN1=document.createTextNode("BORRAR");
                         ceilInfo.appendChild(textoBTN1);
                         ceilInfo.addEventListener("click", function(){
                             remove(measurement.id);
@@ -282,7 +283,7 @@ async function getMeasurementfilter(measurement,response){
                     }
                     else{
                         ceilInfo=document.createElement("button");
-                        textoBTN2=document.createTextNode("MODIFY");
+                        textoBTN2=document.createTextNode("MODIFICAR");
                         ceilInfo.appendChild(textoBTN2);
                         ceilInfo.addEventListener("click", function(){
                             editMeasurement(measurement);

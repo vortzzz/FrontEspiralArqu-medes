@@ -154,7 +154,7 @@
     float: left;
 }
 .input1{
-    width: 30%;  
+    width: 250px;  
     padding: 10px;
     box-sizing: border-box;
     background: #91BB7D;
@@ -227,7 +227,7 @@
     text-align: center;
 }
 #miTabla button{
-    width: 100px;
+    width: 120px;
     height: 40px; 
     padding: 10px;
     background: #67B443;
