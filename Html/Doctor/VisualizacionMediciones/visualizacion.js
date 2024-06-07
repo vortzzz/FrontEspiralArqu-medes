@@ -1,9 +1,9 @@
 //Validación de autenticación
-//let userJSON= window.localStorage.getItem('user');
+let userJSON= window.localStorage.getItem('user');
 
-//if(userJSON===null){
-    //location.href = "../LoginDoctor/logIn.html"; 
-  //}
+if(userJSON===null){
+    location.href = "../LoginDoctor/logIn.html"; 
+  }
 
 
 const homeButton = document.getElementById('button_home');
@@ -56,12 +56,12 @@ function goHome(){
     window.location.href = "../PrincipalPageDoctor/indexPagePrincipalDoctor.html";
 }
 
-function patients(){
-    location.href='../PagPpalPacientes/PaginaPacientes.html';
+function measurement(){
+    location.href='../PaginaPrincipalMedicion/PaginaPrincipalMedicion.html';
 }
 
-function measurement(){
-    location.href='../PaginaPrincipalMedicion/Meditions.html';
+function patients(){
+    location.href='../PagPpalPacientes/PagPpalPacientes.html';
 }
 
 async function selectGrafics(){

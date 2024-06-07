@@ -1,3 +1,11 @@
+let userJSON= window.localStorage.getItem('user');
+
+if(userJSON===null){
+    location.href = "../LoginDoctor/logIn.html"; 
+  }
+
+
+
 const button_exit = document.getElementById('exitButton');
 const button_measurements = document.getElementById('measurementButton');
 const button_home= document.getElementById('homeButton');

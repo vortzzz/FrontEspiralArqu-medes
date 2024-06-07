@@ -3,7 +3,7 @@
 let userJSON= window.localStorage.getItem('user');
 
 if(userJSON===null){
-   // location.href = "../LoginDoctor/Login.html";
+  location.href = "../LoginDoctor/Login.html";
   }
 //Convierto string a objeto
 else{
