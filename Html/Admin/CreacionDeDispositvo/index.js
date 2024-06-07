@@ -97,7 +97,9 @@ function asignDevice(){
 }
 function closeDialog() {
     dropdownContent.innerHTML = '';
+    window.location.href = "../CreacionDeDispositvo/Create.html";
     document.getElementById('assigDevice').close();
+
 }
 
 

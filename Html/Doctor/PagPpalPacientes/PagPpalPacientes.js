@@ -82,8 +82,8 @@ async function remove(patientId) {
     });
 
     if (response.status === 204) {
-        alert("Patient deleted successfully");
-        location.href='IndexSearchFilter.html';
+        alert("Paciente borrado correctamente");
+        location.href='PagPpalPacientes.html';
     } else if (response.status === 404) {
         alert("Patient not found.");
     } else {
