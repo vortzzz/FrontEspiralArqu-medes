@@ -70,6 +70,10 @@ function search(){
     if(ccPatient != ""){
      getPatientSearch(ccPatient);
     }
+    else{
+        alert("Ingrese algo por favor");
+        location.href='PagPpalPacientes.html';
+    }
 
 }
 //Remove
