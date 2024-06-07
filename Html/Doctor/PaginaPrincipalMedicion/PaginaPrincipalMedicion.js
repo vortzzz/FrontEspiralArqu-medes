@@ -304,7 +304,7 @@ async function getMeasurementfilter(measurement,response){
     }
     function editMeasurement(measurement){
         window.localStorage.setItem('medition', JSON.stringify(measurement))
-        window.localStorage.setItem('medicionid', measurement.id);
+        window.localStorage.setItem('meditionid', measurement.id);
         window.localStorage.setItem('pacienteInput', measurement.patient.cc);
         window.location.href = "../VisualizacionMediciones/visualizacion.html"
     }

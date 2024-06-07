@@ -12,28 +12,28 @@
             <div id="sidebar">
                 <img id="logo-valle-del-lili" src="/Resource/logoFundacion.png">
                 <button id="homeButton" class="buttons" >HOME</button>
-                <button id="patientsButton" class="buttons">PATIENTS</button>
-                <button id="measurementButton" class="buttons">MEASUREMENTS</button> 
-                <button id="exitButton" class="buttons">EXIT</button>
+                <button id="patientsButton" class="buttons">PACIENTES</button>
+                <button id="measurementButton" class="buttons">MEDICIONES</button> 
+                <button id="exitButton" class="buttons">SALIR</button>
                 <img id="logoIcesi" src="/Resource/logoIcesi.png">
             </div>
             <div id="secondContainer">
-                <p id="textTitle">HAND TREMOR MEASUREMENT SYSTEM FOR THE ARCHIMEDES SPIRAL TEST</p>
+                <p id="textTitle">SISTEMA DE MEDICIÓN DEL TEMBLOR DE MANO PARA LA PRUEBA DE LA ESPIRAL DE ARQUÍMEDES</p>
                 <div id="searchbar">
-                    <input type="text" class="input1" id="inputSearchByCC" placeholder="searchByCC">
-                    <button id="searchBTN" class="minibuttons" >SEARCH</button>
+                    <input type="text" class="input1" id="inputSearchByCC" placeholder="Buscar por cedula">
+                    <button id="searchBTN" class="minibuttons" >BUSCAR</button>
                     <form>
                         <select id="selection" class="options">
-                            <option value="" disabled selected hidden>Filtering type</option>
+                            <option value="" disabled selected hidden>Tipo de filtrado</option>
                             <option id="byDate" value="byDate">byDate</option>
-                            <option id="byNamePatient" value="byNamePatient">bynamePatient</option>
+                            <option id="byNamePatient" value="byNamePatient">Por Nombre</option>
                         </select>
                     </form> 
                                          
                     <dialog id="medicionDialog" class="iniciar-medicin">
                         <button class="X" onclick="closeDialog()">X</button>
-                        <button id="start-button" class="start-button">START</button>
-                        <div class="time">TIME</div>
+                        <button id="start-button" class="start-button">Empezar</button>
+                        <div class="time">Tiempo</div>
                         <div id="time-value"class="time-value">0:00</div>
                         <p class="state" id="stateMeasurent"></p>
                       </dialog>
@@ -44,15 +44,15 @@
                 <div id = "measurementContainer">
                 </div>
                 <div class = "newmedition">
-                    <button class="minibuttons1" id="nuevaMedicion">Nueva medicion</button> 
+                    <button class="minibuttons1" id="nuevaMedicion">Nueva Medicion</button> 
                     <div id="newMeasurementForm" class="newMeasurementForm" style="display: none;">
-                        <label>Pacientes:</label>
+                        <label>Paciente:</label>
                         <select id="patientSelect">
                         </select>
-                        <label>Dispositivos:</label>
+                        <label>Dispositivo:</label>
                         <select id="deviceSelect">
                         </select>
-                        <button class="minibuttons" id="addmedition">Comenzar</button> 
+                        <button class="minibuttons" id="addmedition">Empezar</button> 
                        </div> 
                        
                    

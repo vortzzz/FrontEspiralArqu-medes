@@ -7,6 +7,7 @@ if(userJSON===null){
 
 const homeButton = document.getElementById('homeButton');
 const exitButton = document.getElementById('exitButton');
+const doctorButton=document.getElementById('DoctorButton');
 const name = document.getElementById('Name');
 const addButton = document.getElementById('addButton');
 const assign = document.getElementById('ASSIGN');
@@ -21,6 +22,7 @@ const doctorInfoContainer = document.getElementById('doctor-info-container');
 //Eventos
 assign.addEventListener('click',asignDevice);
 addButton.addEventListener('click',addDevice);
+doctorButton.addEventListener('click', goDoctor)
 homeButton.addEventListener('click',goHome);
 exitButton.addEventListener('click', exit);
 
@@ -34,6 +36,9 @@ function goHome(){
     window.location.href = "../AgregarEliminarBuscarDoctores/pagina.html";
 }
 
+function goDoctor(){
+    window.location.href = "../PageOfDoctor/paginaSearch.html";
+}
 
 function addDevice() {
     let deviceName = name.value;
