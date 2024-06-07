@@ -408,6 +408,8 @@ function filter(){
     else{
         patientsContainer.innerHTML = '';
         alert("Ingrese algo por favor");
+        location.href='PagPpalPacientes.html';
+
     }
    
 }
