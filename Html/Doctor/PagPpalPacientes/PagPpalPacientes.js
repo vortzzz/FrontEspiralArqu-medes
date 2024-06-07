@@ -354,7 +354,7 @@ function modify(event){
     let patient= window.localStorage.getItem('patient');
     let patientJSON=JSON.parse(patient);
     if(newPatientName.value===""||newPatientEmail.value===""||newPatientPhone.value===""){
-        alert("Fill all fields please")
+        alert("Digite todos los campos porfavor")
         event.preventDefault();
     }
     else{
@@ -407,7 +407,7 @@ function filter(){
     }
     else{
         patientsContainer.innerHTML = '';
-        alert("Enter something please");
+        alert("Ingrese algo por favor");
     }
    
 }
