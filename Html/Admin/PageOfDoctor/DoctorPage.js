@@ -276,4 +276,5 @@ async function postDoctorAdd(doctorAdd){
 function closeDialogCreate(){
     dialogCreate.close();
     getDoctorList();
+    window.location.href = "../PageOfDoctor/paginaSearch.html";
 }

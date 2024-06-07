@@ -30,6 +30,46 @@
   margin-top: 50px;
 }
 
+#miTabla {
+  position: relative;
+  left: 20%;
+  width: 50%;
+  background: #91BB7D;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 700;
+  line-height: 24px;
+  color: #000000; 
+  opacity: 100;
+}
+
+#miTabla td, #miTabla th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: center;
+}
+#miTabla button{
+  width: 100px;
+  height: 40px; 
+  padding: 10px;
+  background: #67B443;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+  border-radius: 10px;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 10px;
+  color: #000000;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 #DeviceButton{
 width: 250px;
 height: 66px;
@@ -254,6 +294,16 @@ cursor: pointer;
 }
 
 .createDevice{
+  position: absolute;
   display: flex;
+  top:100%;
 }
-  
+
+
+
+#deviceContainer {
+  max-height: 440px; 
+  max-width: 100%; 
+  overflow-y: auto; 
+  overflow-x: auto; 
+}
